@@ -81,6 +81,7 @@ def parse_xml_for_coordinates(xml_file):
 
         return coordinate_output_list
 
+
 def parse_floor_number(text):
     path_parts = text.split('/')
     Level = int()
@@ -119,19 +120,16 @@ def parse_xml_for_type(xml_file):
             return field.text
 
 
-
-
-def main():
+def main(floorNumber: int):
     files = fetch_XML_file_paths(directory_path)
-    coordinates = []
+    CoordinatesMap = {'Room': [], 'Entrance': [], 'Elevator': [], 'Hallway': [], 'Washroom': [], 'Stairs': [], 'X': [], 'Building': [], 'All-Gender': []}
 
     for file in files:
         RoomNumber, Level = parse_xml_for_roomnumber_and_floor(file)
-
         coordinateList = parse_xml_for_coordinates(file)
-        if coordinateList is not None and int(Level) ==1 :
-            print(coordinateList, end=','+ ' \n')
 
-main()
-for i, j in enumerate(Data):
-    print(f"{j}")
+        if coordinateList is not None and int(Level) == floorNumber:
+            CoordinatesMap[str(parse_xml_for_type(file).strip().split()[0])].append(coordinateList)
+    return CoordinatesMap
+
+
