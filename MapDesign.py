@@ -43,35 +43,78 @@ def draw_points(PointArray, category_names, title):
 
 
 class Application(tk.Tk):
-    def __init__(self, PointArray, category_names, title, *args, **kwargs):
+
+    def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.title("Map Design")
+        self.title("Floor Design")
         self.geometry("1200x900")  # Initial window size
+        self.resizable(True, True)  # Allow window resizing
 
         # Configure row and column weights to make the container expandable
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(0, weight=1)
 
         # Create a container
-        container = ttk.Frame(self)
-        container.grid(padx=10, pady=10, sticky="nsew")
+        self.container = ttk.Frame(self)
+        self.container.grid(padx=10, pady=10, sticky="nsew")
 
         # Configure row and column weights of the container to make the canvas expandable
-        container.grid_rowconfigure(0, weight=1)
-        container.grid_columnconfigure(0, weight=1)
+        self.container.grid_rowconfigure(1, weight=1)
+        self.container.grid_columnconfigure(0, weight=1)
 
-        # Create the figure
-        fig = draw_points(PointArray, category_names, title)
+        # Create button frame
+        button_frame = ttk.Frame(self.container)
+        button_frame.grid(row=0, column=0, pady=10)
 
-        # Embed the figure in Tkinter
-        self.canvas = FigureCanvasTkAgg(fig, master=container)  # A tk.DrawingArea.
-        self.canvas.draw()
-        self.canvas.get_tk_widget().grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
+        # Add buttons for each floor
+        floors = [1, 2, 3, 4]
+        for floor in floors:
+            button = ttk.Button(button_frame, text=f"Floor {floor}", command=lambda f=floor: self.plot_floor_map(f))
+            button.pack(side=tk.LEFT, padx=5)
+
+        # Create the canvas holder frame
+        self.canvas_frame = ttk.Frame(self.container)
+        self.canvas_frame.grid(row=1, column=0, sticky="nsew")
 
         # Adding a button to quit the application
-        quit_button = ttk.Button(container, text="Quit", command=self.quit)
-        quit_button.grid(row=1, column=0, pady=10, sticky="ew")
+        quit_button = ttk.Button(self.container, text="Quit", command=self.quit)
+        quit_button.grid(row=2, column=0, pady=10, sticky="ew")
 
-    def quit(self):
-        self.destroy()
+    def plot_floor_map(self, floor):
+        for widget in self.canvas_frame.winfo_children():
+            widget.destroy()  # Remove any previous canvas frame widgets
 
+        # Fetch and categorize coordinate map for the floor
+        points_categories, category_names, title = self.get_floor_data(floor)
+
+        # Create the figure
+        fig = draw_points(points_categories, category_names, title)
+
+        # Embed the figure in Tkinter
+        self.canvas = FigureCanvasTkAgg(fig, master=self.canvas_frame)  # A tk.DrawingArea.
+        self.canvas.draw()
+        self.canvas.get_tk_widget().pack(expand=True, fill="both", padx=10, pady=10)
+
+    def get_floor_data(self, floor):
+        # Call your function to fetch and categorize coordinates here
+        import XMLDataExtract
+
+        def fetchCoordinateMap(floorNumber):
+            return XMLDataExtract.main(floorNumber=floorNumber)
+
+        def categorizesCoordinateMap(floorNumber: int):
+            CoordinateMap = fetchCoordinateMap(floorNumber)
+            RoomPoints = CoordinateMap['Room']
+            EntrancePoints = CoordinateMap['Entrance']
+            ElevatorPoints = CoordinateMap['Elevator']
+            HallwayPoints = CoordinateMap['Hallway']
+            WashroomPoints = CoordinateMap['Washroom']
+            StairPoints = CoordinateMap['Stairs']
+            XPoints = CoordinateMap['X']
+            return [RoomPoints, EntrancePoints, ElevatorPoints, HallwayPoints, WashroomPoints, StairPoints, XPoints]
+
+        points_categories = categorizesCoordinateMap(floor)
+        category_names = ['RoomPoints', 'EntrancePoints', 'ElevatorPoints', 'HallwayPoints', 'WashroomPoints', 'StairPoints', 'XPoints']
+        title = f'Architectural Map of Floor {floor}'
+
+        return points_categories, category_names, title
