@@ -37,9 +37,9 @@ def plotFloorMap(i):
     app = MapDesign.Application(points_categories, category_names, title)
     app.mainloop()
 
+
 floor = int(input('Which Floor: '))
 if __name__ == '__main__':
-    # for i in range(1, 5):
     categorizesCoordinateMap(floor)
 
     points_categories = [RoomPoints, EntrancePoints, ElevatorPoints, HallwayPoints, WashroomPoints, StairPoints,
