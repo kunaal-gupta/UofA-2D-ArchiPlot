@@ -34,15 +34,16 @@ def categorizesCoordinateMap(floorNumber: int):
 
 def plotFloorMap(i):
     title = f'Architectural Map of Floor {i}'
-    MapDesign.draw_points(points_categories, category_names, title)
+    app = MapDesign.Application(points_categories, category_names, title)
+    app.mainloop()
 
-
+floor = int(input('Which Floor: '))
 if __name__ == '__main__':
-    for i in range(1, 5):
-        categorizesCoordinateMap(i)
+    # for i in range(1, 5):
+    categorizesCoordinateMap(floor)
 
-        points_categories = [RoomPoints, EntrancePoints, ElevatorPoints, HallwayPoints, WashroomPoints, StairPoints,
-                             XPoints, BuildingPoints, All_GenderPoints]
-        category_names = ['RoomPoints', 'EntrancePoints', 'ElevatorPoints', 'HallwayPoints', 'WashroomPoints',
-                          'StairPoints', 'XPoints', 'BuildingPoints', 'All_GenderPoints']
-        plotFloorMap(i)
+    points_categories = [RoomPoints, EntrancePoints, ElevatorPoints, HallwayPoints, WashroomPoints, StairPoints,
+                         XPoints, BuildingPoints, All_GenderPoints]
+    category_names = ['RoomPoints', 'EntrancePoints', 'ElevatorPoints', 'HallwayPoints', 'WashroomPoints',
+                      'StairPoints', 'XPoints', 'BuildingPoints', 'All_GenderPoints']
+    plotFloorMap(floor)
