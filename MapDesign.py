@@ -1,18 +1,19 @@
+import tkinter as tk
+import xml.etree.ElementTree as ET
+from tkinter import ttk, simpledialog
+
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-import tkinter as tk
-from tkinter import ttk, simpledialog
-import os  # Add this line at the top of your script
-import xml.etree.ElementTree as ET
-import os
-import shutil
-
 
 BuildingMap = {}
 
-def create_xml_backup_folder(building_map):
-    # Define the project directory (you can customize this as needed)
+
+import os
+import shutil
+
+def create_new_xml_folder(building_map, floor):
+    # Define the project directory
     project_directory = os.path.dirname(os.path.abspath(__file__))  # Current script's directory
     backup_folder_path = os.path.join(project_directory, "new_xml")
 
@@ -20,19 +21,68 @@ def create_xml_backup_folder(building_map):
     os.makedirs(backup_folder_path, exist_ok=True)
     print(f"Backup directory ensured: {backup_folder_path}")
 
+    # Define categories
+    categories = [
+        'Room',
+        'Entrance',
+        'Elevator',
+        'Hallway',
+        'Washroom',
+        'StairPoints',
+        'X'
+    ]
+
+    # Create level folder for the specified floor
+    level_folder_path = os.path.join(backup_folder_path, f"Level_{floor}")
+    os.makedirs(level_folder_path, exist_ok=True)
+
+    # Create subfolders for each category if they don't exist
+    for category in categories:
+        category_folder_path = os.path.join(level_folder_path, category)
+        os.makedirs(category_folder_path, exist_ok=True)
+
     # Copy each XML file from BuildingMap to the backup folder
-    for room_number, xml_path in building_map.items():
-        if os.path.exists(xml_path):
-            # Construct the new file path in the backup folder
-            backup_file_path = os.path.join(backup_folder_path, f"{room_number}.xml")
-            shutil.copy(xml_path, backup_file_path)  # Copy the XML file
-            print(f"Copied {xml_path} to {backup_file_path}")
-        else:
-            print(f"XML file for room {room_number} does not exist: {xml_path}")
+    for room_number, xml_paths in building_map.items():
+        for xml_path in xml_paths:  # Iterate through the list of XML paths
+            print(room_number)
+            if os.path.exists(xml_path):
+                # Logic to assign the XML file to a specific category
+                if 'Entrance' in room_number:
+                    category = 'Entrance'
+                elif 'Elevator' in room_number:
+                    category = 'Elevator'
+                elif 'Hallway' in room_number:
+                    category = 'Hallway'
+                elif 'Washroom' in room_number:
+                    category = 'Washroom'
+                elif 'Stair' in room_number:
+                    category = 'StairPoints'
+                elif 'X' in room_number:
+                    category = 'X'
+                else:
+                    category = 'Room'  # Default category
 
-# Usage example
+                # Construct the new file path in the appropriate category folder
+                base_filename = f"{room_number}.xml"
+                backup_file_path = os.path.join(level_folder_path, category, base_filename)
 
-def draw_points(PointArray, category_names, title, onclick_callback, selected_polygons):
+                # Check if file already exists and rename if necessary
+                if os.path.exists(backup_file_path):
+                    # Generate a new filename with a suffix
+                    base, ext = os.path.splitext(base_filename)
+                    counter = 2
+                    while os.path.exists(backup_file_path):
+                        backup_file_path = os.path.join(level_folder_path, category, f"{base}_{counter}{ext}")
+                        counter += 1
+
+                shutil.copy(xml_path, backup_file_path)  # Copy the XML file
+                print(f"Copied {xml_path} to {backup_file_path}")
+            else:
+                print(f"XML file for room {room_number} does not exist: {xml_path}")
+
+
+
+def draw_points(PointArray, category_names, title, onclick_callback, selected_polygons, floor):
     colors = ['red', 'blue', 'green', 'orange', 'black', 'grey', 'yellow', 'pink', 'violet']  # Define colors for each set
 
     fig, ax = plt.subplots(figsize=(10, 8))  # Adjust the figure size here
@@ -43,15 +93,28 @@ def draw_points(PointArray, category_names, title, onclick_callback, selected_po
         category_polygons = []
         for points in points_category:
             room_number = points[0][0]  # Get the room number
-            BuildingMap[room_number] = points[0][1]
+            room_file_path = points[0][1]
+
+            if room_number is not None:
+                if room_number in BuildingMap:
+                    # Initialize as a list if it's not already
+                    if BuildingMap[room_number] is None:
+                        BuildingMap[room_number] = []
+                    BuildingMap[room_number].append(room_file_path)
+                else:
+                    BuildingMap[room_number] = [room_file_path]
+
             points = np.array(points[1:])
             polygon = plt.Polygon(points, closed=True, fill=True, edgecolor=color, facecolor=color, alpha=0.5, linewidth=3.5)
             category_polygons.append((polygon, room_number))
             ax.add_patch(polygon)
             plt.plot(points[:, 0], points[:, 1], marker='.', color='black')
         polygons.append(category_polygons)
+    for i in BuildingMap:
+        print(i, BuildingMap[i])
 
-    create_xml_backup_folder(BuildingMap)
+    # Pass the floor to create_xml_backup_folder
+    create_new_xml_folder(BuildingMap, floor)
 
     # Highlight selected polygons
     for selected_polygon in selected_polygons:
@@ -130,7 +193,7 @@ class Application(tk.Tk):
         points_categories, category_names, title = self.get_floor_data(floor)
 
         # Create the figure
-        fig = draw_points(points_categories, category_names, title, self.checkFunction, self.selected_polygons)
+        fig = draw_points(points_categories, category_names, title, self.checkFunction, self.selected_polygons, floor)
 
         # Embed the figure in Tkinter
         self.canvas = FigureCanvasTkAgg(fig, master=self.canvas_frame)  # A tk.DrawingArea.
