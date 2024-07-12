@@ -267,8 +267,22 @@ class Application(tk.Tk):
                 room_points = np.array(points[1:])  # Room polygon points
                 centroid = np.mean(room_points, axis=0)  # Calculate centroid
 
+                # Replace names with abbreviations
+                if "Washroom Men" in room_number:
+                    room_number = "WM"
+                elif "Washroom Women" in room_number:
+                    room_number = "WW"
+                elif "Stairs" in room_number:
+                    room_number = "S"
+                elif "Entrance" in room_number:
+                    room_number = "En"
+                elif "Elevator" in room_number:
+                    room_number = "El"
+                elif "Hallway" in room_number:
+                    room_number = "H"
+
                 # Create a text label with a background for better readability
-                plt.text(centroid[0], centroid[1], room_number, fontsize=10, ha='center', va='center',
+                plt.text(centroid[0], centroid[1], room_number, fontsize=8, ha='center', va='center',
                          color='white',
                          bbox=dict(facecolor='black', alpha=0.7, edgecolor='none', boxstyle='round,pad=0.3'))
 
