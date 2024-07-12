@@ -157,8 +157,8 @@ class Application(tk.Tk):
         self.current_floor = None  # Initialize current floor as None
 
         super().__init__(*args, **kwargs)
-        self.title("Floor Design")
-        self.geometry("1200x900")
+        self.title("UofA Athabasca Building 2D UI")
+        self.geometry("1200x800")
         self.resizable(True, True)
 
         # Configure row and column weights
@@ -175,17 +175,24 @@ class Application(tk.Tk):
         self.container.grid_columnconfigure(1, weight=0)  # Add weight to the logo column
 
         # Add a welcome message
-        welcome_label = tk.Label(self.container, text="Welcome to UofA Athabasca Building Architecture UI",
-                                 font=("Helvetica", 24, "bold"), anchor="center")
-        welcome_label.grid(row=0, column=0, columnspan=2, pady=20, sticky="nsew")  # Span across both columns
+        self.welcome_label = tk.Label(self.container, text="Welcome to UofA Athabasca Building Architecture UI",
+                                      font=("Helvetica", 24, "bold"), anchor="center")
+        self.welcome_label.grid(row=0, column=0, columnspan=2, pady=20, sticky="nsew")  # Span across both columns
 
         # Add UofA logo to the top right
-        self.logo_image = Image.open("UofA Logo.png")  # Update with your logo path
-        self.logo_image = self.logo_image.resize((250, 100), Image.LANCZOS)  # Use LANCZOS instead of ANTIALIAS
-        self.logo_photo = ImageTk.PhotoImage(self.logo_image)
+        # self.logo_image = Image.open("UofA Logo.png")  # Update with your logo path
+        # self.logo_image = self.logo_image.resize((250, 100), Image.LANCZOS)  # Use LANCZOS instead of ANTIALIAS
+        # self.logo_photo = ImageTk.PhotoImage(self.logo_image)
+        #
+        # self.logo_label = tk.Label(self.container, image=self.logo_photo)
+        # self.logo_label.grid(row=0, column=1, sticky='ne')  # Position in the top right corner
 
-        logo_label = tk.Label(self.container, image=self.logo_photo)
-        logo_label.grid(row=0, column=1, sticky='ne')  # Position in the top right corner
+        # Create CheckRoomNameErrors button, initially hidden
+
+        self.check_errors_button = ttk.Button(self.container, text="Check Room Name Errors",
+                                              command=self.check_room_name_errors)
+        self.check_errors_button.grid(row=0, column=0, pady=10, padx=(10, 10), sticky='nw')
+        self.check_errors_button.grid_remove()
 
         # Create button frame
         button_frame = ttk.Frame(self.container)
@@ -200,16 +207,6 @@ class Application(tk.Tk):
         # Create the canvas holder frame
         self.canvas_frame = ttk.Frame(self.container)
         self.canvas_frame.grid(row=2, column=0, sticky="nsew", columnspan=2)  # Span across both columns
-
-        # Adding a button to quit the application
-        quit_button = ttk.Button(self.container, text="Quit", command=self.quit)
-        quit_button.grid(row=3, column=0, pady=10, sticky="ew", columnspan=2)  # Span across both columns
-
-        # Create CheckRoomNameErrors button, initially hidden
-        self.check_errors_button = ttk.Button(self.container, text="Check Room Name Errors",
-                                              command=self.check_room_name_errors)
-        self.check_errors_button.grid(row=0, column=1, pady=10, padx=(0, 10), sticky='ne')
-        self.check_errors_button.grid_remove()  # Hide the button initially
 
         # Placeholder for selected rooms for door addition
         self.selected_rooms = []
@@ -244,6 +241,10 @@ class Application(tk.Tk):
     def plot_floor_map(self, floor):
         self.current_floor = floor  # Set the current floor
         self.check_errors_button.grid()  # Make the button visible
+
+        # Hide welcome message and logo
+        self.welcome_label.grid_remove()
+        # self.logo_label.destroy()
 
         # Clear previous canvas frame widgets
         for widget in self.canvas_frame.winfo_children():
