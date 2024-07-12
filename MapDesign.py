@@ -18,8 +18,10 @@ def create_new_xml_folder(building_map, floor):
     backup_folder_path = os.path.join(project_directory, "new_xml")
 
     # Create the backup folder if it doesn't exist
-    os.makedirs(backup_folder_path, exist_ok=True)
-    print(f"Backup directory ensured: {backup_folder_path}")
+    if not os.path.exists(backup_folder_path):
+        os.makedirs(backup_folder_path)
+        print(f"Backup directory created: {backup_folder_path}")
+
 
     # Define categories
     categories = [
@@ -34,6 +36,12 @@ def create_new_xml_folder(building_map, floor):
 
     # Create level folder for the specified floor
     level_folder_path = os.path.join(backup_folder_path, f"Level_{floor}")
+
+    # Check if the level folder already exists
+    if os.path.exists(level_folder_path):
+        print(f"Level folder {level_folder_path} already exists. Aborting operation.")
+        return  # Exit the function if the level folder exists
+
     os.makedirs(level_folder_path, exist_ok=True)
 
     # Create subfolders for each category if they don't exist
@@ -110,8 +118,7 @@ def draw_points(PointArray, category_names, title, onclick_callback, selected_po
             ax.add_patch(polygon)
             plt.plot(points[:, 0], points[:, 1], marker='.', color='black')
         polygons.append(category_polygons)
-    for i in BuildingMap:
-        print(i, BuildingMap[i])
+
 
     # Pass the floor to create_xml_backup_folder
     create_new_xml_folder(BuildingMap, floor)
