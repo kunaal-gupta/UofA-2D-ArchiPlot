@@ -162,8 +162,10 @@ class Application(tk.Tk):
                         # Highlight the selected polygon if not already selected
                         if polygon not in self.selected_polygons:
                             self.selected_polygons.append(polygon)
-                            polygon.set_edgecolor('gray')
-                            polygon.set_facecolor('gray')
+                            # Remove the following lines to avoid changing the polygon color
+                            # polygon.set_edgecolor('gray')
+                            # polygon.set_facecolor('gray')
+
                         self.canvas.draw()  # Refresh the canvas
                         break
 
