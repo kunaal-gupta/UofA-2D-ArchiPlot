@@ -8,6 +8,30 @@ import xml.etree.ElementTree as ET
 
 BuildingMap = {}
 
+import os
+import shutil
+
+def create_xml_backup_folder(building_map):
+    # Define the project directory (you can customize this as needed)
+    project_directory = os.path.dirname(os.path.abspath(__file__))  # Current script's directory
+    backup_folder_path = os.path.join(project_directory, "new_xml")
+
+    # Create the backup folder if it doesn't exist
+    os.makedirs(backup_folder_path, exist_ok=True)
+    print(f"Backup directory ensured: {backup_folder_path}")
+
+    # Copy each XML file from BuildingMap to the backup folder
+    for room_number, xml_path in building_map.items():
+        if os.path.exists(xml_path):
+            # Construct the new file path in the backup folder
+            backup_file_path = os.path.join(backup_folder_path, f"{room_number}.xml")
+            shutil.copy(xml_path, backup_file_path)  # Copy the XML file
+            print(f"Copied {xml_path} to {backup_file_path}")
+        else:
+            print(f"XML file for room {room_number} does not exist: {xml_path}")
+
+# Usage example
+
 def draw_points(PointArray, category_names, title, onclick_callback, selected_polygons):
     colors = ['red', 'blue', 'green', 'orange', 'black', 'grey', 'yellow', 'pink', 'violet']  # Define colors for each set
 
@@ -26,6 +50,8 @@ def draw_points(PointArray, category_names, title, onclick_callback, selected_po
             ax.add_patch(polygon)
             plt.plot(points[:, 0], points[:, 1], marker='.', color='black')
         polygons.append(category_polygons)
+
+    create_xml_backup_folder(BuildingMap)
 
     # Highlight selected polygons
     for selected_polygon in selected_polygons:
@@ -143,6 +169,7 @@ class Application(tk.Tk):
 
     def handleCheck(self, room_name, coordinates):
         action = simpledialog.askstring("Action", "Enter action: add_door, correct_name, or add_wall")
+        print(room_name)
         if action == "add_door":
             self.add_door(room_name)
         elif action == "correct_name":
@@ -182,7 +209,44 @@ class Application(tk.Tk):
         pass
 
     def update_xml_with_new_name(self, old_name, new_name):
-        pass
+        oldXMLFilePath = BuildingMap.get(old_name)
+        if not oldXMLFilePath:
+            print(f"No file path found for room: {old_name}")
+            return
+
+        # Define the path to save the new XML file in the updated_xmls folder on the desktop
+        desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
+        updated_folder_path = os.path.join(desktop_path, "updated_xmls")
+
+        # Create the folder if it doesn't exist
+        os.makedirs(updated_folder_path, exist_ok=True)
+        print(f"Directory ensured: {updated_folder_path}")
+
+        new_xml_path = os.path.join(updated_folder_path, f"{new_name}.xml")
+
+        try:
+            # Parse the original XML file
+            print(f"Parsing XML file from: {oldXMLFilePath}")
+            tree = ET.parse(oldXMLFilePath)
+            root = tree.getroot()
+
+            # Update the XML content
+            print(f"Updating XML content for room: {old_name} to {new_name}")
+            root.set('name', new_name)
+            root.set('key', new_name)
+            for field in root.findall('.//field'):
+                if field.get('key') == 'name':
+                    content_element = field.find('content')
+                    if content_element is not None:
+                        content_element.text = new_name
+
+            # Write the updated tree to the new XML file, overwriting if it exists
+            print(f"Saving updated XML file to: {new_xml_path}")
+            tree.write(new_xml_path, encoding='utf-8', xml_declaration=True)
+            print(f"Updated XML file saved to {new_xml_path}")
+
+        except Exception as e:
+            print(f"An error occurred: {e}")
 
     def update_xml_with_wall(self, point1, point2):
         pass
