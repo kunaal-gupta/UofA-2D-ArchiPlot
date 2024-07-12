@@ -244,7 +244,6 @@ class Application(tk.Tk):
 
         # Hide welcome message and logo
         self.welcome_label.grid_remove()
-        # self.logo_label.destroy()
 
         # Clear previous canvas frame widgets
         for widget in self.canvas_frame.winfo_children():
@@ -260,6 +259,18 @@ class Application(tk.Tk):
         self.canvas = FigureCanvasTkAgg(fig, master=self.canvas_frame)
         self.canvas.draw()
         self.canvas.get_tk_widget().pack(expand=True, fill="both", padx=10, pady=10)
+
+        # Add room number labels
+        for points_category in points_categories:
+            for points in points_category:
+                room_number = points[0][0]  # Extract room number
+                room_points = np.array(points[1:])  # Room polygon points
+                centroid = np.mean(room_points, axis=0)  # Calculate centroid
+
+                # Create a text label with a background for better readability
+                plt.text(centroid[0], centroid[1], room_number, fontsize=10, ha='center', va='center',
+                         color='white',
+                         bbox=dict(facecolor='black', alpha=0.7, edgecolor='none', boxstyle='round,pad=0.3'))
 
     def get_floor_data(self, floor):
         # Call your function to fetch and categorize coordinates here
