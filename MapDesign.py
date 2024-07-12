@@ -179,16 +179,7 @@ class Application(tk.Tk):
                                       font=("Helvetica", 24, "bold"), anchor="center")
         self.welcome_label.grid(row=0, column=0, columnspan=2, pady=20, sticky="nsew")  # Span across both columns
 
-        # Add UofA logo to the top right
-        # self.logo_image = Image.open("UofA Logo.png")  # Update with your logo path
-        # self.logo_image = self.logo_image.resize((250, 100), Image.LANCZOS)  # Use LANCZOS instead of ANTIALIAS
-        # self.logo_photo = ImageTk.PhotoImage(self.logo_image)
-        #
-        # self.logo_label = tk.Label(self.container, image=self.logo_photo)
-        # self.logo_label.grid(row=0, column=1, sticky='ne')  # Position in the top right corner
-
         # Create CheckRoomNameErrors button, initially hidden
-
         self.check_errors_button = ttk.Button(self.container, text="Check Room Name Errors",
                                               command=self.check_room_name_errors)
         self.check_errors_button.grid(row=0, column=0, pady=10, padx=(10, 10), sticky='nw')
@@ -281,7 +272,7 @@ class Application(tk.Tk):
                 elif "Hallway" in room_number:
                     room_number = "H"
 
-                # Create a text label with a background for better readability
+                # Text label with a background for better readability
                 plt.text(centroid[0], centroid[1], room_number, fontsize=8, ha='center', va='center',
                          color='white',
                          bbox=dict(facecolor='black', alpha=0.7, edgecolor='none', boxstyle='round,pad=0.3'))
@@ -295,17 +286,17 @@ class Application(tk.Tk):
 
         def categorizesCoordinateMap(floorNumber: int):
             CoordinateMap = fetchCoordinateMap(floorNumber)
-            RoomPoints = CoordinateMap['Room']
-            EntrancePoints = CoordinateMap['Entrance']
-            ElevatorPoints = CoordinateMap['Elevator']
-            HallwayPoints = CoordinateMap['Hallway']
-            WashroomPoints = CoordinateMap['Washroom']
-            StairPoints = CoordinateMap['Stairs']
+            Room = CoordinateMap['Room']
+            Entrance_En = CoordinateMap['Entrance']
+            Elevator_El = CoordinateMap['Elevator']
+            Hallway_H = CoordinateMap['Hallway']
+            Washroom_WM_WW = CoordinateMap['Washroom']
+            Stair_S = CoordinateMap['Stairs']
             XPoints = CoordinateMap['X']
-            return [RoomPoints, EntrancePoints, ElevatorPoints, HallwayPoints, WashroomPoints, StairPoints, XPoints]
+            return [Room, Entrance_En, Elevator_El, Hallway_H, Washroom_WM_WW, Stair_S, XPoints]
 
         points_categories = categorizesCoordinateMap(floor)
-        category_names = ['RoomPoints', 'EntrancePoints', 'ElevatorPoints', 'HallwayPoints', 'WashroomPoints', 'StairPoints', 'XPoints']
+        category_names = ['Room', 'Entrance_En', 'Elevator_El', 'Hallway_H', 'Washroom_WM_WW', 'Stair_S', 'XPoints']
         title = f'Architectural Map of Floor {floor}'
 
         return points_categories, category_names, title
