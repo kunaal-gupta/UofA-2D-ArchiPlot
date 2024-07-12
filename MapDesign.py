@@ -1,6 +1,10 @@
+import os
+import shutil
 import tkinter as tk
+import tkinter.messagebox as messagebox
 import xml.etree.ElementTree as ET
-from tkinter import ttk, simpledialog
+from tkinter import simpledialog
+from tkinter import ttk
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -8,9 +12,6 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 BuildingMap = {}
 
-
-import os
-import shutil
 
 def create_new_xml_folder(building_map, floor):
     # Define the project directory
@@ -20,8 +21,7 @@ def create_new_xml_folder(building_map, floor):
     # Create the backup folder if it doesn't exist
     if not os.path.exists(backup_folder_path):
         os.makedirs(backup_folder_path)
-        print(f"Backup directory created: {backup_folder_path}")
-
+        print(f"New XML Directory created: {backup_folder_path}")
 
     # Define categories
     categories = [
@@ -52,7 +52,6 @@ def create_new_xml_folder(building_map, floor):
     # Copy each XML file from BuildingMap to the backup folder
     for room_number, xml_paths in building_map.items():
         for xml_path in xml_paths:  # Iterate through the list of XML paths
-            print(room_number)
             if os.path.exists(xml_path):
                 # Logic to assign the XML file to a specific category
                 if 'Entrance' in room_number:
@@ -84,10 +83,9 @@ def create_new_xml_folder(building_map, floor):
                         counter += 1
 
                 shutil.copy(xml_path, backup_file_path)  # Copy the XML file
-                print(f"Copied {xml_path} to {backup_file_path}")
+                # print(f"Copied {xml_path} to {backup_file_path}")
             else:
                 print(f"XML file for room {room_number} does not exist: {xml_path}")
-
 
 
 def draw_points(PointArray, category_names, title, onclick_callback, selected_polygons, floor):
@@ -135,11 +133,24 @@ def draw_points(PointArray, category_names, title, onclick_callback, selected_po
     fig.canvas.mpl_connect('button_press_event', lambda event: onclick_callback(event, polygons, category_names))
     return fig
 
+class CustomDialog(simpledialog.Dialog):
+    def __init__(self, master, room_name):
+        self.room_name = room_name
+        super().__init__(master)
+
+    def body(self, master):
+        tk.Label(master, text=f"Enter new name for Room: {self.room_name}").pack(pady=5)
+        self.entry = tk.Entry(master, width=30)  # Wider entry
+        self.entry.pack(pady=5)
+
+    def apply(self):
+        self.result = self.entry.get()
 
 class Application(tk.Tk):
     def __init__(self, *args, **kwargs):
         self.selected_polygons = []
         self.original_colors = {}
+        self.current_floor = None  # Initialize current floor as None
 
         super().__init__(*args, **kwargs)
         self.title("Floor Design")
@@ -186,15 +197,38 @@ class Application(tk.Tk):
 
     def check_room_name_errors(self):
         # Logic to check room name errors
-        print("Checking room name errors...")
-        # Implement your error checking logic here
+        print("Checking room name errors..." + "\n")
+
+        # Define the project directory and the path to the new XML folder
+        project_directory = os.path.dirname(os.path.abspath(__file__))  # Current script's directory
+        backup_folder_path = os.path.join(project_directory, "new_xml")
+
+        # Get the current floor
+        current_floor = self.get_current_floor()  # You may need to implement this method
+        level_folder_path = os.path.join(backup_folder_path, f"Level_{current_floor}")
+
+        # Path to the "X" folder
+        x_folder_path = os.path.join(level_folder_path, "X")
+
+        # Check if the "X" folder exists
+        if os.path.exists(x_folder_path):
+            # Iterate through each XML file in the "X" folder
+            for xml_file in os.listdir(x_folder_path):
+                if xml_file.endswith(".xml"):
+                    room_name = os.path.splitext(xml_file)[0]  # Get the room name without the .xml extension
+                    self.correct_room_name(room_name)  # Call the function to correct the room name
+            # Show completion message after processing all files
+            messagebox.showinfo("Process Completed", "Checked all files with irregular names.")
+        else:
+            print(f"No 'X' folder found for floor {current_floor}.")
 
     def plot_floor_map(self, floor):
-        # Show the Check Room Name Errors button when a floor is clicked
+        self.current_floor = floor  # Set the current floor
         self.check_errors_button.grid()  # Make the button visible
 
+        # Clear previous canvas frame widgets
         for widget in self.canvas_frame.winfo_children():
-            widget.destroy()  # Remove any previous canvas frame widgets
+            widget.destroy()
 
         # Fetch and categorize coordinate map for the floor
         points_categories, category_names, title = self.get_floor_data(floor)
@@ -203,7 +237,7 @@ class Application(tk.Tk):
         fig = draw_points(points_categories, category_names, title, self.checkFunction, self.selected_polygons, floor)
 
         # Embed the figure in Tkinter
-        self.canvas = FigureCanvasTkAgg(fig, master=self.canvas_frame)  # A tk.DrawingArea.
+        self.canvas = FigureCanvasTkAgg(fig, master=self.canvas_frame)
         self.canvas.draw()
         self.canvas.get_tk_widget().pack(expand=True, fill="both", padx=10, pady=10)
 
@@ -230,6 +264,9 @@ class Application(tk.Tk):
         title = f'Architectural Map of Floor {floor}'
 
         return points_categories, category_names, title
+
+    def get_current_floor(self):
+        return self.current_floor  # Return the currently selected floor
 
     # Select Functions --------------------------------------------------
 
@@ -275,10 +312,10 @@ class Application(tk.Tk):
             self.selected_rooms = []
 
     def correct_room_name(self, room_name):
-        new_name = simpledialog.askstring("Correct Room Name", f"Enter new name for {room_name}:")
+        dialog = CustomDialog(self, room_name)
+        new_name = dialog.result
         if new_name:
             print(f"Changing {room_name} to {new_name}")
-            # Update XML
             self.update_xml_with_new_name(room_name, new_name)
 
     def add_wall(self, coordinates):
@@ -294,24 +331,25 @@ class Application(tk.Tk):
         pass
 
     def update_xml_with_new_name(self, old_name, new_name):
-        oldXMLFilePath = BuildingMap.get(old_name)
-        if not oldXMLFilePath:
-            print(f"No file path found for room: {old_name}")
-            return
+
 
         # Define the path to access the XML files in the new_xml folder in the project directory
         project_directory = os.path.dirname(os.path.abspath(__file__))  # Get the current project directory
         updated_folder_path = os.path.join(project_directory, "new_xml")
 
+        # Get the current floor number
+        current_floor = self.get_current_floor()
+        level_folder_path = os.path.join(updated_folder_path, f"Level_{current_floor}", "X")
+
         try:
             # Construct the path for the old XML file
-            old_xml_path = os.path.join(updated_folder_path, f"{old_name}.xml")
+            old_xml_path = os.path.join(level_folder_path, f"{old_name}.xml")
             if not os.path.exists(old_xml_path):
                 print(f"File not found: {old_xml_path}")
                 return
 
             # Parse the original XML file
-            print(f"Parsing XML file from: {old_xml_path}")
+            # print(f"Parsing XML file from: {old_xml_path}")
             tree = ET.parse(old_xml_path)
             root = tree.getroot()
 
@@ -325,14 +363,22 @@ class Application(tk.Tk):
                     if content_element is not None:
                         content_element.text = new_name
 
-            # Write the updated tree back to the existing XML file with the new name
-            new_xml_path = os.path.join(updated_folder_path, f"{new_name}.xml")
-            print(f"Saving updated XML file to: {new_xml_path}")
+            # Construct the new XML file path with versioning
+            base_new_xml_path = os.path.join(level_folder_path, new_name)
+            new_xml_path = f"{base_new_xml_path}.xml"
+            counter = 1
+
+            # Check for existing files and generate a new name if necessary
+            while os.path.exists(new_xml_path):
+                counter += 1
+                new_xml_path = f"{base_new_xml_path}_{counter}.xml"
+
+            print(f"Saving updated XML file to: {new_xml_path}" + "\n")
             tree.write(new_xml_path, encoding='utf-8', xml_declaration=True)
 
             # Remove the old XML file
             os.remove(old_xml_path)
-            print(f"Deleted old XML file: {old_xml_path}")
+            # print(f"Deleted old XML file: {old_xml_path}")
 
         except Exception as e:
             print(f"An error occurred: {e}")
