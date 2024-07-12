@@ -5,11 +5,11 @@ import tkinter as tk
 from tkinter import ttk, simpledialog
 import os  # Add this line at the top of your script
 import xml.etree.ElementTree as ET
-
-BuildingMap = {}
-
 import os
 import shutil
+
+
+BuildingMap = {}
 
 def create_xml_backup_folder(building_map):
     # Define the project directory (you can customize this as needed)
@@ -67,16 +67,16 @@ def draw_points(PointArray, category_names, title, onclick_callback, selected_po
 
 
 class Application(tk.Tk):
-
     def __init__(self, *args, **kwargs):
         self.selected_polygons = []
+        self.original_colors = {}
 
         super().__init__(*args, **kwargs)
         self.title("Floor Design")
-        self.geometry("1200x900")  # Initial window size
-        self.resizable(True, True)  # Allow window resizing
+        self.geometry("1200x900")
+        self.resizable(True, True)
 
-        # Configure row and column weights to make the container expandable
+        # Configure row and column weights
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(0, weight=1)
 
@@ -84,7 +84,7 @@ class Application(tk.Tk):
         self.container = ttk.Frame(self)
         self.container.grid(padx=10, pady=10, sticky="nsew")
 
-        # Configure row and column weights of the container to make the canvas expandable
+        # Configure row and column weights of the container
         self.container.grid_rowconfigure(1, weight=1)
         self.container.grid_columnconfigure(0, weight=1)
 
@@ -106,10 +106,23 @@ class Application(tk.Tk):
         quit_button = ttk.Button(self.container, text="Quit", command=self.quit)
         quit_button.grid(row=2, column=0, pady=10, sticky="ew")
 
+        # Create CheckRoomNameErrors button, initially hidden
+        self.check_errors_button = ttk.Button(self.container, text="Check Room Name Errors", command=self.check_room_name_errors)
+        self.check_errors_button.grid(row=0, column=1, pady=10, padx=(0, 10), sticky='ne')
+        self.check_errors_button.grid_remove()  # Hide the button initially
+
         # Placeholder for selected rooms for door addition
         self.selected_rooms = []
 
+    def check_room_name_errors(self):
+        # Logic to check room name errors
+        print("Checking room name errors...")
+        # Implement your error checking logic here
+
     def plot_floor_map(self, floor):
+        # Show the Check Room Name Errors button when a floor is clicked
+        self.check_errors_button.grid()  # Make the button visible
+
         for widget in self.canvas_frame.winfo_children():
             widget.destroy()  # Remove any previous canvas frame widgets
 
