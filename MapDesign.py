@@ -157,8 +157,8 @@ class Application(tk.Tk):
         self.current_floor = None  # Initialize current floor as None
 
         super().__init__(*args, **kwargs)
-        self.title("UofA Athabasca Building 2D UI")
-        self.geometry("1200x800")
+        self.title("Floor Design")
+        self.geometry("1200x900")
         self.resizable(True, True)
 
         # Configure row and column weights
@@ -170,24 +170,12 @@ class Application(tk.Tk):
         self.container.grid(padx=10, pady=10, sticky="nsew")
 
         # Configure row and column weights of the container
-        self.container.grid_rowconfigure(0, weight=1)
+        self.container.grid_rowconfigure(1, weight=1)
         self.container.grid_columnconfigure(0, weight=1)
-        self.container.grid_columnconfigure(1, weight=0)  # Add weight to the logo column
-
-        # Add a welcome message
-        self.welcome_label = tk.Label(self.container, text="Welcome to UofA Athabasca Building Architecture UI",
-                                      font=("Helvetica", 24, "bold"), anchor="center")
-        self.welcome_label.grid(row=0, column=0, columnspan=2, pady=20, sticky="nsew")  # Span across both columns
-
-        # Create CheckRoomNameErrors button, initially hidden
-        self.check_errors_button = ttk.Button(self.container, text="Check Room Name Errors",
-                                              command=self.check_room_name_errors)
-        self.check_errors_button.grid(row=0, column=0, pady=10, padx=(10, 10), sticky='nw')
-        self.check_errors_button.grid_remove()
 
         # Create button frame
         button_frame = ttk.Frame(self.container)
-        button_frame.grid(row=1, column=0, pady=10, columnspan=2)  # Span across both columns
+        button_frame.grid(row=0, column=0, pady=10)
 
         # Add buttons for each floor
         floors = [1, 2, 3, 4]
@@ -197,7 +185,16 @@ class Application(tk.Tk):
 
         # Create the canvas holder frame
         self.canvas_frame = ttk.Frame(self.container)
-        self.canvas_frame.grid(row=2, column=0, sticky="nsew", columnspan=2)  # Span across both columns
+        self.canvas_frame.grid(row=1, column=0, sticky="nsew")
+
+        # Adding a button to quit the application
+        quit_button = ttk.Button(self.container, text="Quit", command=self.quit)
+        quit_button.grid(row=2, column=0, pady=10, sticky="ew")
+
+        # Create CheckRoomNameErrors button, initially hidden
+        self.check_errors_button = ttk.Button(self.container, text="Check Room Name Errors", command=self.check_room_name_errors)
+        self.check_errors_button.grid(row=0, column=1, pady=10, padx=(0, 10), sticky='ne')
+        self.check_errors_button.grid_remove()  # Hide the button initially
 
         # Placeholder for selected rooms for door addition
         self.selected_rooms = []
@@ -234,7 +231,7 @@ class Application(tk.Tk):
         self.check_errors_button.grid()  # Make the button visible
 
         # Hide welcome message and logo
-        self.welcome_label.grid_remove()
+        # self.welcome_label.grid_remove()
 
         # Clear previous canvas frame widgets
         for widget in self.canvas_frame.winfo_children():
