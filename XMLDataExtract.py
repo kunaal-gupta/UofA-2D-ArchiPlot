@@ -127,9 +127,9 @@ def main(floorNumber: int):
     for file in files:
         RoomNumber, Level = parse_xml_for_roomnumber_and_floor(file)
         coordinateList = parse_xml_for_coordinates(file)
-
+        if coordinateList is not None:
+            coordinateList.insert(0, [RoomNumber.replace('-', ''), file])
         if coordinateList is not None and int(Level) == floorNumber:
             CoordinatesMap[str(parse_xml_for_type(file).strip().split()[0])].append(coordinateList)
     return CoordinatesMap
-
 

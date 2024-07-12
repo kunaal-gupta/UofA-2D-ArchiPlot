@@ -3,20 +3,27 @@ import numpy as np
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import tkinter as tk
 from tkinter import ttk, simpledialog
+import os  # Add this line at the top of your script
+import xml.etree.ElementTree as ET
 
+BuildingMap = {}
 
 def draw_points(PointArray, category_names, title, onclick_callback, selected_polygons):
-    colors = ['red', 'blue', 'green', 'orange', 'black', 'grey', 'yellow', 'pink', 'violet']  # Define colors for each set
+    colors = ['red', 'blue', 'green', 'orange', 'black', 'grey', 'yellow', 'pink',
+              'violet']  # Define colors for each set
 
     fig, ax = plt.subplots(figsize=(10, 8))  # Adjust the figure size here
 
     polygons = []
     for i, points_category in enumerate(PointArray):
+
         color = colors[i % len(colors)]
         category_polygons = []
         for points in points_category:
-            points = np.array(points)
-            polygon = plt.Polygon(points, closed=True, fill=True, edgecolor=color, facecolor=color, alpha=0.5, linewidth=3.5)
+            BuildingMap[points[0][0]] = points[0][1]
+            points = np.array(points[1:])
+            polygon = plt.Polygon(points, closed=True, fill=True, edgecolor=color, facecolor=color, alpha=0.5,
+                                  linewidth=3.5)
             category_polygons.append(polygon)
             ax.add_patch(polygon)
             plt.plot(points[:, 0], points[:, 1], marker='.', color='black')
@@ -28,11 +35,13 @@ def draw_points(PointArray, category_names, title, onclick_callback, selected_po
         selected_polygon.set_facecolor('gray')
 
     plt.title(title)
-    legend_handles = [plt.Line2D([0], [0], color=colors[i % len(colors)], linewidth=4.5, label=category_names[i]) for i in range(len(PointArray))]
+    legend_handles = [plt.Line2D([0], [0], color=colors[i % len(colors)], linewidth=4.5, label=category_names[i]) for i
+                      in range(len(PointArray))]
     plt.legend(handles=legend_handles, loc='best')
 
     fig.canvas.mpl_connect('button_press_event', lambda event: onclick_callback(event, polygons, category_names))
-
+    print('BuildingMap')
+    print(BuildingMap)
     return fig
 
 
@@ -113,10 +122,13 @@ class Application(tk.Tk):
             return [RoomPoints, EntrancePoints, ElevatorPoints, HallwayPoints, WashroomPoints, StairPoints, XPoints]
 
         points_categories = categorizesCoordinateMap(floor)
-        category_names = ['RoomPoints', 'EntrancePoints', 'ElevatorPoints', 'HallwayPoints', 'WashroomPoints', 'StairPoints', 'XPoints']
+        category_names = ['RoomPoints', 'EntrancePoints', 'ElevatorPoints', 'HallwayPoints', 'WashroomPoints',
+                          'StairPoints', 'XPoints']
         title = f'Architectural Map of Floor {floor}'
 
         return points_categories, category_names, title
+
+    # Select Functions --------------------------------------------------
 
     def checkFunction(self, event, polygons, category_names):
         if event.inaxes is not None:
@@ -144,6 +156,9 @@ class Application(tk.Tk):
         elif action == "add_wall":
             self.add_wall(coordinates)
 
+
+    # 3 Main Functions --------------------------------------------------------
+
     def add_door(self, room_name):
         self.selected_rooms.append(room_name)
         if len(self.selected_rooms) == 2:
@@ -153,9 +168,6 @@ class Application(tk.Tk):
             # Update XML
             self.update_xml_with_door(room1, room2)
             self.selected_rooms = []
-
-    def update_xml_with_door(self, room1, room2):
-        pass
 
     def correct_room_name(self, room_name):
         new_name = simpledialog.askstring("Correct Room Name", f"Enter new name for {room_name}:")
@@ -172,9 +184,13 @@ class Application(tk.Tk):
         self.update_xml_with_wall(point1, point2)
 
 
+    # Update XML Functions ---------------------------------------------------
+
+    def update_xml_with_door(self, room1, room2):
+        pass
+
     def update_xml_with_new_name(self, old_name, new_name):
         pass
 
     def update_xml_with_wall(self, point1, point2):
         pass
-
