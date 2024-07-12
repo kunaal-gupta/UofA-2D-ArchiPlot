@@ -216,20 +216,20 @@ class Application(tk.Tk):
             print(f"No file path found for room: {old_name}")
             return
 
-        # Define the path to save the new XML file in the updated_xmls folder on the desktop
-        desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
-        updated_folder_path = os.path.join(desktop_path, "updated_xmls")
-
-        # Create the folder if it doesn't exist
-        os.makedirs(updated_folder_path, exist_ok=True)
-        print(f"Directory ensured: {updated_folder_path}")
-
-        new_xml_path = os.path.join(updated_folder_path, f"{new_name}.xml")
+        # Define the path to access the XML files in the new_xml folder in the project directory
+        project_directory = os.path.dirname(os.path.abspath(__file__))  # Get the current project directory
+        updated_folder_path = os.path.join(project_directory, "new_xml")
 
         try:
+            # Construct the path for the old XML file
+            old_xml_path = os.path.join(updated_folder_path, f"{old_name}.xml")
+            if not os.path.exists(old_xml_path):
+                print(f"File not found: {old_xml_path}")
+                return
+
             # Parse the original XML file
-            print(f"Parsing XML file from: {oldXMLFilePath}")
-            tree = ET.parse(oldXMLFilePath)
+            print(f"Parsing XML file from: {old_xml_path}")
+            tree = ET.parse(old_xml_path)
             root = tree.getroot()
 
             # Update the XML content
@@ -242,10 +242,14 @@ class Application(tk.Tk):
                     if content_element is not None:
                         content_element.text = new_name
 
-            # Write the updated tree to the new XML file, overwriting if it exists
+            # Write the updated tree back to the existing XML file with the new name
+            new_xml_path = os.path.join(updated_folder_path, f"{new_name}.xml")
             print(f"Saving updated XML file to: {new_xml_path}")
             tree.write(new_xml_path, encoding='utf-8', xml_declaration=True)
-            print(f"Updated XML file saved to {new_xml_path}")
+
+            # Remove the old XML file
+            os.remove(old_xml_path)
+            print(f"Deleted old XML file: {old_xml_path}")
 
         except Exception as e:
             print(f"An error occurred: {e}")
