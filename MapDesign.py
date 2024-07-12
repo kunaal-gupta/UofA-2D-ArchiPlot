@@ -3,8 +3,12 @@ import shutil
 import tkinter as tk
 import tkinter.messagebox as messagebox
 import xml.etree.ElementTree as ET
+from datetime import time
 from tkinter import simpledialog
 from tkinter import ttk
+import tkinter as tk
+from tkinter import ttk
+from PIL import Image, ImageTk
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -166,12 +170,26 @@ class Application(tk.Tk):
         self.container.grid(padx=10, pady=10, sticky="nsew")
 
         # Configure row and column weights of the container
-        self.container.grid_rowconfigure(1, weight=1)
+        self.container.grid_rowconfigure(0, weight=1)
         self.container.grid_columnconfigure(0, weight=1)
+        self.container.grid_columnconfigure(1, weight=0)  # Add weight to the logo column
+
+        # Add a welcome message
+        welcome_label = tk.Label(self.container, text="Welcome to UofA Athabasca Building Architecture UI",
+                                 font=("Helvetica", 24, "bold"), anchor="center")
+        welcome_label.grid(row=0, column=0, columnspan=2, pady=20, sticky="nsew")  # Span across both columns
+
+        # Add UofA logo to the top right
+        self.logo_image = Image.open("UofA Logo.png")  # Update with your logo path
+        self.logo_image = self.logo_image.resize((250, 100), Image.LANCZOS)  # Use LANCZOS instead of ANTIALIAS
+        self.logo_photo = ImageTk.PhotoImage(self.logo_image)
+
+        logo_label = tk.Label(self.container, image=self.logo_photo)
+        logo_label.grid(row=0, column=1, sticky='ne')  # Position in the top right corner
 
         # Create button frame
         button_frame = ttk.Frame(self.container)
-        button_frame.grid(row=0, column=0, pady=10)
+        button_frame.grid(row=1, column=0, pady=10, columnspan=2)  # Span across both columns
 
         # Add buttons for each floor
         floors = [1, 2, 3, 4]
@@ -181,14 +199,15 @@ class Application(tk.Tk):
 
         # Create the canvas holder frame
         self.canvas_frame = ttk.Frame(self.container)
-        self.canvas_frame.grid(row=1, column=0, sticky="nsew")
+        self.canvas_frame.grid(row=2, column=0, sticky="nsew", columnspan=2)  # Span across both columns
 
         # Adding a button to quit the application
         quit_button = ttk.Button(self.container, text="Quit", command=self.quit)
-        quit_button.grid(row=2, column=0, pady=10, sticky="ew")
+        quit_button.grid(row=3, column=0, pady=10, sticky="ew", columnspan=2)  # Span across both columns
 
         # Create CheckRoomNameErrors button, initially hidden
-        self.check_errors_button = ttk.Button(self.container, text="Check Room Name Errors", command=self.check_room_name_errors)
+        self.check_errors_button = ttk.Button(self.container, text="Check Room Name Errors",
+                                              command=self.check_room_name_errors)
         self.check_errors_button.grid(row=0, column=1, pady=10, padx=(0, 10), sticky='ne')
         self.check_errors_button.grid_remove()  # Hide the button initially
 
@@ -197,7 +216,7 @@ class Application(tk.Tk):
 
     def check_room_name_errors(self):
         # Logic to check room name errors
-        print("Checking room name errors..." + "\n")
+        print("Checking for irregular room name....." + "\n")
 
         # Define the project directory and the path to the new XML folder
         project_directory = os.path.dirname(os.path.abspath(__file__))  # Current script's directory
