@@ -3,12 +3,8 @@ import shutil
 import tkinter as tk
 import tkinter.messagebox as messagebox
 import xml.etree.ElementTree as ET
-from datetime import time
 from tkinter import simpledialog
 from tkinter import ttk
-import tkinter as tk
-from tkinter import ttk
-from PIL import Image, ImageTk
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -294,17 +290,18 @@ class Application(tk.Tk):
 
         def categorizesCoordinateMap(floorNumber: int):
             CoordinateMap = fetchCoordinateMap(floorNumber)
-            Room = CoordinateMap['Room']
-            Entrance_En = CoordinateMap['Entrance']
-            Elevator_El = CoordinateMap['Elevator']
-            Hallway_H = CoordinateMap['Hallway']
-            Washroom_WM_WW = CoordinateMap['Washroom']
-            Stair_S = CoordinateMap['Stairs']
-            XPoints = CoordinateMap['X']
-            return [Room, Entrance_En, Elevator_El, Hallway_H, Washroom_WM_WW, Stair_S, XPoints]
+            # Room = CoordinateMap['Room']
+            # Entrance_En = CoordinateMap['Entrance']
+            # Elevator_El = CoordinateMap['Elevator']
+            # Hallway_H = CoordinateMap['Hallway']
+            # Washroom_WM_WW = CoordinateMap['Washroom']
+            # Stair_S = CoordinateMap['Stairs']
+            # XPoints = CoordinateMap['X']
+            return [CoordinateMap[key] for key in CoordinateMap], [str(key) for key in CoordinateMap]
 
-        points_categories = categorizesCoordinateMap(floor)
-        category_names = ['Room', 'Entrance_En', 'Elevator_El', 'Hallway_H', 'Washroom_WM_WW', 'Stair_S', 'XPoints']
+        points_categories, category_names = categorizesCoordinateMap(floor)
+        print(points_categories)
+        print(category_names)
         title = f'Architectural Map of Floor {floor}'
 
         return points_categories, category_names, title

@@ -122,14 +122,20 @@ def parse_xml_for_type(xml_file):
 
 def main(floorNumber: int):
     files = fetch_XML_file_paths(directory_path)
-    CoordinatesMap = {'Room': [], 'Entrance': [], 'Elevator': [], 'Hallway': [], 'Washroom': [], 'Stairs': [], 'X': [], 'Building': [], 'All-Gender': []}
+    CoordinatesMap = {}
 
     for file in files:
         RoomNumber, Level = parse_xml_for_roomnumber_and_floor(file)
         coordinateList = parse_xml_for_coordinates(file)
+
         if coordinateList is not None:
             coordinateList.insert(0, [RoomNumber.replace('-', ''), file])
-        if coordinateList is not None and int(Level) == floorNumber:
-            CoordinatesMap[str(parse_xml_for_type(file).strip().split()[0])].append(coordinateList)
+            if int(Level) == floorNumber:
+                if str(parse_xml_for_type(file).strip().split()[0]) in CoordinatesMap:
+                    CoordinatesMap[str(parse_xml_for_type(file).strip().split()[0])].append(coordinateList)
+                else:
+                    CoordinatesMap[str(parse_xml_for_type(file).strip().split()[0])] = list()
     return CoordinatesMap
 
+
+main(1)
