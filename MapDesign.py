@@ -5,7 +5,7 @@ import tkinter.messagebox as messagebox
 import xml.etree.ElementTree as ET
 from tkinter import simpledialog
 from tkinter import ttk
-from XMLDataExtract import directory_path
+from XMLDataExtract import directory_path, countLevels, LevelName
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
@@ -171,7 +171,6 @@ class Application(tk.Tk):
         self.container.grid_rowconfigure(2, weight=1)  # Row for canvas
         self.container.grid_columnconfigure(0, weight=1)
         self.container.grid_columnconfigure(1, weight=0)  # Optional: Add weight to the logo column
-        directory_path
         # Add a welcome message
         self.welcome_label = tk.Label(self.container, text="Welcome to UofA " + BuildingName + " Architecture UI",
                                       font=("Helvetica", 24, "bold"), anchor="center")
@@ -282,7 +281,6 @@ class Application(tk.Tk):
                          bbox=dict(facecolor='black', alpha=0.7, edgecolor='none', boxstyle='round,pad=0.3'))
 
     def get_floor_data(self, floor):
-        # Call your function to fetch and categorize coordinates here
         import XMLDataExtract
 
         def fetchCoordinateMap(floorNumber):

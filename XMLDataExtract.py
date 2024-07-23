@@ -2,7 +2,7 @@ import os
 import xml.etree.ElementTree as ET
 
 # directory_path = "C:/Users/kunaa/Downloads/Athabasca Hall/Athabasca Hall/"
-directory_path = "C:/Users/kunaa/Downloads/Buildings/Buildings/North Campus/Assiniboia Hall"
+directory_path = "C:/Users/kunaa/Downloads/Buildings/Buildings/North Campus/Cameron Library"
 
 filesArray = []
 Data = []
@@ -122,6 +122,27 @@ def parse_xml_for_type(xml_file):
             return field.text
 
 
+def count_level_subfolders(base_directory, interior_folder):
+    try:
+        interior_path = os.path.join(base_directory, interior_folder)
+        if not os.path.isdir(interior_path):
+            print(f"The interior folder '{interior_folder}' does not exist in '{base_directory}'.")
+            return 0
+
+        entries = os.listdir(interior_path)
+        level_subfolders = [entry for entry in entries if
+                            os.path.isdir(os.path.join(interior_path, entry)) and entry.startswith('Level ')]
+        print(f"Filtered level subfolders: {level_subfolders}")
+
+        return len(level_subfolders), level_subfolders
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return 0
+
+
+countLevels, LevelName = count_level_subfolders(directory_path, "interior")
+
+
 def main(floorNumber: int):
     files = fetch_XML_file_paths(directory_path)
     CoordinatesMap = {}
@@ -139,5 +160,4 @@ def main(floorNumber: int):
                     CoordinatesMap[str(parse_xml_for_type(file).strip().split()[0])] = list()
     return CoordinatesMap
 
-
-main(1)
+# main(1)
