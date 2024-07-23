@@ -1,7 +1,9 @@
 import os
 import xml.etree.ElementTree as ET
 
-directory_path = "C:/Users/kunaa/Downloads/Athabasca Hall/Athabasca Hall/"
+# directory_path = "C:/Users/kunaa/Downloads/Athabasca Hall/Athabasca Hall/"
+directory_path = "C:/Users/kunaa/Downloads/Buildings/Buildings/North Campus/Assiniboia Hall"
+
 filesArray = []
 Data = []
 

@@ -5,13 +5,13 @@ import tkinter.messagebox as messagebox
 import xml.etree.ElementTree as ET
 from tkinter import simpledialog
 from tkinter import ttk
-
+from XMLDataExtract import directory_path
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 BuildingMap = {}
-
+BuildingName = directory_path.split('/')[-1]
 
 def create_new_xml_folder(building_map, floor):
     # Define the project directory
@@ -153,7 +153,7 @@ class Application(tk.Tk):
         self.current_floor = None  # Initialize current floor as None
 
         super().__init__(*args, **kwargs)
-        self.title("UofA Athabasca Building 2D UI")
+        self.title("UofA Building 2D UI")
         self.geometry("1200x900")
         self.resizable(True, True)
 
@@ -171,9 +171,9 @@ class Application(tk.Tk):
         self.container.grid_rowconfigure(2, weight=1)  # Row for canvas
         self.container.grid_columnconfigure(0, weight=1)
         self.container.grid_columnconfigure(1, weight=0)  # Optional: Add weight to the logo column
-
+        directory_path
         # Add a welcome message
-        self.welcome_label = tk.Label(self.container, text="Welcome to UofA Athabasca Building Architecture UI",
+        self.welcome_label = tk.Label(self.container, text="Welcome to UofA " + BuildingName + " Architecture UI",
                                       font=("Helvetica", 24, "bold"), anchor="center")
         self.welcome_label.grid(row=0, column=0, columnspan=2, pady=20, sticky="nsew")  # Centered at the top
 
