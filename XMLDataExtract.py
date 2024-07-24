@@ -2,7 +2,9 @@ import os
 import xml.etree.ElementTree as ET
 
 # path = "Buildings Data/Buildings/"
-directory_path = "Buildings Data/Buildings/"
+Original_Building_Path = "Buildings Data/Buildings/"
+Edited_Building_Path = "Buildings Data/Edited Building/"
+
 
 filesArray = []
 Data = []
@@ -114,7 +116,7 @@ def count_level_subfolders(base_directory, building, campus, interior_folder):
 
 def main(floorNumber, building, campus):
     global path
-    path = directory_path + campus + '/' + building
+    path = Original_Building_Path + campus + '/' + building
 
     floorNumber = floorNumber.split()[-1]
     files = fetch_XML_file_paths(path, floorNumber)

@@ -5,87 +5,13 @@ import tkinter.messagebox as messagebox
 import xml.etree.ElementTree as ET
 from tkinter import simpledialog
 from tkinter import ttk
-from XMLDataExtract import directory_path, count_level_subfolders
+from XMLDataExtract import Original_Building_Path, Edited_Building_Path, count_level_subfolders
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 BuildingMap = {}
-BuildingName = directory_path.split('/')[-1]
-
-def create_new_xml_folder(building_map, floor):
-    # Define the project directory
-    project_directory = os.path.dirname(os.path.abspath(__file__))  # Current script's directory
-    backup_folder_path = os.path.join(project_directory, "new_xml")
-
-    # Create the backup folder if it doesn't exist
-    if not os.path.exists(backup_folder_path):
-        os.makedirs(backup_folder_path)
-        print(f"New XML Directory created: {backup_folder_path}")
-
-    # Define categories
-    categories = [
-        'Room',
-        'Entrance',
-        'Elevator',
-        'Hallway',
-        'Washroom',
-        'StairPoints',
-        'X'
-    ]
-
-    # Create level folder for the specified floor
-    level_folder_path = os.path.join(backup_folder_path, f"Level_{floor}")
-
-    # Check if the level folder already exists
-    if os.path.exists(level_folder_path):
-        print(f"Level folder {level_folder_path} already exists. Aborting operation.")
-        return  # Exit the function if the level folder exists
-
-    os.makedirs(level_folder_path, exist_ok=True)
-
-    # Create subfolders for each category if they don't exist
-    for category in categories:
-        category_folder_path = os.path.join(level_folder_path, category)
-        os.makedirs(category_folder_path, exist_ok=True)
-
-    # Copy each XML file from BuildingMap to the backup folder
-    for room_number, xml_paths in building_map.items():
-        for xml_path in xml_paths:  # Iterate through the list of XML paths
-            if os.path.exists(xml_path):
-                # Logic to assign the XML file to a specific category
-                if 'Entrance' in room_number:
-                    category = 'Entrance'
-                elif 'Elevator' in room_number:
-                    category = 'Elevator'
-                elif 'Hallway' in room_number:
-                    category = 'Hallway'
-                elif 'Washroom' in room_number:
-                    category = 'Washroom'
-                elif 'Stair' in room_number:
-                    category = 'StairPoints'
-                elif 'X' in room_number:
-                    category = 'X'
-                else:
-                    category = 'Room'  # Default category
-
-                # Construct the new file path in the appropriate category folder
-                base_filename = f"{room_number}.xml"
-                backup_file_path = os.path.join(level_folder_path, category, base_filename)
-
-                # Check if file already exists and rename if necessary
-                if os.path.exists(backup_file_path):
-                    # Generate a new filename with a suffix
-                    base, ext = os.path.splitext(base_filename)
-                    counter = 2
-                    while os.path.exists(backup_file_path):
-                        backup_file_path = os.path.join(level_folder_path, category, f"{base}_{counter}{ext}")
-                        counter += 1
-
-                shutil.copy(xml_path, backup_file_path)  # Copy the XML file
-                # print(f"Copied {xml_path} to {backup_file_path}")
-            else:
-                print(f"XML file for room {room_number} does not exist: {xml_path}")
+BuildingName = Original_Building_Path.split('/')[-1]
 
 
 def create_edited_building_subfolders(directory_path = "Athabasca2DMapping/Buildings Data"):
@@ -181,6 +107,9 @@ class Application(tk.Tk):
         # Store parameters
         self.building = building
         self.campus = campus
+        self.originalXMLfolderPath = f"Buildings Data/Buildings/{self.campus}/{self.building}"
+        self.editedXMLfolderPath = f"Buildings Data/Edited Building/{self.campus}/{self.building}"
+
 
         self.selected_polygons = []
         self.original_colors = {}
@@ -216,7 +145,7 @@ class Application(tk.Tk):
         button_frame.grid(row=1, column=0, pady=20, sticky="nsew")  # Positioned below the welcome label
 
         # Add buttons for each floor
-        floors = count_level_subfolders(directory_path, campus, building, "interior")
+        floors = count_level_subfolders(Original_Building_Path, campus, building, "interior")
 
         if not floors:  # Check if levels is empty
             # Create and display 'No data found' label
@@ -399,58 +328,59 @@ class Application(tk.Tk):
     def update_xml_with_door(self, room1, room2):
         pass
 
-    def update_xml_with_new_name(self, old_name, new_name):
+    import os
+
+    def find_xml_file(self, root_folder, file_name, room_name):
+        # Construct the path to the room directory
+        room_path = os.path.join(root_folder, 'Interior', f'{self.current_floor}',
+                                 room_name)
+        room_path = room_path.replace('/', '\\')
 
 
-        # Define the path to access the XML files in the new_xml folder in the project directory
-        project_directory = os.path.dirname(os.path.abspath(__file__))  # Get the current project directory
-        updated_folder_path = os.path.join(project_directory, "new_xml")
+        # Check if the room directory exists
+        if not os.path.isdir(room_path):
+            print('Directory does not exist:', room_path)
+            return None
 
-        # Get the current floor number
-        current_floor = self.get_current_floor()
-        level_folder_path = os.path.join(updated_folder_path, f"Level_{current_floor}", "X")
+        # Walk through the directory and its subdirectories
+        for root, dirs, files in os.walk(room_path):
 
-        try:
-            # Construct the path for the old XML file
-            old_xml_path = os.path.join(level_folder_path, f"{old_name}.xml")
-            if not os.path.exists(old_xml_path):
-                print(f"File not found: {old_xml_path}")
-                return
+            # Check if the specific XML file exists in the current directory
+            if file_name in files:
+                # Construct the full path to the file
+                file_path = os.path.join(root, file_name).replace('\\', '/')
+                print('File found:', file_path)
+                return file_path
 
-            # Parse the original XML file
-            # print(f"Parsing XML file from: {old_xml_path}")
-            tree = ET.parse(old_xml_path)
-            root = tree.getroot()
+        print('File not found.')
+        return None
 
-            # Update the XML content
-            print(f"Updating XML content for room: {old_name} to {new_name}")
-            root.set('name', new_name)
-            root.set('key', new_name)
-            for field in root.findall('.//field'):
-                if field.get('key') == 'name':
-                    content_element = field.find('content')
-                    if content_element is not None:
-                        content_element.text = new_name
+    def update_xml_with_new_name(self, room_name, new_name):
+        if self.current_floor is None:
+            raise ValueError("Current floor is not set.")
 
-            # Construct the new XML file path with versioning
-            base_new_xml_path = os.path.join(level_folder_path, new_name)
-            new_xml_path = f"{base_new_xml_path}.xml"
-            counter = 1
+        original_xml_filename = "xml"
+        original_xml_path = self.find_xml_file(self.originalXMLfolderPath, original_xml_filename, room_name)
 
-            # Check for existing files and generate a new name if necessary
-            while os.path.exists(new_xml_path):
-                counter += 1
-                new_xml_path = f"{base_new_xml_path}_{counter}.xml"
+        if original_xml_path is None:
+            raise FileNotFoundError(
+                f"Original XML file '{original_xml_filename}' not found in '{self.originalXMLfolderPath}'.")
 
-            print(f"Saving updated XML file to: {new_xml_path}" + "\n")
-            tree.write(new_xml_path, encoding='utf-8', xml_declaration=True)
+        edited_folder_path = os.path.join(self.editedXMLfolderPath, self.current_floor)
+        edited_xml_path = os.path.join(edited_folder_path, original_xml_filename)  # Keep original filename for now
 
-            # Remove the old XML file
-            os.remove(old_xml_path)
-            # print(f"Deleted old XML file: {old_xml_path}")
+        # Ensure the destination directory exists
+        os.makedirs(edited_folder_path, exist_ok=True)
 
-        except Exception as e:
-            print(f"An error occurred: {e}")
+        # Check if original_xml_path is a file
+        if not os.path.isfile(original_xml_path):
+            raise FileNotFoundError(f"The path '{original_xml_path}' is not a file.")
+
+        # Copy the original XML file to the edited location
+        shutil.copy2(original_xml_path, edited_xml_path)
+        print(f"Copied '{original_xml_path}' to '{edited_xml_path}'")
+
+
 
     def update_xml_with_wall(self, point1, point2):
         pass
