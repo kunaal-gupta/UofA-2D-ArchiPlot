@@ -171,6 +171,7 @@ class Application(tk.Tk):
         self.container.grid_rowconfigure(2, weight=1)  # Row for canvas
         self.container.grid_columnconfigure(0, weight=1)
         self.container.grid_columnconfigure(1, weight=0)  # Optional: Add weight to the logo column
+
         # Add a welcome message
         self.welcome_label = tk.Label(self.container, text="Welcome to UofA " + BuildingName + " Architecture UI",
                                       font=("Helvetica", 24, "bold"), anchor="center")
@@ -182,10 +183,16 @@ class Application(tk.Tk):
 
         # Add buttons for each floor
         floors = LevelsArray
-        for floor in floors:
-            button = ttk.Button(button_frame, text=f"Floor {floor}", command=lambda f=floor: self.plot_floor_map(f))
-            button.pack(side=tk.LEFT, padx=(10, 5))  # Add padding between buttons
-
+        if not floors:  # Check if levels is empty
+            # Create and display 'No data found' label
+            self.no_data_label = tk.Label(self.container, text="No data found", font=("Helvetica", 18, "italic"), fg="red")
+            self.no_data_label.grid(row=1, column=0, pady=20, sticky="nsew")  # Display 'No data found' message
+            button_frame.grid_remove()  # Hide button frame if no data found
+        else:
+            self.no_data_label = None  # Initialize to None if data is found
+            for floor in floors:
+                button = ttk.Button(button_frame, text=f"Floor {floor}", command=lambda f=floor: self.plot_floor_map(f))
+                button.pack(side=tk.LEFT, padx=(10, 5))  # Add padding between buttons
 
         # Create the canvas holder frame
         self.canvas_frame = ttk.Frame(self.container)
@@ -284,6 +291,7 @@ class Application(tk.Tk):
         import XMLDataExtract
 
         def fetchCoordinateMap(floorNumber):
+            print(XMLDataExtract.main(floorNumber=floorNumber))
             return XMLDataExtract.main(floorNumber=floorNumber)
 
         def categorizesCoordinateMap(floorNumber: int):
@@ -312,9 +320,6 @@ class Application(tk.Tk):
                         # Highlight the selected polygon if not already selected
                         if polygon not in self.selected_polygons:
                             self.selected_polygons.append(polygon)
-                            # Remove the following lines to avoid changing the polygon color
-                            # polygon.set_edgecolor('gray')
-                            # polygon.set_facecolor('gray')
 
                         self.canvas.draw()  # Refresh the canvas
                         break

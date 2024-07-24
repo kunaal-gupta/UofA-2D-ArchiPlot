@@ -1,7 +1,7 @@
 import os
 import xml.etree.ElementTree as ET
 
-# directory_path = "C:/Users/kunaa/Downloads/Athabasca Hall/Athabasca Hall/"
+# directory_path = "C:/Users/kunaa/Downloads/Athabasca Hall/Athabasca Hall"
 directory_path = "C:/Users/kunaa/Downloads/Buildings/Buildings/North Campus/Cameron Library"
 
 filesArray = []
@@ -28,6 +28,7 @@ def fetch_XML_file_paths(directory, floor):
     print(filesArray)
     return filesArray
 
+
 def parse_xml_for_coordinates(xml_file):
     # Parse the XML file
     tree = ET.parse(xml_file)
@@ -51,6 +52,7 @@ def parse_xml_for_coordinates(xml_file):
             coordinate_output_list.append([float(x), float(z)])
 
         return coordinate_output_list
+
 
 def parse_floor_number(text):
     path_parts = text.split('/')
@@ -115,7 +117,6 @@ def main(floorNumber):
     floorNumber = floorNumber.split()[-1]
     files = fetch_XML_file_paths(directory_path, floorNumber)
     CoordinatesMap = {}
-
 
     for file in files:
         RoomNumber, Level = parse_xml_for_roomnumber_and_floor(file)
