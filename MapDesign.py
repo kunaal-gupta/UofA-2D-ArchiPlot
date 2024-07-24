@@ -5,7 +5,7 @@ import tkinter.messagebox as messagebox
 import xml.etree.ElementTree as ET
 from tkinter import simpledialog
 from tkinter import ttk
-from XMLDataExtract import directory_path, countLevels, LevelName
+from XMLDataExtract import directory_path, LevelsArray
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
@@ -181,7 +181,7 @@ class Application(tk.Tk):
         button_frame.grid(row=1, column=0, pady=20, sticky="nsew")  # Positioned below the welcome label
 
         # Add buttons for each floor
-        floors = [1, 2, 3, 4]
+        floors = LevelsArray
         for floor in floors:
             button = ttk.Button(button_frame, text=f"Floor {floor}", command=lambda f=floor: self.plot_floor_map(f))
             button.pack(side=tk.LEFT, padx=(10, 5))  # Add padding between buttons
@@ -288,18 +288,9 @@ class Application(tk.Tk):
 
         def categorizesCoordinateMap(floorNumber: int):
             CoordinateMap = fetchCoordinateMap(floorNumber)
-            # Room = CoordinateMap['Room']
-            # Entrance_En = CoordinateMap['Entrance']
-            # Elevator_El = CoordinateMap['Elevator']
-            # Hallway_H = CoordinateMap['Hallway']
-            # Washroom_WM_WW = CoordinateMap['Washroom']
-            # Stair_S = CoordinateMap['Stairs']
-            # XPoints = CoordinateMap['X']
             return [CoordinateMap[key] for key in CoordinateMap], [str(key) for key in CoordinateMap]
 
         points_categories, category_names = categorizesCoordinateMap(floor)
-        print(points_categories)
-        print(category_names)
         title = f'Architectural Map of Floor {floor}'
 
         return points_categories, category_names, title
