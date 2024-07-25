@@ -328,58 +328,61 @@ class Application(tk.Tk):
     def update_xml_with_door(self, room1, room2):
         pass
 
-    import os
 
-    def find_xml_file(self, root_folder, file_name, room_name):
-        # Construct the path to the room directory
-        room_path = os.path.join(root_folder, 'Interior', f'{self.current_floor}',
-                                 room_name)
+    def find_xml_file_path(self, root_folder, file_name, room_name):
+        room_path = os.path.join(root_folder, 'Interior', f'{self.current_floor}',room_name)
         room_path = room_path.replace('/', '\\')
 
-
-        # Check if the room directory exists
         if not os.path.isdir(room_path):
-            print('Directory does not exist:', room_path)
+            print('XML Directory does not exist:', room_path)
             return None
 
-        # Walk through the directory and its subdirectories
         for root, dirs, files in os.walk(room_path):
 
-            # Check if the specific XML file exists in the current directory
             if file_name in files:
-                # Construct the full path to the file
                 file_path = os.path.join(root, file_name).replace('\\', '/')
-                print('File found:', file_path)
                 return file_path
 
-        print('File not found.')
+        print('xml File not found.')
         return None
+
 
     def update_xml_with_new_name(self, room_name, new_name):
         if self.current_floor is None:
             raise ValueError("Current floor is not set.")
 
-        original_xml_filename = "xml"
-        original_xml_path = self.find_xml_file(self.originalXMLfolderPath, original_xml_filename, room_name)
+        XML_Filename = "xml"
+        original_xml_path = self.find_xml_file_path(self.originalXMLfolderPath, XML_Filename, room_name)
 
         if original_xml_path is None:
             raise FileNotFoundError(
-                f"Original XML file '{original_xml_filename}' not found in '{self.originalXMLfolderPath}'.")
+                f"Original XML file '{XML_Filename}' not found in '{self.originalXMLfolderPath}'.")
 
-        edited_folder_path = os.path.join(self.editedXMLfolderPath, self.current_floor)
-        edited_xml_path = os.path.join(edited_folder_path, original_xml_filename)  # Keep original filename for now
+        edited_folder_path = os.path.join(self.editedXMLfolderPath, self.current_floor, room_name)
+        edited_xml_path = os.path.join(edited_folder_path, XML_Filename)  # Keep original filename for now
 
-        # Ensure the destination directory exists
         os.makedirs(edited_folder_path, exist_ok=True)
 
-        # Check if original_xml_path is a file
         if not os.path.isfile(original_xml_path):
             raise FileNotFoundError(f"The path '{original_xml_path}' is not a file.")
 
-        # Copy the original XML file to the edited location
         shutil.copy2(original_xml_path, edited_xml_path)
         print(f"Copied '{original_xml_path}' to '{edited_xml_path}'")
 
+        try:
+            tree = ET.parse(edited_xml_path)
+            root = tree.getroot()
+
+            if root.tag == 'item':
+                root.set('name', new_name)
+                root.set('key', new_name)
+
+                tree.write(edited_xml_path, encoding='utf-8', xml_declaration=True)
+                print("The item name and key have been updated successfully.")
+            else:
+                print("The root element is not <item>.")
+        except ET.ParseError as e:
+            print(f"Failed to parse XML file: {e}")
 
 
     def update_xml_with_wall(self, point1, point2):
