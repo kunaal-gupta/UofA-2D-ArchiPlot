@@ -277,7 +277,7 @@ class Application(tk.Tk):
             for category_index, category_polygons in enumerate(polygons):
                 for polygon, room_number in category_polygons:
                     if polygon.get_path().contains_point((x, y)):
-                        print(f"Room clicked: {room_number}")  # Print the room number
+                        print(f"Room clicked: {room_number}\n")  # Print the room number
                         self.handleCheck(room_number, (x, y))
 
                         # Highlight the selected polygon if not already selected
@@ -289,7 +289,6 @@ class Application(tk.Tk):
 
     def handleCheck(self, room_name, coordinates):
         action = simpledialog.askstring("Action", "Enter action: add_door, correct_name, or add_wall")
-        print(room_name)
         if action == "add_door":
             self.add_door(room_name)
         elif action == "correct_name":
@@ -313,7 +312,8 @@ class Application(tk.Tk):
         dialog = CustomDialog(self, room_name)
         new_name = dialog.result
         if new_name:
-            print(f"Changing {room_name} to {new_name}")
+            print(f"Changing Room name: {room_name} to {new_name}\n")
+
             self.update_xml_with_new_name(room_name, new_name)
 
     def add_wall(self, coordinates):
@@ -367,7 +367,6 @@ class Application(tk.Tk):
             raise FileNotFoundError(f"The path '{original_xml_path}' is not a file.")
 
         shutil.copy2(original_xml_path, edited_xml_path)
-        print(f"Copied '{original_xml_path}' to '{edited_xml_path}'")
 
         try:
             tree = ET.parse(edited_xml_path)
@@ -378,7 +377,7 @@ class Application(tk.Tk):
                 root.set('key', new_name)
 
                 tree.write(edited_xml_path, encoding='utf-8', xml_declaration=True)
-                print("The item name and key have been updated successfully.")
+                print(f"The item name and key have been updated successfully in {room_name}.")
             else:
                 print("The root element is not <item>.")
         except ET.ParseError as e:
