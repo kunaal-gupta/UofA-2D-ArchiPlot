@@ -15,7 +15,6 @@ BuildingName = Original_Building_Path.split('/')[-1]
 
 
 def create_edited_building_subfolders(directory_path = "Athabasca2DMapping/Buildings Data"):
-    # Define the subfolders to be created
     subfolders = [
         "Augustana Campus",
         "Calgary Centre",
@@ -25,7 +24,6 @@ def create_edited_building_subfolders(directory_path = "Athabasca2DMapping/Build
         "South Campus"
     ]
 
-    # Create the "Edited Building" subfolder if it doesn't exist
     edited_building_path = os.path.join(directory_path, "Edited Building")
     if not os.path.exists(edited_building_path):
         os.makedirs(edited_building_path)
@@ -178,7 +176,7 @@ class Application(tk.Tk):
 
     def check_room_name_errors(self):
         # Logic to check room name errors
-        print("Checking for irregular room name....." + "\n")
+        print("Checking for irregular room name.....")
 
         # Define the project directory and the path to the new XML folder
         project_directory = os.path.dirname(os.path.abspath(__file__))  # Current script's directory
@@ -313,7 +311,6 @@ class Application(tk.Tk):
         new_name = dialog.result
         if new_name:
             print(f"Changing Room name: {room_name} to {new_name}\n")
-
             self.update_xml_with_new_name(room_name, new_name)
 
     def add_wall(self, coordinates):
