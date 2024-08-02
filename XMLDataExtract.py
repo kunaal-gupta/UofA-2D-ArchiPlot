@@ -63,6 +63,44 @@ def parse_floor_number(text):
 
     return Level
 
+def polygon_centroid(vertices):
+    if vertices is not None:
+        # Number of vertices
+        n = len(vertices)
+
+        # Initialize variables to store area and centroid coordinates
+        area = 0
+        centroid_x = 0
+        centroid_y = 0
+
+        # Iterate over each pair of vertices
+        for i in range(n):
+            # Current vertex
+            current_vertex = vertices[i]
+
+            # Next vertex (if current vertex is the last one, wrap around to the first vertex)
+            next_vertex = vertices[(i + 1) % n]
+
+            # Compute the cross-product of current and next vertex coordinates
+            cross_product = (current_vertex[0] * next_vertex[1]) - (next_vertex[0] * current_vertex[1])
+
+            # Update the area
+            area += cross_product
+
+            # Update centroid coordinates
+            centroid_x += (current_vertex[0] + next_vertex[0]) * cross_product
+            centroid_y += (current_vertex[1] + next_vertex[1]) * cross_product
+
+        # Check if area is zero
+        if area == 0:
+            return None  # Handle degenerate polygon
+
+        # Calculate the final area and centroid coordinates
+        area /= 2.0
+        centroid_x /= (6 * area)
+        centroid_y /= (6 * area)
+
+        return round(centroid_x, 5), round(centroid_y, 5)
 
 def parse_xml_for_roomnumber_and_floor(xml_file):
     tree = ET.parse(xml_file)
@@ -111,26 +149,46 @@ def count_level_subfolders(base_directory, building, campus, interior_folder):
         print(f"An error occurred: {e}")
         return 0
 
+def turtleConverter(building, campus, floor, RoomNumber, coordinateList: list):
+    row = f"Building: {building}, Campus: {campus}, Floor: {floor}, Room: {RoomNumber}, Centroid: {polygon_centroid(coordinateList)}"
+    row = "{"+row+"}"
+    return row
 
 
-
-def main(floorNumber, building, campus):
+def main(floor, building, campus):
     global path
     path = Original_Building_Path + campus + '/' + building
 
-    floorNumber = floorNumber.split()[-1]
+    floorNumber = floor.split()[-1]
     files = fetch_XML_file_paths(path, floorNumber)
     CoordinatesMap = {}
 
-    for file in files:
-        RoomNumber, Level = parse_xml_for_roomnumber_and_floor(file)
-        coordinateList = parse_xml_for_coordinates(file)
+    existing_lines = set()
+    output_file = 'TurtleOutput.txt'
 
-        if coordinateList is not None:
-            coordinateList.insert(0, [RoomNumber.replace('-', ''), file])
-            if str(parse_xml_for_type(file).strip().split()[0]) not in CoordinatesMap:
-                CoordinatesMap[str(parse_xml_for_type(file).strip().split()[0])] = list()
-            CoordinatesMap[str(parse_xml_for_type(file).strip().split()[0])].append(coordinateList)
+    if os.path.exists(output_file):
+        with open(output_file, 'r') as file_output:
+            existing_lines = set(file_output.readlines())
 
+    with open(output_file, 'a') as file_output:
+        for file in files:
+            RoomNumber, Level = parse_xml_for_roomnumber_and_floor(file)
+            coordinateList = parse_xml_for_coordinates(file)
+            turtleData = turtleConverter(building, campus, floor, RoomNumber, coordinateList) + '\n'
+
+            newDataCheck = False
+            if turtleData not in existing_lines:
+                newDataCheck = True
+                file_output.write(turtleData)
+                existing_lines.add(turtleData)
+
+            if coordinateList is not None:
+                coordinateList.insert(0, [RoomNumber.replace('-', ''), file])
+                type_key = str(parse_xml_for_type(file).strip().split()[0])
+                if type_key not in CoordinatesMap:
+                    CoordinatesMap[type_key] = []
+                CoordinatesMap[type_key].append(coordinateList)
+
+    if newDataCheck:
+        print(f'Appended turtle data for {building} [{floor}] in {output_file} file')
     return CoordinatesMap
-
