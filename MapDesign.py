@@ -141,11 +141,18 @@ class Application(tk.Tk):
         quit_button = ttk.Button(self.container, text="Quit", command=self.quit)
         quit_button.grid(row=3, column=0, pady=10, sticky="ew")
 
-        self.check_errors_button = ttk.Button(self.container, text="Check Room Name Errors",
+        self.check_errors_button = ttk.Button(self.container, text="Check Room Name",
                                               command=self.check_room_name_errors)
         self.check_errors_button.grid(row=1, column=1, pady=10, padx=(0, 10),
                                       sticky='ne')
         self.check_errors_button.grid_remove()
+
+
+        self.add_wall_button = ttk.Button(self.container, text="Add Wall Button",
+                                              command=self.check_room_name_errors)
+        self.add_wall_button.grid(row=2, column=1, pady=10, padx=(1, 0),
+                                      sticky='ne')
+        self.add_wall_button.grid_remove()
         self.selected_rooms = []
 
     def check_room_name_errors(self):
@@ -170,6 +177,7 @@ class Application(tk.Tk):
     def plot_floor_map(self, floor, building, campus):
         self.current_floor = floor
         self.check_errors_button.grid()
+        self.add_wall_button.grid()
 
         for widget in self.canvas_frame.winfo_children():
             widget.destroy()
@@ -223,21 +231,23 @@ class Application(tk.Tk):
     def get_current_floor(self):
         return self.current_floor
 
-
     def checkFunction(self, event, polygons, category_names):
         if event.inaxes is not None:
             x, y = event.xdata, event.ydata
+            print(f"Coordinates: ({x}, {y})")
+
             for category_index, category_polygons in enumerate(polygons):
                 for polygon, room_number in category_polygons:
                     if polygon.get_path().contains_point((x, y)):
-                        print(f"Room clicked: {room_number}\n")
-                        self.handleCheck(room_number, (x, y))
+                        if room_number != "Building Outline":
+                            print(f"Room clicked: {room_number}")
+                            self.handleCheck(room_number, (x, y))
+                            if polygon not in self.selected_polygons:
+                                self.selected_polygons.append(polygon)
+                            self.canvas.draw()
+                            return
 
-                        if polygon not in self.selected_polygons:
-                            self.selected_polygons.append(polygon)
-
-                        self.canvas.draw()
-                        break
+        print("Event not in axes or no polygon contains the point")  # Debug print to see if the event was outside axes
 
     def handleCheck(self, room_name, coordinates):
         action = simpledialog.askstring("Action", "Enter action: add_door, correct_name, or add_wall")
