@@ -336,7 +336,7 @@ class Application(tk.Tk):
                     root.set('key', new_name)
 
                     tree.write(edited_xml_path, encoding='utf-8', xml_declaration=True)
-                    print(f"The item name and key have been updated successfully in {room_name}.")
+                    print(f"The item name and key have been updated successfully in {room_name} to {new_name}.")
                 else:
                     print("The root element is not <item>.")
 
