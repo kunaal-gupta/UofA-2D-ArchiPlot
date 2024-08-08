@@ -5,14 +5,15 @@ import tkinter.messagebox as messagebox
 import xml.etree.ElementTree as ET
 from tkinter import simpledialog
 from tkinter import ttk
-from XMLDataExtract import Original_Building_Path, Edited_Building_Path, count_level_subfolders
+from XMLDataExtract import Original_Building_Path, Edited_Building_Path, count_level_subfolders, \
+    parse_xml_for_roomnumber_and_floor, parse_xml_for_coordinates, turtleConverter
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 BuildingMap = {}
 BuildingName = Original_Building_Path.split('/')[-1]
-
+updatedRowsArray = []
 print(Edited_Building_Path)
 
 
@@ -41,7 +42,6 @@ def create_edited_building_subfolders(directory_path="Athabasca2DMapping/Buildin
         #     print(f"2. Created: {subfolder_path}")
         # else:
         #     print(f"2. Already exists: {subfolder_path}")
-
 
 def draw_points(PointArray, category_names, title, onclick_callback, selected_polygons, floor):
     colors = ['red', 'blue', 'green', 'orange', 'black', 'grey', 'yellow', 'pink', 'violet']
@@ -279,6 +279,7 @@ class Application(tk.Tk):
     def find_xml_file_path(self, root_folder, file_name = 'xml', roomname='X'):
         room_path = os.path.join(root_folder, 'Interior', f'{self.current_floor}', roomname)
         room_path = room_path.replace('/', '\\')
+
         if not os.path.isdir(room_path):
             print('XML Directory does not exist:', room_path)
             return None
@@ -310,7 +311,7 @@ class Application(tk.Tk):
 
             temp = i[x_position:]
 
-            edited_folder_path = os.path.join(self.editedXMLfolderPath, self.current_floor, room_name, xml_file_path)
+            edited_folder_path = os.path.join(self.editedXMLfolderPath, 'Interior', self.current_floor, room_name, xml_file_path)
             edited_xml_path = os.path.join(edited_folder_path, XML_Filename)
 
             os.makedirs(edited_folder_path, exist_ok=True)
@@ -319,10 +320,9 @@ class Application(tk.Tk):
                 raise FileNotFoundError(f"The path '{i}' is not a file.")
 
             shutil.copy2(i, edited_xml_path)
-            print(f'{i} is copied')
 
             root = tk.Tk()
-            root.withdraw()  # Hide the main window
+            root.withdraw()
 
             dialog = CustomDialog(root, temp)
             new_name = dialog.result
@@ -339,11 +339,52 @@ class Application(tk.Tk):
                     print(f"The item name and key have been updated successfully in {room_name}.")
                 else:
                     print("The root element is not <item>.")
+
+                self.update_records(self.building, self.campus, self.current_floor, new_name, edited_xml_path)
+
             except ET.ParseError as e:
                 print(f"Failed to parse XML file: {e}")
+        self.Update_TurtleOuput('TurtleOutput.txt', self.building, self.campus, self.current_floor, 'X')
+
+
 
     def update_xml_with_wall(self, point1, point2):
         pass
 
     def update_xml_with_door(self, room1, room2):
         pass
+
+    #Update TurtleOutput for X
+    def update_records(self, building, campus, floor, room, file):
+
+        global updatedRowsArray
+        # Adding new records
+        RoomNumber, Level = parse_xml_for_roomnumber_and_floor(file)
+        coordinateList = parse_xml_for_coordinates(file)
+        turtleData = turtleConverter(building, campus, floor, room, coordinateList) + '\n'
+        updatedRowsArray.append(turtleData)
+
+
+    def Update_TurtleOuput(self, file_path, building, campus, floor, room):
+
+        try:
+            with open(file_path, 'r') as file:
+                lines = file.readlines()
+
+            filtered_lines = []
+            for line in lines:
+                if not (f"Building: {building}, Campus: {campus}, Floor: {floor}, Room: {room}" in line):
+                    filtered_lines.append(line)
+
+            filtered_lines+=updatedRowsArray
+
+
+            with open(file_path, 'w') as file:
+                file.writelines(filtered_lines)
+
+            print("\n"+"Records updated successfully." +"\n")
+
+        except FileNotFoundError:
+            print(f"The file {file_path} does not exist.")
+        except IOError as e:
+            print(f"An error occurred while accessing the file: {e}")
