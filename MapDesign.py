@@ -10,11 +10,12 @@ from XMLDataExtract import Original_Building_Path, Edited_Building_Path, count_l
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from DialogueBox import CustomDialog
+
 
 BuildingMap = {}
 BuildingName = Original_Building_Path.split('/')[-1]
 updatedRowsArray = []
-print(Edited_Building_Path)
 
 
 def create_edited_building_subfolders(directory_path="Athabasca2DMapping/Buildings Data"):
@@ -84,20 +85,6 @@ def draw_points(PointArray, category_names, title, onclick_callback, selected_po
 
     fig.canvas.mpl_connect('button_press_event', lambda event: onclick_callback(event, polygons, category_names))
     return fig
-
-
-class CustomDialog(simpledialog.Dialog):
-    def __init__(self, master, room_name):
-        self.room_name = room_name
-        super().__init__(master)
-
-    def body(self, master):
-        tk.Label(master, text=f"Enter new name for Room: {self.room_name}").pack(pady=5)
-        self.entry = tk.Entry(master, width=30)
-        self.entry.pack(pady=5)
-
-    def apply(self):
-        self.result = self.entry.get()
 
 
 class Application(tk.Tk):
