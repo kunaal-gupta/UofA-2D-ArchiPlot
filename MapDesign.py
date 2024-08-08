@@ -34,7 +34,6 @@ def create_edited_building_subfolders(directory_path="Athabasca2DMapping/Buildin
     # else:
     #     print(f"1. Already exists: {edited_building_path}")
 
-    # Create each specified subfolder within "Edited Building" if it doesn't exist
     for subfolder in subfolders:
         subfolder_path = os.path.join(edited_building_path, subfolder)
         if not os.path.exists(subfolder_path):
@@ -358,7 +357,6 @@ class Application(tk.Tk):
     def update_records(self, building, campus, floor, room, file):
 
         global updatedRowsArray
-        # Adding new records
         RoomNumber, Level = parse_xml_for_roomnumber_and_floor(file)
         coordinateList = parse_xml_for_coordinates(file)
         turtleData = turtleConverter(building, campus, floor, room, coordinateList) + '\n'

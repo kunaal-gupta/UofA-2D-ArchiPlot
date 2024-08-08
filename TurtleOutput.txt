@@ -259,3 +259,36 @@
 {Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: r, Centroid: (579.48413, -119.17013)}
 {Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: s, Centroid: (467.17621, -194.97302)}
 {Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: t, Centroid: (-243.45603, 302.37028)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: B-01, Centroid: (-277.74979, 470.68625)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: Study Space, Centroid: (60.99454, 554.42336)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: Study Space, Centroid: (72.56492, 303.49025)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: Study Space, Centroid: (135.42626, 63.86363)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: Study Space, Centroid: (373.76848, 376.04155)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: B-11, Centroid: (-78.74663, -230.37295)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: B-11A, Centroid: (-112.37857, -27.24546)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: B-11B, Centroid: (39.0494, -27.24546)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: B-11C, Centroid: (-278.65189, -178.69642)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: OneCard Office, Centroid: (-332.44912, -469.47049)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: Knowledge Common, Centroid: (121.23176, -402.52384)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: Study Space, Centroid: (135.42626, -80.2945)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: B-31, Centroid: (450.85183, 19.54355)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: Building Outline, Centroid: (6.793, -35.34305)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: Elevator, Centroid: (370.74485, -206.94236)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: Elevator, Centroid: (-334.9639, 51.69506)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: Hallway, Centroid: (-359.3268, -39.82856)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: Hallway, Centroid: (385.3475, -291.24821)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: Stairs, Centroid: (-439.36165, 134.31751)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: Stairs, Centroid: (-562.36337, -331.41049)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: Stairs, Centroid: (475.40306, -297.63468)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: Stairs, Centroid: (-459.0174, -363.28301)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: Stairs, Centroid: (352.54083, 562.34647)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: Washroom Men, Centroid: (478.80874, -402.37087)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: Washroom Men, Centroid: (-539.47383, 69.35756)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: Washroom Women, Centroid: (-539.47383, -30.71108)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: Washroom Women, Centroid: (390.99938, -428.23034)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: None, Centroid: None}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: rte, Centroid: (326.96393, -108.57425)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: ter, Centroid: (61.03638, -191.46029)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: tr, Centroid: (-541.02705, -184.9836)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: 6, Centroid: (-263.97281, 14.27329)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: ss, Centroid: (565.97868, -111.43437)}
