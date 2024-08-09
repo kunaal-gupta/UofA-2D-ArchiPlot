@@ -3,7 +3,6 @@ import shutil
 import tkinter as tk
 import xml.etree.ElementTree as ET
 from tkinter import ttk
-
 from RoomManager import RoomManager
 from XMLDataExtract import Original_Building_Path, Edited_Building_Path, count_level_subfolders, \
     parse_xml_for_roomnumber_and_floor, parse_xml_for_coordinates, turtleConverter
@@ -168,7 +167,7 @@ class Application(tk.Tk):
         self.check_errors_button.grid(row=1, column=1, pady=10, padx=(0, 10), sticky='ne')
         self.check_errors_button.grid_remove()
 
-        self.add_wall_button = ttk.Button(self.container, text="generating_neigbours", command=self.calling_generating_neigbours_func)
+        self.add_wall_button = ttk.Button(self.container, text="Generate Neighbours Data", command=self.calling_generating_neigbours_func)
         self.add_wall_button.grid(row=2, column=1, pady=10, padx=(1, 0), sticky='ne')
         self.add_wall_button.grid_remove()
 
