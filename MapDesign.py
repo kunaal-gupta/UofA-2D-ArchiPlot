@@ -88,16 +88,20 @@ def draw_points(PointArray, category_names, title, onclick_callback, selected_po
 
 
 def get_initials(text):
-    words = text.split()
-    initials = []
+    try:
+        int(text)
+        return text
+    except ValueError:
+        words = text.split()
+        initials = []
 
-    for word in words:
-        if word.isdigit():  # Check if the word is a number
-            initials.append(word)
-        else:
-            initials.append(word[0].upper())  # Get the initial of the word
+        for word in words:
+            if word.isdigit():  # Check if the word is a number
+                initials.append(word)
+            else:
+                initials.append(word[0].upper())  # Get the initial of the word
 
-    return ''.join(initials)
+        return ''.join(initials)
 
 class Application(tk.Tk):
     def __init__(self, building, campus, *args, **kwargs):
@@ -181,6 +185,7 @@ class Application(tk.Tk):
                 room_points = np.array(points[1:])
                 centroid = np.mean(room_points, axis=0)
                 room_label = get_initials(room_number)
+                print(room_label)
                 plt.text(centroid[0], centroid[1], room_label, fontsize=8, ha='center', va='center',
                          color='white',
                          bbox=dict(facecolor='black', alpha=0.7, edgecolor='none', boxstyle='round,pad=0.3'))

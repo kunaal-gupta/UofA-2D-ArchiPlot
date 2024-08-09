@@ -98,8 +98,8 @@ def parse_xml_for_type(xml_file):
 
     if field is not None:
         try:
-            int(parse_xml_for_roomnumber_and_floor(xml_file)[0].split('-')[0])
-            return 'Room'
+            a = int(parse_xml_for_roomnumber_and_floor(xml_file))
+            return str(a)
 
         except:
             return field.text
