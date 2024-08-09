@@ -22,9 +22,8 @@ class RoomManager:
             else:
                 print(f'Appending data to {output_file}')
 
-            # Loop through each pair of rooms
             for i in range(len(self.rooms)):
-                for j in range(i + 1, len(self.rooms)):  # Ensure not to check the same pair twice
+                for j in range(i + 1, len(self.rooms)):
                     room1_name = self.rooms[i][0][0]
                     room1 = self.rooms[i][1:]
                     room2_name = self.rooms[j][0][0]
