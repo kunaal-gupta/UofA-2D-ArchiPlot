@@ -1,7 +1,6 @@
 import os
 import xml.etree.ElementTree as ET
 
-# path = "Buildings Data/Buildings/"
 Original_Building_Path = "Buildings Data/Buildings/"
 Edited_Building_Path = "Buildings Data/Edited Building/"
 
@@ -111,13 +110,12 @@ def count_level_subfolders(base_directory, building, campus, interior_folder):
     try:
         interior_path = os.path.join(base_directory, interior_folder)
         if not os.path.isdir(interior_path):
-            # print(f"The interior folder '{interior_folder}' does not exist in '{base_directory}'.")
+            print(f"The interior folder '{interior_folder}' does not exist in '{base_directory}'.")
             return 0
 
         entries = os.listdir(interior_path)
         level_subfolders = [entry for entry in entries if
                             os.path.isdir(os.path.join(interior_path, entry)) and entry.startswith('Level ')]
-        # print(f"Filtered level subfolders: {level_subfolders}")
 
         return level_subfolders
     except Exception as e:
@@ -130,6 +128,8 @@ def turtleConverter(building, campus, floor, RoomNumber, coordinateList: list):
     return row
 
 
+import os
+
 def main(floor, building, campus):
     global path
     path = Original_Building_Path + campus + '/' + building
@@ -138,20 +138,24 @@ def main(floor, building, campus):
     files = fetch_XML_file_paths(path, floorNumber)
     CoordinatesMap = {}
 
-    existing_lines = set()
-    output_file = 'TurtleOutput.txt'
+    output_file = 'OutputFiles/TurtleOutput.txt'
 
+    directory = os.path.dirname(output_file)
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+    existing_lines = set()
     if os.path.exists(output_file):
         with open(output_file, 'r') as file_output:
             existing_lines = set(file_output.readlines())
 
     with open(output_file, 'a') as file_output:
+        newDataCheck = False
         for file in files:
             RoomNumber, Level = parse_xml_for_roomnumber_and_floor(file)
             coordinateList = parse_xml_for_coordinates(file)
             turtleData = turtleConverter(building, campus, floor, RoomNumber, coordinateList) + '\n'
 
-            newDataCheck = False
             if turtleData not in existing_lines:
                 newDataCheck = True
                 file_output.write(turtleData)

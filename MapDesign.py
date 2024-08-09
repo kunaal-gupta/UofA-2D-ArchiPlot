@@ -3,6 +3,8 @@ import shutil
 import tkinter as tk
 import xml.etree.ElementTree as ET
 from tkinter import ttk
+import matplotlib.lines as mlines
+
 from RoomManager import RoomManager
 from XMLDataExtract import Original_Building_Path, Edited_Building_Path, count_level_subfolders, \
     parse_xml_for_roomnumber_and_floor, parse_xml_for_coordinates, turtleConverter
@@ -30,25 +32,18 @@ def create_edited_building_subfolders(directory_path="Athabasca2DMapping/Buildin
     edited_building_path = os.path.join(directory_path, "Edited Building")
     if not os.path.exists(edited_building_path):
         os.makedirs(edited_building_path)
-    #     print(f"1. Created: {edited_building_path}")
-    # else:
-    #     print(f"1. Already exists: {edited_building_path}")
 
     for subfolder in subfolders:
         subfolder_path = os.path.join(edited_building_path, subfolder)
         if not os.path.exists(subfolder_path):
             os.makedirs(subfolder_path)
-        #     print(f"2. Created: {subfolder_path}")
-        # else:
-        #     print(f"2. Already exists: {subfolder_path}")
 
 
 def draw_points(PointArray, category_names, title, onclick_callback, selected_polygons, floor):
     global RoomsDataArray
     colors = ['red', 'blue', 'green', 'orange', 'maroon', 'grey', 'yellow', 'pink', 'violet']
 
-    fig, ax = plt.subplots(figsize=(10, 8))
-
+    fig, ax = plt.subplots(figsize=(12, 8))
     polygons = []
     room_colors = []
 
@@ -88,13 +83,13 @@ def draw_points(PointArray, category_names, title, onclick_callback, selected_po
         selected_polygon.set_facecolor('gray')
 
     plt.title(title)
-    legend_handles = [plt.Line2D([0], [0], color=colors[i % len(colors)], linewidth=4.5, label=category_names[i]) for i
+    legend_handles = [mlines.Line2D([0], [0], color=colors[i % len(colors)], linewidth=4.5, label=category_names[i]) for i
                       in range(len(PointArray))]
-    plt.legend(handles=legend_handles, loc='best')
+    plt.legend(handles=legend_handles, loc='best', bbox_to_anchor=(1.05, 1), borderaxespad=0.)
+    plt.subplots_adjust(right=0.75)
 
     fig.canvas.mpl_connect('button_press_event', lambda event: onclick_callback(event, polygons, category_names))
     return fig, room_colors
-
 
 def get_initials(text):
     try:
@@ -156,20 +151,19 @@ class Application(tk.Tk):
                                     command=lambda f=floor: self.plot_floor_map(f, building, campus))
                 button.pack(side=tk.LEFT, padx=(10, 5))
 
+        style = ttk.Style()
+        style.configure('TButton', font=("Helvetica", 12, "bold"), background='#4CAF50', foreground='white')
+
         self.canvas_frame = ttk.Frame(self.container)
         self.canvas_frame.grid(row=2, column=0, sticky="nsew")
 
-        quit_button = ttk.Button(self.container, text="Quit", command=self.quit)
-        quit_button.grid(row=3, column=0, pady=10, sticky="ew")
-
-        self.check_errors_button = ttk.Button(self.container, text="Check Room Name", command=self.correct_room_name)
-        self.check_errors_button.grid(row=1, column=1, pady=10, padx=(0, 10), sticky='ne')
+        self.check_errors_button = ttk.Button(self.container, text="Check Room Name", command=self.correct_room_name, style='TButton')
+        self.check_errors_button.grid(row=1, column=1, pady=(0, 0), padx=(10, 10), sticky='n')
         self.check_errors_button.grid_remove()
 
-        self.add_wall_button = ttk.Button(self.container, text="Generate Neighbours Data", command=self.calling_generating_neigbours_func)
-        self.add_wall_button.grid(row=2, column=1, pady=10, padx=(1, 0), sticky='ne')
+        self.add_wall_button = ttk.Button(self.container, text="Generate Neighbours Data", command=self.calling_generating_neigbours_func, style='TButton')
+        self.add_wall_button.grid(row=2, column=1, pady=(0, 0), padx=(10, 10), sticky='n')
         self.add_wall_button.grid_remove()
-
 
         self.selected_rooms = []
 
@@ -237,7 +231,6 @@ class Application(tk.Tk):
     def correct_room_name(self):
         self.update_xml_with_new_name()
 
-    # Functions to update XML files------------------------------------------------------------
     def find_xml_file_path(self, root_folder, file_name='xml', roomname='X'):
         room_path = os.path.join(root_folder, 'Interior', f'{self.current_floor}', roomname)
         room_path = room_path.replace('/', '\\')
@@ -263,7 +256,7 @@ class Application(tk.Tk):
         original_xml_path_array = self.find_xml_file_path(self.originalXMLfolderPath, XML_Filename, room_name)
 
         for i in original_xml_path_array:
-            print()
+            print('Original File Path: ', i)
             if i is None:
                 raise FileNotFoundError(
                     f"Original XML file '{XML_Filename}' not found in '{self.originalXMLfolderPath}'.")
@@ -283,11 +276,12 @@ class Application(tk.Tk):
                 raise FileNotFoundError(f"The path '{i}' is not a file.")
 
             shutil.copy2(i, edited_xml_path)
+            print(f'Copied the XML file:  {edited_xml_path}')
 
             root = tk.Tk()
             root.withdraw()
 
-            dialog = CustomDialog(root, temp)
+            dialog = CustomDialog(root, temp, dialog_title='Changing Room Name')
             new_name = dialog.result
 
             try:
@@ -299,7 +293,7 @@ class Application(tk.Tk):
                     root.set('key', new_name)
 
                     tree.write(edited_xml_path, encoding='utf-8', xml_declaration=True)
-                    print(f"The item name and key have been updated successfully in {room_name} to {new_name}.")
+                    print(f"Name Change: The item name & key have been updated in room {room_name} to {new_name}.\n")
                 else:
                     print("The root element is not <item>.")
 
@@ -307,9 +301,8 @@ class Application(tk.Tk):
 
             except ET.ParseError as e:
                 print(f"Failed to parse XML file: {e}")
-        self.Update_TurtleOuput('TurtleOutput.txt', self.building, self.campus, self.current_floor, 'X')
+        self.Update_TurtleOuput('OutputFiles/TurtleOutput.txt', self.building, self.campus, self.current_floor, 'X')
 
-    # Update TurtleOutput for X
     def update_records(self, building, campus, floor, room, file):
 
         global updatedRowsArray
@@ -318,12 +311,18 @@ class Application(tk.Tk):
         turtleData = turtleConverter(building, campus, floor, room, coordinateList) + '\n'
         updatedRowsArray.append(turtleData)
 
+
     def Update_TurtleOuput(self, file_path, building, campus, floor, room):
+        directory = os.path.dirname(file_path)
+        if not os.path.exists(directory):
+            os.makedirs(directory)
 
         try:
-            with open(file_path, 'r') as file:
-                lines = file.readlines()
-
+            if os.path.exists(file_path):
+                with open(file_path, 'r') as file:
+                    lines = file.readlines()
+            else:
+                lines = []
             filtered_lines = []
             for line in lines:
                 if not (f"Building: {building}, Campus: {campus}, Floor: {floor}, Room: {room}" in line):
@@ -334,10 +333,8 @@ class Application(tk.Tk):
             with open(file_path, 'w') as file:
                 file.writelines(filtered_lines)
 
-            print("\n" + "Records updated successfully." + "\n")
+            print(f"Name Change records updated in Turtle File\n")
 
-        except FileNotFoundError:
-            print(f"The file {file_path} does not exist.")
         except IOError as e:
             print(f"An error occurred while accessing the file: {e}")
 
