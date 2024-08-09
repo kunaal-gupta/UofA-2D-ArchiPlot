@@ -1,0 +1,33 @@
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [502 & 525  520].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [502 & Building Outline].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [502 & AllGender Washroom].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [502 & Washroom Men].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [507 & 525  520].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [507 & Building Outline].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [507 & Washroom Women].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [525  520 & Building Outline].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [525  520 & Elevator].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [525  520 & Hallway].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [525  520 & Hallway].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [525  520 & Stairs].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [525  520 & Stairs].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [525  520 & Stairs].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [525  520 & Washroom Women].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [525  520 & Washroom Women].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [525  520 & X].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [525  520 & X].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [Building Outline & Hallway].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [Building Outline & Stairs].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [Building Outline & Stairs].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [Building Outline & Stairs].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [Building Outline & Washroom Men].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [Building Outline & Washroom Women].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [Building Outline & Washroom Women].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [Elevator & X].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [Elevator & Hallway].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [Hallway & X].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [Hallway & Stairs].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [Hallway & X].
+Campus: North Campus, Building: Cameron Library, Floor: Level 5, Neighbours: [AllGender Washroom & Washroom Men].
+
+

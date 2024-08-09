@@ -4,7 +4,7 @@ import tkinter as tk
 import xml.etree.ElementTree as ET
 from tkinter import ttk
 
-import FindingNeigbour
+from RoomManager import RoomManager
 from XMLDataExtract import Original_Building_Path, Edited_Building_Path, count_level_subfolders, \
     parse_xml_for_roomnumber_and_floor, parse_xml_for_coordinates, turtleConverter
 import matplotlib.pyplot as plt
@@ -16,6 +16,7 @@ BuildingMap = {}
 BuildingName = Original_Building_Path.split('/')[-1]
 updatedRowsArray = []
 
+RoomsDataArray = []
 
 def create_edited_building_subfolders(directory_path="Athabasca2DMapping/Buildings Data"):
     subfolders = [
@@ -44,14 +45,20 @@ def create_edited_building_subfolders(directory_path="Athabasca2DMapping/Buildin
 
 
 def draw_points(PointArray, category_names, title, onclick_callback, selected_polygons, floor):
-    colors = ['red', 'blue', 'green', 'orange', 'black', 'grey', 'yellow', 'pink', 'violet']
+    global RoomsDataArray
+    colors = ['red', 'blue', 'green', 'orange', 'maroon', 'grey', 'yellow', 'pink', 'violet']
 
     fig, ax = plt.subplots(figsize=(10, 8))
 
     polygons = []
+    room_colors = []  # Store room colors to pass to the plot_floor_map function
+
     for i, points_category in enumerate(PointArray):
+        for j in points_category:
+            RoomsDataArray.append(j)
         color = colors[i % len(colors)]
         category_polygons = []
+
         for points in points_category:
             room_number = points[0][0]
             room_file_path = points[0][1]
@@ -70,6 +77,10 @@ def draw_points(PointArray, category_names, title, onclick_callback, selected_po
             category_polygons.append((polygon, room_number))
             ax.add_patch(polygon)
             plt.plot(points[:, 0], points[:, 1], marker='.', color='black')
+
+            # Store the color associated with each room
+            room_colors.append((room_number, color))
+
         polygons.append(category_polygons)
 
     create_edited_building_subfolders(directory_path="Buildings Data")
@@ -84,7 +95,7 @@ def draw_points(PointArray, category_names, title, onclick_callback, selected_po
     plt.legend(handles=legend_handles, loc='best')
 
     fig.canvas.mpl_connect('button_press_event', lambda event: onclick_callback(event, polygons, category_names))
-    return fig
+    return fig, room_colors
 
 
 def get_initials(text):
@@ -157,7 +168,7 @@ class Application(tk.Tk):
         self.check_errors_button.grid(row=1, column=1, pady=10, padx=(0, 10), sticky='ne')
         self.check_errors_button.grid_remove()
 
-        self.add_wall_button = ttk.Button(self.container, text="generating_neigbours", command=self.generating_neigbours)
+        self.add_wall_button = ttk.Button(self.container, text="generating_neigbours", command=self.calling_generating_neigbours_func)
         self.add_wall_button.grid(row=2, column=1, pady=10, padx=(1, 0), sticky='ne')
         self.add_wall_button.grid_remove()
 
@@ -173,7 +184,8 @@ class Application(tk.Tk):
             widget.destroy()
 
         points_categories, category_names, title = self.get_floor_data(floor, building, campus)
-        fig = draw_points(points_categories, category_names, title, self.onCanvasClick, self.selected_polygons, floor)
+        fig, room_colors = draw_points(points_categories, category_names, title, self.onCanvasClick,
+                                       self.selected_polygons, floor)
 
         self.canvas = FigureCanvasTkAgg(fig, master=self.canvas_frame)
         self.canvas.draw()
@@ -185,16 +197,18 @@ class Application(tk.Tk):
                 room_points = np.array(points[1:])
                 centroid = np.mean(room_points, axis=0)
                 room_label = get_initials(room_number)
-                print(room_label)
-                plt.text(centroid[0], centroid[1], room_label, fontsize=8, ha='center', va='center',
-                         color='white',
-                         bbox=dict(facecolor='black', alpha=0.7, edgecolor='none', boxstyle='round,pad=0.3'))
+
+                # Find the color associated with this room number
+                label_color = next((color for rn, color in room_colors if rn == room_number), 'black')
+
+                plt.text(centroid[0], centroid[1], room_label, fontsize=10, ha='center', va='center',
+                         color='black', fontweight='bold',  # Make text bold
+                         bbox=dict(facecolor=label_color, alpha=0.7, edgecolor=label_color, boxstyle='round,pad=0.3'))
 
     def get_floor_data(self, floor, building, campus):
         import XMLDataExtract
 
         def fetchCoordinateMap(floorNumber):
-            print('hi', XMLDataExtract.main(floorNumber, building, campus))
             return XMLDataExtract.main(floorNumber, building, campus)
 
         def categorizesCoordinateMap(floorNumber):
@@ -330,5 +344,9 @@ class Application(tk.Tk):
         except IOError as e:
             print(f"An error occurred while accessing the file: {e}")
 
-    def generating_neigbours(self):
-        ...
+    def calling_generating_neigbours_func(self):
+        global RoomsDataArray
+
+        room_manager = RoomManager(RoomsDataArray, self.campus, self.building, self.current_floor)
+        room_manager.generating_neighbours()
+
