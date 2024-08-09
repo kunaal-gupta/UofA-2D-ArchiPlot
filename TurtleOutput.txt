@@ -380,7 +380,15 @@
 {Building: Cameron Library, Campus: North Campus, Floor: Level 5, Room: Washroom Women, Centroid: (-331.46676, 182.98543)}
 {Building: Cameron Library, Campus: North Campus, Floor: Level 5, Room: Washroom Women, Centroid: (332.14185, -559.92138)}
 {Building: Cameron Library, Campus: North Campus, Floor: Level 5, Room: Washroom Women, Centroid: (334.41598, 182.98544)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level 5, Room: None, Centroid: None}
+{Building: Cameron Library, Campus: North Campus, Floor: Level 5, Room: a, Centroid: (-353.10739, -42.55251)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level 5, Room: f, Centroid: (330.67442, -301.78616)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level 5, Room: d, Centroid: (360.64242, -163.40211)}
 {Building: Cameron Library, Campus: North Campus, Floor: Level 5, Room: X, Centroid: (-353.10739, -42.55251)}
 {Building: Cameron Library, Campus: North Campus, Floor: Level 5, Room: X, Centroid: (330.67442, -301.78616)}
 {Building: Cameron Library, Campus: North Campus, Floor: Level 5, Room: X, Centroid: (360.64242, -163.40211)}
-{Building: Cameron Library, Campus: North Campus, Floor: Level 5, Room: None, Centroid: None}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: X, Centroid: (326.96393, -108.57425)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: X, Centroid: (61.03638, -191.46029)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: X, Centroid: (-541.02705, -184.9836)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: X, Centroid: (-263.97281, 14.27329)}
+{Building: Cameron Library, Campus: North Campus, Floor: Level -1, Room: X, Centroid: (565.97868, -111.43437)}

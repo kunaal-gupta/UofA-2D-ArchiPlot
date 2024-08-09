@@ -1,17 +1,16 @@
 import os
 import shutil
 import tkinter as tk
-import tkinter.messagebox as messagebox
 import xml.etree.ElementTree as ET
-from tkinter import simpledialog
 from tkinter import ttk
+
+import FindingNeigbour
 from XMLDataExtract import Original_Building_Path, Edited_Building_Path, count_level_subfolders, \
     parse_xml_for_roomnumber_and_floor, parse_xml_for_coordinates, turtleConverter
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from DialogueBox import CustomDialog
-
 
 BuildingMap = {}
 BuildingName = Original_Building_Path.split('/')[-1]
@@ -42,6 +41,7 @@ def create_edited_building_subfolders(directory_path="Athabasca2DMapping/Buildin
         #     print(f"2. Created: {subfolder_path}")
         # else:
         #     print(f"2. Already exists: {subfolder_path}")
+
 
 def draw_points(PointArray, category_names, title, onclick_callback, selected_polygons, floor):
     colors = ['red', 'blue', 'green', 'orange', 'black', 'grey', 'yellow', 'pink', 'violet']
@@ -87,9 +87,22 @@ def draw_points(PointArray, category_names, title, onclick_callback, selected_po
     return fig
 
 
+def get_initials(text):
+    words = text.split()
+    initials = []
+
+    for word in words:
+        if word.isdigit():  # Check if the word is a number
+            initials.append(word)
+        else:
+            initials.append(word[0].upper())  # Get the initial of the word
+
+    return ''.join(initials)
+
 class Application(tk.Tk):
     def __init__(self, building, campus, *args, **kwargs):
 
+        self.canvas = None
         self.adding_door = False
         self.building = building
         self.campus = campus
@@ -136,17 +149,15 @@ class Application(tk.Tk):
         quit_button = ttk.Button(self.container, text="Quit", command=self.quit)
         quit_button.grid(row=3, column=0, pady=10, sticky="ew")
 
-        self.check_errors_button = ttk.Button(self.container, text="Check Room Name",
-                                              command=self.correct_room_name)
-        self.check_errors_button.grid(row=1, column=1, pady=10, padx=(0, 10),
-                                      sticky='ne')
+        self.check_errors_button = ttk.Button(self.container, text="Check Room Name", command=self.correct_room_name)
+        self.check_errors_button.grid(row=1, column=1, pady=10, padx=(0, 10), sticky='ne')
         self.check_errors_button.grid_remove()
 
-        self.add_wall_button = ttk.Button(self.container, text="Add Wall Button",
-                                          command=self.add_wall)
-        self.add_wall_button.grid(row=2, column=1, pady=10, padx=(1, 0),
-                                  sticky='ne')
+        self.add_wall_button = ttk.Button(self.container, text="generating_neigbours", command=self.generating_neigbours)
+        self.add_wall_button.grid(row=2, column=1, pady=10, padx=(1, 0), sticky='ne')
         self.add_wall_button.grid_remove()
+
+
         self.selected_rooms = []
 
     def plot_floor_map(self, floor, building, campus):
@@ -158,7 +169,6 @@ class Application(tk.Tk):
             widget.destroy()
 
         points_categories, category_names, title = self.get_floor_data(floor, building, campus)
-
         fig = draw_points(points_categories, category_names, title, self.onCanvasClick, self.selected_polygons, floor)
 
         self.canvas = FigureCanvasTkAgg(fig, master=self.canvas_frame)
@@ -170,21 +180,8 @@ class Application(tk.Tk):
                 room_number = points[0][0]
                 room_points = np.array(points[1:])
                 centroid = np.mean(room_points, axis=0)
-
-                if "Washroom Men" in room_number:
-                    room_number = "WM"
-                elif "Washroom Women" in room_number:
-                    room_number = "WW"
-                elif "Stairs" in room_number:
-                    room_number = "S"
-                elif "Entrance" in room_number:
-                    room_number = "En"
-                elif "Elevator" in room_number:
-                    room_number = "El"
-                elif "Hallway" in room_number:
-                    room_number = "H"
-
-                plt.text(centroid[0], centroid[1], room_number, fontsize=8, ha='center', va='center',
+                room_label = get_initials(room_number)
+                plt.text(centroid[0], centroid[1], room_label, fontsize=8, ha='center', va='center',
                          color='white',
                          bbox=dict(facecolor='black', alpha=0.7, edgecolor='none', boxstyle='round,pad=0.3'))
 
@@ -192,6 +189,7 @@ class Application(tk.Tk):
         import XMLDataExtract
 
         def fetchCoordinateMap(floorNumber):
+            print('hi', XMLDataExtract.main(floorNumber, building, campus))
             return XMLDataExtract.main(floorNumber, building, campus)
 
         def categorizesCoordinateMap(floorNumber):
@@ -203,12 +201,6 @@ class Application(tk.Tk):
 
         return points_categories, category_names, title
 
-    def get_current_floor(self):
-        return self.current_floor
-
-
-    # Select Function
-
     def onCanvasClick(self, event, polygons, category_names):
         if event.inaxes is not None:
             x, y = event.xdata, event.ydata
@@ -219,7 +211,6 @@ class Application(tk.Tk):
                     if polygon.get_path().contains_point((x, y)):
                         if room_number != "Building Outline":
                             print(f"Room clicked: {room_number}" + "\n")
-                            self.handleClick(room_number, (x, y))
                             if polygon not in self.selected_polygons:
                                 self.selected_polygons.append(polygon)
                             self.canvas.draw()
@@ -227,42 +218,11 @@ class Application(tk.Tk):
 
         print("Event not in axes or no polygon contains the point" + "\n")
 
-    def handleClick(self, room_name, coordinates):
-            action = simpledialog.askstring("Action", "Enter action: 1. add_door, 2. add_wall")
-            if action == "1":
-                self.start_add_door(room_name)
-            elif action == "2":
-                self.add_wall(coordinates)
-
-    # 3 Features
-
-    def start_add_door(self, room_name):
-        messagebox.showinfo("Instruction", f"Select the second room for adding a door from {room_name}.")
-        self.selected_rooms.append(room_name)
-        self.adding_door = True
-
-    def add_door(self, room_name):
-        self.selected_rooms.append(room_name)
-        if len(self.selected_rooms) == 2:
-            room1, room2 = self.selected_rooms
-            print(f"Adding door between {room1} and {room2}")
-            self.update_xml_with_door(room1, room2)
-            self.selected_rooms = []
-            self.adding_door = False
-            
     def correct_room_name(self):
         self.update_xml_with_new_name()
 
-    def add_wall(self, coordinates):
-        point1, point2 = coordinates
-        print(f"Adding wall between {point1} and {point2}")
-        self.update_xml_with_wall(point1, point2)
-
-
-
     # Functions to update XML files------------------------------------------------------------
-
-    def find_xml_file_path(self, root_folder, file_name = 'xml', roomname='X'):
+    def find_xml_file_path(self, root_folder, file_name='xml', roomname='X'):
         room_path = os.path.join(root_folder, 'Interior', f'{self.current_floor}', roomname)
         room_path = room_path.replace('/', '\\')
 
@@ -297,7 +257,8 @@ class Application(tk.Tk):
 
             temp = i[x_position:]
 
-            edited_folder_path = os.path.join(self.editedXMLfolderPath, 'Interior', self.current_floor, room_name, xml_file_path)
+            edited_folder_path = os.path.join(self.editedXMLfolderPath, 'Interior', self.current_floor, room_name,
+                                              xml_file_path)
             edited_xml_path = os.path.join(edited_folder_path, XML_Filename)
 
             os.makedirs(edited_folder_path, exist_ok=True)
@@ -332,15 +293,7 @@ class Application(tk.Tk):
                 print(f"Failed to parse XML file: {e}")
         self.Update_TurtleOuput('TurtleOutput.txt', self.building, self.campus, self.current_floor, 'X')
 
-
-
-    def update_xml_with_wall(self, point1, point2):
-        pass
-
-    def update_xml_with_door(self, room1, room2):
-        pass
-
-    #Update TurtleOutput for X
+    # Update TurtleOutput for X
     def update_records(self, building, campus, floor, room, file):
 
         global updatedRowsArray
@@ -348,7 +301,6 @@ class Application(tk.Tk):
         coordinateList = parse_xml_for_coordinates(file)
         turtleData = turtleConverter(building, campus, floor, room, coordinateList) + '\n'
         updatedRowsArray.append(turtleData)
-
 
     def Update_TurtleOuput(self, file_path, building, campus, floor, room):
 
@@ -361,15 +313,17 @@ class Application(tk.Tk):
                 if not (f"Building: {building}, Campus: {campus}, Floor: {floor}, Room: {room}" in line):
                     filtered_lines.append(line)
 
-            filtered_lines+=updatedRowsArray
-
+            filtered_lines += updatedRowsArray
 
             with open(file_path, 'w') as file:
                 file.writelines(filtered_lines)
 
-            print("\n"+"Records updated successfully." +"\n")
+            print("\n" + "Records updated successfully." + "\n")
 
         except FileNotFoundError:
             print(f"The file {file_path} does not exist.")
         except IOError as e:
             print(f"An error occurred while accessing the file: {e}")
+
+    def generating_neigbours(self):
+        ...

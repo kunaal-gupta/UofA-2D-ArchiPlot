@@ -1,5 +1,4 @@
-from tkinter import simpledialog
-
+from tkinter import simpledialog, Label, Entry
 
 class CustomDialog(simpledialog.Dialog):
     def __init__(self, master, room_name):
@@ -7,8 +6,8 @@ class CustomDialog(simpledialog.Dialog):
         super().__init__(master)
 
     def body(self, master):
-        tk.Label(master, text=f"Enter new name for Room: {self.room_name}").pack(pady=5)
-        self.entry = tk.Entry(master, width=30)
+        Label(master, text=f"Enter new name for Room: {self.room_name}").pack(pady=5)
+        self.entry = Entry(master, width=30)
         self.entry.pack(pady=5)
 
     def apply(self):

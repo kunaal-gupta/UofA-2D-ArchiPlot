@@ -1,0 +1,1 @@
+Room 0 and Room 1 are neighbors.

@@ -159,7 +159,7 @@ def main(floor, building, campus):
 
             if coordinateList is not None:
                 coordinateList.insert(0, [RoomNumber.replace('-', ''), file])
-                type_key = str(parse_xml_for_type(file).strip().split()[0])
+                type_key = str(parse_xml_for_type(file).strip())
                 if type_key not in CoordinatesMap:
                     CoordinatesMap[type_key] = []
                 CoordinatesMap[type_key].append(coordinateList)
