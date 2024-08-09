@@ -50,7 +50,7 @@ def draw_points(PointArray, category_names, title, onclick_callback, selected_po
     fig, ax = plt.subplots(figsize=(10, 8))
 
     polygons = []
-    room_colors = []  # Store room colors to pass to the plot_floor_map function
+    room_colors = []
 
     for i, points_category in enumerate(PointArray):
         for j in points_category:
@@ -77,7 +77,6 @@ def draw_points(PointArray, category_names, title, onclick_callback, selected_po
             ax.add_patch(polygon)
             plt.plot(points[:, 0], points[:, 1], marker='.', color='black')
 
-            # Store the color associated with each room
             room_colors.append((room_number, color))
 
         polygons.append(category_polygons)
@@ -106,10 +105,10 @@ def get_initials(text):
         initials = []
 
         for word in words:
-            if word.isdigit():  # Check if the word is a number
+            if word.isdigit():
                 initials.append(word)
             else:
-                initials.append(word[0].upper())  # Get the initial of the word
+                initials.append(word[0].upper())
 
         return ''.join(initials)
 
@@ -197,11 +196,10 @@ class Application(tk.Tk):
                 centroid = np.mean(room_points, axis=0)
                 room_label = get_initials(room_number)
 
-                # Find the color associated with this room number
                 label_color = next((color for rn, color in room_colors if rn == room_number), 'black')
 
                 plt.text(centroid[0], centroid[1], room_label, fontsize=10, ha='center', va='center',
-                         color='black', fontweight='bold',  # Make text bold
+                         color='black', fontweight='bold',
                          bbox=dict(facecolor=label_color, alpha=0.7, edgecolor=label_color, boxstyle='round,pad=0.3'))
 
     def get_floor_data(self, floor, building, campus):
