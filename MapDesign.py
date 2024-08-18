@@ -3,8 +3,6 @@ import shutil
 import tkinter as tk
 import xml.etree.ElementTree as ET
 from tkinter import ttk
-import matplotlib.lines as mlines
-
 from RoomManager import RoomManager
 from XMLDataExtract import Original_Building_Path, Edited_Building_Path, count_level_subfolders, \
     parse_xml_for_roomnumber_and_floor, parse_xml_for_coordinates, turtleConverter
@@ -39,11 +37,13 @@ def create_edited_building_subfolders(directory_path="Athabasca2DMapping/Buildin
             os.makedirs(subfolder_path)
 
 
+
 def draw_points(PointArray, category_names, title, onclick_callback, selected_polygons, floor):
     global RoomsDataArray
     colors = ['red', 'blue', 'green', 'orange', 'maroon', 'grey', 'yellow', 'pink', 'violet']
 
-    fig, ax = plt.subplots(figsize=(12, 8))
+    fig, ax = plt.subplots(figsize=(10, 8))
+
     polygons = []
     room_colors = []
 
@@ -83,13 +83,13 @@ def draw_points(PointArray, category_names, title, onclick_callback, selected_po
         selected_polygon.set_facecolor('gray')
 
     plt.title(title)
-    legend_handles = [mlines.Line2D([0], [0], color=colors[i % len(colors)], linewidth=4.5, label=category_names[i]) for i
+    legend_handles = [plt.Line2D([0], [0], color=colors[i % len(colors)], linewidth=4.5, label=category_names[i]) for i
                       in range(len(PointArray))]
-    plt.legend(handles=legend_handles, loc='best', bbox_to_anchor=(1.05, 1), borderaxespad=0.)
-    plt.subplots_adjust(right=0.75)
+    plt.legend(handles=legend_handles, loc='best')
 
     fig.canvas.mpl_connect('button_press_event', lambda event: onclick_callback(event, polygons, category_names))
     return fig, room_colors
+
 
 def get_initials(text):
     try:
@@ -110,6 +110,7 @@ def get_initials(text):
 class Application(tk.Tk):
     def __init__(self, building, campus, *args, **kwargs):
 
+        self.adding_wall = None
         self.canvas = None
         self.adding_door = False
         self.building = building
@@ -155,14 +156,18 @@ class Application(tk.Tk):
         style.configure('TButton', font=("Helvetica", 12, "bold"), background='#4CAF50', foreground='white')
 
         self.canvas_frame = ttk.Frame(self.container)
-        self.canvas_frame.grid(row=2, column=0, sticky="nsew")
+        self.canvas_frame.grid(row=4, column=0, sticky="nsew")
 
         self.check_errors_button = ttk.Button(self.container, text="Check Room Name", command=self.correct_room_name, style='TButton')
         self.check_errors_button.grid(row=1, column=1, pady=(0, 0), padx=(10, 10), sticky='n')
         self.check_errors_button.grid_remove()
 
-        self.add_wall_button = ttk.Button(self.container, text="Generate Neighbours Data", command=self.calling_generating_neigbours_func, style='TButton')
-        self.add_wall_button.grid(row=2, column=1, pady=(0, 0), padx=(10, 10), sticky='n')
+        self.generate_neighbours_button = ttk.Button(self.container, text="Generate Neighbours Data", command=self.calling_generating_neigbours_func, style='TButton')
+        self.generate_neighbours_button.grid(row=3, column=1, pady=(0, 0), padx=(10, 10), sticky='n')
+        self.generate_neighbours_button.grid_remove()
+
+        self.add_wall_button = ttk.Button(self.container, text="Add Wall", command=self.add_wall_func, style='TButton')
+        self.add_wall_button.grid(row=4, column=1, pady=(0, 0), padx=(10, 10), sticky='n')
         self.add_wall_button.grid_remove()
 
         self.selected_rooms = []
@@ -170,6 +175,7 @@ class Application(tk.Tk):
     def plot_floor_map(self, floor, building, campus):
         self.current_floor = floor
         self.check_errors_button.grid()
+        self.generate_neighbours_button.grid()
         self.add_wall_button.grid()
 
         for widget in self.canvas_frame.winfo_children():
@@ -178,6 +184,15 @@ class Application(tk.Tk):
         points_categories, category_names, title = self.get_floor_data(floor, building, campus)
         fig, room_colors = draw_points(points_categories, category_names, title, self.onCanvasClick,
                                        self.selected_polygons, floor)
+
+        self.polygons = []
+        for category_polygons in points_categories:
+            for points in category_polygons:
+                room_number = points[0][0]
+                polygon_points = np.array(points[1:])
+                polygon = plt.Polygon(polygon_points, closed=True, fill=True, edgecolor='black', facecolor='red',
+                                      alpha=0.5)
+                self.polygons.append((polygon, room_number))
 
         self.canvas = FigureCanvasTkAgg(fig, master=self.canvas_frame)
         self.canvas.draw()
@@ -344,3 +359,56 @@ class Application(tk.Tk):
         room_manager = RoomManager(RoomsDataArray, self.campus, self.building, self.current_floor)
         room_manager.generating_neighbours()
 
+    def add_wall_func(self):
+        self.adding_wall = True
+        self.selected_rooms = []
+
+        tk.messagebox.showinfo("Add Wall", "Please select two rooms to add a wall between them.")
+        self.canvas.mpl_connect('button_press_event', self.on_select_room_for_wall)
+
+    def on_select_room_for_wall(self, event):
+        if not self.adding_wall or not hasattr(self, 'polygons'):
+            return
+
+        if event.inaxes is not None:
+            x, y = event.xdata, event.ydata
+            for polygon, room_number in self.polygons:
+                if polygon.get_path().contains_point((x, y)) and room_number != "Building Outline":
+                    if room_number not in self.selected_rooms:
+                        self.selected_rooms.append(room_number)
+                        print(f"Selected Room: {room_number}")
+
+                    if len(self.selected_rooms) == 2:
+                        self.adding_wall = False
+                        self.show_2d_diagram_of_selected_rooms()
+                    return
+
+    def show_2d_diagram_of_selected_rooms(self):
+        if len(self.selected_rooms) != 2:
+            print("Please select exactly two rooms.")
+            return
+
+        diagram_window = tk.Toplevel(self)
+        diagram_window.title("2D Diagram of Selected Rooms")
+        diagram_window.geometry("800x600")
+
+        fig, ax = plt.subplots(figsize=(8, 6))
+
+        for polygon, room_number in self.polygons:
+            if room_number in self.selected_rooms:
+                polygon_patch = plt.Polygon(polygon.get_path().vertices, closed=True, edgecolor='black',
+                                            facecolor='gray', alpha=0.5)
+                ax.add_patch(polygon_patch)
+                plt.plot(polygon.get_path().vertices[:, 0], polygon.get_path().vertices[:, 1], marker='.',
+                         color='black')
+
+        ax.set_title("2D Diagram of Selected Rooms")
+        ax.set_xlabel("X Coordinate")
+        ax.set_ylabel("Y Coordinate")
+        ax.set_aspect('equal')
+        plt.grid(True)
+        plt.tight_layout()
+
+        canvas = FigureCanvasTkAgg(fig, master=diagram_window)
+        canvas.draw()
+        canvas.get_tk_widget().pack(expand=True, fill="both")
