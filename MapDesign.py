@@ -431,10 +431,10 @@ class Application(tk.Tk):
                 start_room = self.get_room_from_coordinates(self.wall_start)
                 end_room = self.get_room_from_coordinates(self.wall_end)
 
-                if start_room and end_room and start_room != end_room:
+                if start_room and end_room and start_room != end_room and start_room in self.selected_rooms and end_room in self.selected_rooms:
                     self.add_wall_to_original_ui(self.wall_start, self.wall_end, [start_room, end_room])
                 else:
-                    print(f"Cannot add a wall between the same room or invalid coordinates.")
+                    print(f"Cannot add a wall between the same room or invalid coordinates or rooms not selected.")
 
                 delattr(self, 'wall_start')
             else:
@@ -451,7 +451,7 @@ class Application(tk.Tk):
         start_room = self.get_room_from_coordinates(start_coords)
         end_room = self.get_room_from_coordinates(end_coords)
 
-        if start_room and end_room and start_room != end_room:
+        if start_room and end_room and start_room != end_room and start_room in self.selected_rooms and end_room in self.selected_rooms:
             # Add the wall to the original UI
             ax.plot([start_coords[0], end_coords[0]], [start_coords[1], end_coords[1]], color='red', linewidth=2)
             self.canvas.draw()
@@ -459,7 +459,7 @@ class Application(tk.Tk):
             # Print log message with room names
             print(f"Added wall between rooms {room_names[0]} and {room_names[1]} from {start_coords} to {end_coords}")
         else:
-            print(f"Cannot add a wall between the same room or invalid coordinates.")
+            print(f"Cannot add a wall between the same room or invalid coordinates or rooms not selected.")
 
     def add_wall_between_rooms(self, coord1, coord2):
         fig, ax = plt.subplots(figsize=(10, 8))
@@ -474,7 +474,7 @@ class Application(tk.Tk):
                          color='black')
 
         # Draw the wall
-        ax.plot([coord1[0], coord2[0]], [coord1[1], coord2[1]], color='red', linewidth=2.5)
+        ax.plot([coord1[0], coord2[0]], [coord1[1], coord2[1]], color='red', linewidth=3)
 
         # Update the canvas in the original UI
         self.canvas.draw()
