@@ -426,9 +426,16 @@ class Application(tk.Tk):
                 # Draw the wall line
                 ax.plot([self.wall_start[0], x], [self.wall_start[1], y], color='red', linewidth=2)
                 fig.canvas.draw()
-                # Save the wall data
+
                 self.wall_end = (x, y)
-                self.add_wall_to_original_ui(self.wall_start, self.wall_end, self.room_names_for_wall)
+                start_room = self.get_room_from_coordinates(self.wall_start)
+                end_room = self.get_room_from_coordinates(self.wall_end)
+
+                if start_room and end_room and start_room != end_room:
+                    self.add_wall_to_original_ui(self.wall_start, self.wall_end, [start_room, end_room])
+                else:
+                    print(f"Cannot add a wall between the same room or invalid coordinates.")
+
                 delattr(self, 'wall_start')
             else:
                 self.wall_start = (x, y)
@@ -440,12 +447,19 @@ class Application(tk.Tk):
         fig = self.canvas.figure
         ax = fig.gca()
 
-        # Add the wall to the original UI
-        ax.plot([start_coords[0], end_coords[0]], [start_coords[1], end_coords[1]], color='red', linewidth=2)
-        self.canvas.draw()
+        # Get room numbers from coordinates
+        start_room = self.get_room_from_coordinates(start_coords)
+        end_room = self.get_room_from_coordinates(end_coords)
 
-        # Print log message with room names
-        print(f"Wall added between rooms {room_names[0]} and {room_names[1]} from {start_coords} to {end_coords}")
+        if start_room and end_room and start_room != end_room:
+            # Add the wall to the original UI
+            ax.plot([start_coords[0], end_coords[0]], [start_coords[1], end_coords[1]], color='red', linewidth=2)
+            self.canvas.draw()
+
+            # Print log message with room names
+            print(f"Added wall between rooms {room_names[0]} and {room_names[1]} from {start_coords} to {end_coords}")
+        else:
+            print(f"Cannot add a wall between the same room or invalid coordinates.")
 
     def add_wall_between_rooms(self, coord1, coord2):
         fig, ax = plt.subplots(figsize=(10, 8))
@@ -483,3 +497,8 @@ class Application(tk.Tk):
         # Re-draw the floor map with the new wall
         self.plot_floor_map(self.current_floor, self.building, self.campus)
 
+    def get_room_from_coordinates(self, coords):
+        for polygon, room_number in self.polygons:
+            if polygon.get_path().contains_point(coords):
+                return room_number
+        return None
