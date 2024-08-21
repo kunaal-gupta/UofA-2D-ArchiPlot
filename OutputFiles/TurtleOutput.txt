@@ -1,163 +1,3 @@
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: 4-000, Centroid: (126.30703, -364.15226)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: 4-000, Centroid: (-0.0639, -419.879)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: 4000, Centroid: (47.90887, -290.07689)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: 4-000, Centroid: (287.2413, -397.25881)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: 4-000, Centroid: (359.31778, -293.18212)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: 4-000, Centroid: (183.73305, -299.73813)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: 4-005, Centroid: (43.03255, -56.30085)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: 4-006, Centroid: (122.34185, -16.15777)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: 4-007, Centroid: (122.34185, 20.22325)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: 4-008, Centroid: (122.34185, 56.60427)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: 4-010, Centroid: (-88.00388, -277.55212)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: 4-016, Centroid: (-30.00347, -277.55212)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: 4-170, Centroid: (411.50806, 265.32027)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: 4-213 - 4-219, Centroid: (-218.25282, 79.10689)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: 4-212 - 4-220, Centroid: (-190.62361, 132.34894)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: 4-227 - 4-236, Centroid: (-277.74878, -50.53427)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: 4-224 - 4-228, Centroid: (-239.91108, 41.14871)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: 4-356, Centroid: (-397.91377, -20.7821)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: 4-430,4-500, Centroid: (-399.85677, -387.93879)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: 4-570, Centroid: (-186.14086, -405.83414)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Building Outline, Centroid: (-2.764, -20.25654)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Elevator, Centroid: (-142.76243, -179.8249)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Elevator, Centroid: (-87.82763, -101.59492)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Elevator, Centroid: (-569.0218, 358.15933)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Hallway, Centroid: (-177.43538, 36.51708)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Hallway, Centroid: (268.91232, -354.19598)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Hallway, Centroid: (-480.44043, -229.6006)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Hallway, Centroid: (148.10185, 54.21124)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Hallway, Centroid: (395.34934, -26.39369)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Hallway, Centroid: (-133.27631, -267.14158)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Hallway, Centroid: (-192.77117, -108.9016)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Hallway, Centroid: (-503.88402, 290.37803)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Hallway, Centroid: (208.29742, -439.32878)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Hallway, Centroid: (474.86849, -224.27958)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Hallway, Centroid: (264.66305, -285.81264)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Hallway, Centroid: (463.97387, 282.11224)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Hallway, Centroid: (-397.91377, -124.9642)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Hole, Centroid: (-93.24947, -33.7319)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Stairs, Centroid: (-582.19707, -182.61311)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Stairs, Centroid: (-133.27631, -349.87315)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Stairs, Centroid: (-569.0218, 308.85713)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Stairs, Centroid: (177.15329, 284.53625)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Stairs, Centroid: (572.16357, 288.82513)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Stairs, Centroid: (582.36948, -180.96497)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Washroom Men, Centroid: (-397.91377, -77.55491)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Washroom Men, Centroid: (395.34934, -73.89805)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Washroom Women, Centroid: (-399.27112, -186.54458)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: Washroom Women, Centroid: (396.82967, -153.89177)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (-454.08552, 198.38191)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (293.01168, -486.16881)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (-241.22026, 385.8842)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (321.94446, -425.45969)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (247.62539, -172.49814)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (247.62539, -84.68784)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (241.53258, 190.03511)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (383.79094, -198.39443)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (497.52656, -23.48967)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (-506.81184, -41.12007)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (-386.95407, -142.91903)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (43.39485, 319.81645)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (241.53258, 12.57026)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (-291.64015, 189.88835)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (451.186, 105.83782)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (189.73812, -364.15226)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (-472.16938, -115.22548)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (-36.31279, 189.88835)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (-23.94029, -351.49158)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (451.186, 199.29027)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (43.03255, -100.206)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (-129.61782, 189.88835)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (407.69898, -430.96378)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (128.91913, 421.3444)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (557.29743, 355.0453)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (93.82196, 160.28418)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (507.5841, -285.25568)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (168.59442, -430.96378)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (475.43254, 265.32027)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (241.53258, 105.55523)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (-214.77393, 189.88835)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (398.92099, 383.39759)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (234.5912, 334.0617)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (183.73305, -265.16834)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (407.69898, -364.15226)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (-454.08552, 106.02599)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (124.08038, 329.96423)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (469.11465, -111.12984)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: X, Centroid: (98.76835, -137.40999)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level 4, Room: None, Centroid: None}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Building Outline, Centroid: (-0.87776, -1.21474)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Elevator, Centroid: (-84.38031, -57.85499)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Elevator, Centroid: (-565.48395, 392.75677)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Elevator, Centroid: (237.70707, -434.98033)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Elevator, Centroid: (-146.81097, -140.89508)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Hallway, Centroid: (501.52436, 290.73227)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Hallway, Centroid: (378.69929, 392.15167)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Hallway, Centroid: (244.24085, 478.93559)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Hallway, Centroid: (523.21054, -70.64563)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Hallway, Centroid: (208.76055, -288.13058)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Hallway, Centroid: (-315.56496, -427.56798)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Hallway, Centroid: (-320.79347, -293.37994)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Hallway, Centroid: (-343.9802, 219.63867)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: L-005, Centroid: (-52.00665, -437.20474)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: L-010, Centroid: (-196.14847, -334.6823)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: L-016A, Centroid: (-164.01329, -400.02575)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: L-017, Centroid: (-209.16827, -510.17431)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: L-019, Centroid: (-296.59472, -510.17431)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: L-022, Centroid: (-309.36876, -363.98172)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: L-025, Centroid: (-380.73171, -510.17431)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: L-029, Centroid: (-503.44838, -505.89354)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: L-046, Centroid: (0.80128, -329.22597)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: L-052, Centroid: (142.73864, -329.38139)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: L-061, Centroid: (379.56705, -487.62768)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: L-062, Centroid: (379.6895, -335.34912)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: L-065, Centroid: (464.10999, -487.62768)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: L-066, Centroid: (467.17621, -335.34912)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: L-107, Centroid: (379.6895, -243.56633)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: L-113, Centroid: (379.6895, -146.37971)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: L-117, Centroid: (379.6895, -18.85889)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: L-134, Centroid: (126.27446, -207.20744)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: L-136, Centroid: (41.9861, -207.20744)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: L-140, Centroid: (-38.20294, -217.99546)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: L-157, Centroid: (-564.8022, -232.38188)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: L-190, Centroid: (-371.17723, 302.37028)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: L-197, Centroid: (-235.70528, 422.33674)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: L-300, Centroid: (-264.67562, -87.98685)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Parking, Centroid: (89.16441, 172.07938)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Stairs, Centroid: (-558.34792, -49.0984)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Stairs, Centroid: (542.74226, -267.92576)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Stairs, Centroid: (560.36333, -43.66586)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Stairs, Centroid: (-564.8022, -319.5275)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Stairs, Centroid: (-565.48395, 337.57867)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Stairs, Centroid: (570.54843, 338.45968)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Stairs, Centroid: (-123.04036, -525.63719)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Stairs, Centroid: (-567.2995, -149.58397)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Stairs, Centroid: (547.85395, -141.76282)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Stairs, Centroid: (-248.5519, -231.66672)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: To LRT, Centroid: (-609.40063, -431.94343)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Washroom Men, Centroid: (226.74267, -345.36588)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: Washroom Women, Centroid: (264.19863, -320.76917)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: X, Centroid: (-145.71566, -477.26876)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: X, Centroid: (-554.30913, 209.76401)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: X, Centroid: (424.7562, 326.26146)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: X, Centroid: (379.6895, -81.89435)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: X, Centroid: (-461.87303, -32.18553)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: X, Centroid: (-54.49471, -47.99279)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: X, Centroid: (133.26664, -490.93006)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: X, Centroid: (-226.22508, -400.02575)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: X, Centroid: (-581.11323, -95.81502)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: X, Centroid: (-520.16207, 392.75677)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: X, Centroid: (234.61973, -207.20744)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: X, Centroid: (467.17621, -26.6692)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: X, Centroid: (464.6231, 474.77314)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: X, Centroid: (-226.17814, 476.85026)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: X, Centroid: (-133.93668, -400.02575)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: X, Centroid: (559.22763, -388.52696)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: X, Centroid: (129.83716, -36.35046)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: X, Centroid: (579.48413, -119.17013)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: X, Centroid: (467.17621, -194.97302)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: X, Centroid: (-243.45603, 302.37028)}
-{Building: Enterprise Square, Campus: Enterprise Square, Floor: Level -1, Room: None, Centroid: None}
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-01, Centroid: (280.19787, -548.78672)}
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-02, Centroid: (280.45024, -444.50721)}
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-05, Centroid: (181.69915, -555.21969)}
@@ -209,5 +49,151 @@
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: X, Centroid: (-90.84378, 53.30182)}
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: X, Centroid: (-256.23358, 67.4943)}
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: X, Centroid: (28.47626, 0.0)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-00, Centroid: (321.27967, -528.044)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-01, Centroid: (252.19714, -589.56763)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-02, Centroid: (252.19714, -466.18376)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-03, Centroid: (188.87943, -589.56763)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-04, Centroid: (188.87943, -466.18376)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-05, Centroid: (123.80392, -589.56763)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-06, Centroid: (127.96322, -466.18376)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-07, Centroid: (53.52197, -589.56763)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-09, Centroid: (-18.01983, -589.56763)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-11, Centroid: (-101.51732, -556.07568)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-15, Centroid: (-101.51732, -443.88723)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-17, Centroid: (-101.51732, -373.48415)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-18, Centroid: (26.23349, -365.99728)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-19, Centroid: (-101.51732, -307.02754)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-20, Centroid: (26.23349, -281.58878)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-27, Centroid: (-270.94009, 64.97799)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-31, Centroid: (-101.51732, 177.75101)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-33, Centroid: (-101.51732, 242.99662)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-35, Centroid: (-101.51732, 306.74836)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-37, Centroid: (-101.51732, 372.10326)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-41, Centroid: (-101.51732, 438.73593)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-43, Centroid: (-101.51732, 504.40883)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-52, Centroid: (198.40073, 537.01565)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Building Outline, Centroid: (-3.62015, 8.59929)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Entrance, Centroid: (71.39241, -0.69446)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Entrance, Centroid: (-152.0258, -181.57335)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Elevator, Centroid: (-74.00884, 96.57832)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Hallway, Centroid: (1.26689, 17.82941)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Stairs, Centroid: (-101.51732, -105.60422)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Stairs, Centroid: (59.33067, 455.74108)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Stairs, Centroid: (26.23349, -0.69446)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Stairs, Centroid: (55.40918, -458.3688)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: All-Gender Washroom, Centroid: (2.92144, 483.03168)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Washroom Men, Centroid: (-1.02992, -487.31686)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Washroom Women, Centroid: (-1.02992, -424.91359)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-24, Centroid: (26.23349, -185.11682)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: X, Centroid: (-101.51732, 102.46473)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-01, Centroid: (204.42463, -548.33921)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-02, Centroid: (204.42463, -432.96916)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-03, Centroid: (139.99673, -548.33921)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-04, Centroid: (139.99673, -432.96916)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-05, Centroid: (78.33728, -548.33921)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-06, Centroid: (78.33728, -432.96916)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-07, Centroid: (15.06053, -548.33921)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-08, Centroid: (19.9546, -432.96916)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-09, Centroid: (-46.84803, -548.33921)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-11, Centroid: (-113.12477, -548.33921)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-13, Centroid: (-193.98139, -548.33921)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-15, Centroid: (-197.31633, -472.34815)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-17, Centroid: (-193.98139, -409.66243)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-19, Centroid: (-193.98139, -345.83907)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-20, Centroid: (-72.35232, -345.83907)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-21, Centroid: (-193.98139, -283.83027)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-22, Centroid: (-72.35232, -283.83027)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-23, Centroid: (-193.98139, -222.59947)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-24, Centroid: (-72.35232, -222.59947)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-28, Centroid: (-64.25513, -85.1237)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-29, Centroid: (-193.98139, 8.72362)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-32, Centroid: (-72.35232, 4.92116)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-34, Centroid: (-64.25513, 94.96601)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-35, Centroid: (-193.98139, 174.7066)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-36, Centroid: (-72.35232, 174.7066)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-37, Centroid: (-193.98139, 237.84249)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-38, Centroid: (-72.35232, 237.84249)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-39, Centroid: (-193.98139, 297.7726)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-40, Centroid: (-72.35232, 297.89773)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-41, Centroid: (-193.98139, 357.69521)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-42, Centroid: (-71.76134, 358.17431)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-43, Centroid: (-193.98139, 422.19796)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-45, Centroid: (-197.84033, 488.80995)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-47, Centroid: (-193.98139, 562.91114)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-49, Centroid: (-115.57484, 562.91114)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-51, Centroid: (-49.2981, 562.91114)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-52, Centroid: (15.10143, 446.05244)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-53, Centroid: (15.10143, 562.91114)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-54, Centroid: (78.22984, 446.05244)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-55, Centroid: (78.22984, 562.91114)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-56, Centroid: (140.30268, 446.05244)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-57, Centroid: (140.30268, 562.91114)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-58, Centroid: (204.87892, 446.05244)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-59, Centroid: (204.87892, 562.91114)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Building Outline, Centroid: (-62.83412, 4.92116)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Elevator, Centroid: (-170.11946, 99.82059)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Hallway, Centroid: (-67.98434, 5.65044)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Stairs, Centroid: (-193.98139, -89.49097)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Stairs, Centroid: (-42.68691, -429.25789)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Stairs, Centroid: (-47.69526, 441.08013)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Washroom Men, Centroid: (-94.76914, -455.56453)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Washroom Men, Centroid: (-95.8039, 414.46558)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Washroom Women, Centroid: (-95.8039, 468.08369)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Washroom Women, Centroid: (-94.76914, -403.43906)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: X, Centroid: (-193.98139, 105.53975)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: X, Centroid: (-72.35232, -161.76871)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: None, Centroid: None}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-01, Centroid: (205.78494, -554.72074)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-02, Centroid: (205.78494, -441.34654)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-03, Centroid: (140.29946, -554.72074)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-04, Centroid: (140.29946, -441.34654)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-05, Centroid: (77.12715, -554.72074)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-06, Centroid: (77.12715, -441.34654)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-07, Centroid: (19.80205, -554.72074)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-08, Centroid: (19.80205, -441.34654)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-09, Centroid: (-41.53653, -554.72074)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-11, Centroid: (-111.86643, -554.72074)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-13, Centroid: (-193.14048, -554.72074)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-15, Centroid: (-198.70042, -477.4399)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-17, Centroid: (-193.14048, -415.37921)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-18, Centroid: (-72.75498, -344.78708)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-19, Centroid: (-193.14048, -350.71153)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-20, Centroid: (-72.75498, -288.26647)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-21, Centroid: (-193.14048, -288.26647)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-22, Centroid: (-72.75498, -228.47619)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-23, Centroid: (-193.14048, -228.47619)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-24, Centroid: (-72.75498, -167.64959)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-25, Centroid: (-193.14048, -37.16127)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-30, Centroid: (-66.93111, 0.0)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-32, Centroid: (-72.75498, 168.34803)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-34, Centroid: (-72.75498, 230.93886)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-36, Centroid: (-72.75498, 290.95359)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-37, Centroid: (-193.14048, 261.38441)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-38, Centroid: (-72.75498, 345.70995)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-41, Centroid: (-193.14048, 417.94733)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-43, Centroid: (-193.14048, 481.54107)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-45, Centroid: (-182.7509, 554.20839)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-47, Centroid: (-97.39888, 554.20839)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-50, Centroid: (21.59608, 440.39376)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-52, Centroid: (144.40666, 496.36136)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: Building Outline, Centroid: (-62.83412, 0.0)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: Elevator, Centroid: (-168.50013, 86.89388)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: Hallway, Centroid: (-93.48645, -73.22466)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: Stairs, Centroid: (-193.14048, -98.20594)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: Stairs, Centroid: (-40.75921, 429.53724)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: Stairs, Centroid: (-42.73194, -430.35957)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: Washroom Men, Centroid: (-94.75436, -456.61508)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: Washroom Men, Centroid: (-92.78111, 455.18593)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: Washroom Women, Centroid: (-94.75436, -399.74687)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: Washroom Women, Centroid: (-92.78111, 399.27048)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: X, Centroid: (15.75207, 554.20839)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: X, Centroid: (-43.30258, 554.20839)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: X, Centroid: (-200.10247, 80.44421)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: X, Centroid: (-193.14048, 6.29137)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: None, Centroid: None}
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: X, Centroid: (54.75366, 570.33566)}
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: None, Centroid: None}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: X, Centroid: (-101.51732, -210.55558)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: X, Centroid: (-83.46662, 587.29317)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: X, Centroid: (2.92144, 423.4852)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: None, Centroid: None}
