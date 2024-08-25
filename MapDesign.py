@@ -446,10 +446,26 @@ class Application(tk.Tk):
 
         self.room_names_for_wall = self.selected_rooms
 
+        # Extract room names for the title
+        room1, room2 = self.selected_rooms
+
+        # Create a new window to show the 2D diagram
         diagram_window = tk.Toplevel(self)
-        diagram_window.title("2D Diagram of Selected Rooms")
+        diagram_window.title(f"Add door to Rooms {room1} & {room2}")
         diagram_window.geometry("800x600")
 
+        # Create a frame to hold the buttons
+        button_frame = ttk.Frame(diagram_window)
+        button_frame.pack(side=tk.TOP, fill=tk.X, pady=5)
+
+        # Create buttons for zooming in and zooming out
+        zoom_in_button = ttk.Button(button_frame, text="Zoom In", command=lambda: self.zoom_in(ax, fig))
+        zoom_in_button.pack(side=tk.LEFT, padx=5)
+
+        zoom_out_button = ttk.Button(button_frame, text="Zoom Out", command=lambda: self.zoom_out(ax, fig))
+        zoom_out_button.pack(side=tk.LEFT, padx=5)
+
+        # Create a Matplotlib figure and axis
         fig, ax = plt.subplots(figsize=(8, 6))
 
         for polygon, room_number in self.polygons:
@@ -460,19 +476,61 @@ class Application(tk.Tk):
                 plt.plot(polygon.get_path().vertices[:, 0], polygon.get_path().vertices[:, 1], marker='.',
                          color='black')
 
-        ax.set_title("2D Diagram of Selected Rooms")
+        ax.set_title(f"2D Diagram of Rooms: {room1} & {room2}")
         ax.set_xlabel("X Coordinate")
         ax.set_ylabel("Y Coordinate")
         ax.set_aspect('equal')
         plt.grid(True)
         plt.tight_layout()
 
+        # Create a canvas to display the Matplotlib figure in the Tkinter window
         canvas = FigureCanvasTkAgg(fig, master=diagram_window)
         canvas.draw()
         canvas.get_tk_widget().pack(expand=True, fill="both")
 
+        # Connect click event to add wall coordinates
         canvas.mpl_connect('button_press_event',
                            lambda event: self.on_select_wall_coordinates(event, ax, fig, diagram_window))
+
+    def zoom_out(self, ax, fig):
+        # Get current limits
+        xlim = ax.get_xlim()
+        ylim = ax.get_ylim()
+
+        # Define the zoom factor
+        zoom_factor = 1.2
+
+        # Calculate new limits
+        x_center = (xlim[1] + xlim[0]) / 2
+        y_center = (ylim[1] + ylim[0]) / 2
+        x_range = (xlim[1] - xlim[0]) * zoom_factor
+        y_range = (ylim[1] - ylim[0]) * zoom_factor
+
+        ax.set_xlim([x_center - x_range / 2, x_center + x_range / 2])
+        ax.set_ylim([y_center - y_range / 2, y_center + y_range / 2])
+
+        # Redraw the canvas
+        fig.canvas.draw()
+
+    def zoom_in(self, ax, fig):
+        # Get current limits
+        xlim = ax.get_xlim()
+        ylim = ax.get_ylim()
+
+        # Define the zoom factor
+        zoom_factor = 1.2
+
+        # Calculate new limits
+        x_center = (xlim[1] + xlim[0]) / 2
+        y_center = (ylim[1] + ylim[0]) / 2
+        x_range = (xlim[1] - xlim[0]) / zoom_factor
+        y_range = (ylim[1] - ylim[0]) / zoom_factor
+
+        ax.set_xlim([x_center - x_range / 2, x_center + x_range / 2])
+        ax.set_ylim([y_center - y_range / 2, y_center + y_range / 2])
+
+        # Redraw the canvas
+        fig.canvas.draw()
 
     def on_select_wall_coordinates(self, event, ax, fig, diagram_window):
         if event.inaxes is not None:
