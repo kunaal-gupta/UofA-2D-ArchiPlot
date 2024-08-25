@@ -37,6 +37,57 @@ def create_edited_building_subfolders(directory_path="Athabasca2DMapping/Buildin
             os.makedirs(subfolder_path)
 
 
+def show_legend_window(colors, category_names, floor):
+    # Create the legend window
+    legend_window = tk.Toplevel()
+    legend_window.title(f"Legend - Floor {floor}")
+
+    # Dynamically calculate the window height based on the number of categories
+    window_height = min(50 + len(category_names) * 30, 600)  # Max height is 600px
+    legend_window.geometry(f"300x{window_height}")
+
+    # Create a frame to hold the canvas and scrollbar
+    content_frame = ttk.Frame(legend_window)
+    content_frame.pack(fill="both", expand=True)
+
+    # Create a canvas widget
+    canvas = tk.Canvas(content_frame)
+    canvas.pack(side="left", fill="both", expand=True)
+
+    # Create a vertical scrollbar linked to the canvas
+    scrollbar = ttk.Scrollbar(content_frame, orient="vertical", command=canvas.yview)
+    scrollbar.pack(side="right", fill="y")
+    canvas.configure(yscrollcommand=scrollbar.set)
+
+    # Create a frame inside the canvas to hold the Matplotlib figure
+    figure_frame = ttk.Frame(canvas)
+    canvas.create_window((0, 0), window=figure_frame, anchor="nw")
+
+    # Create the Matplotlib figure and legend
+    fig, ax = plt.subplots(figsize=(3, len(category_names) * 0.3))  # Adjusted height per category
+    ax.axis('off')  # Hide the axes
+
+    # Create legend handles for the categories
+    legend_handles = [plt.Line2D([0], [0], color=colors[i % len(colors)], linewidth=4.5, label=category_names[i])
+                      for i in range(len(category_names))]
+
+    # Add legend to the axis
+    ax.legend(handles=legend_handles, loc='center', frameon=False)
+
+    # Adjust layout to minimize extra space
+    fig.tight_layout(pad=0)
+
+    # Embed the Matplotlib figure inside the frame
+    canvas_figure = FigureCanvasTkAgg(fig, master=figure_frame)
+    canvas_figure.draw()
+    canvas_figure.get_tk_widget().pack()
+
+    # Update the scroll region to include the entire figure
+    figure_frame.update_idletasks()
+    canvas.configure(scrollregion=canvas.bbox("all"))
+
+    return legend_window
+
 
 def draw_points(PointArray, category_names, title, onclick_callback, selected_polygons, floor):
     global RoomsDataArray
@@ -83,12 +134,9 @@ def draw_points(PointArray, category_names, title, onclick_callback, selected_po
         selected_polygon.set_facecolor('gray')
 
     plt.title(title)
-    legend_handles = [plt.Line2D([0], [0], color=colors[i % len(colors)], linewidth=4.5, label=category_names[i]) for i
-                      in range(len(PointArray))]
-    plt.legend(handles=legend_handles, loc='best')
 
     fig.canvas.mpl_connect('button_press_event', lambda event: onclick_callback(event, polygons, category_names))
-    return fig, room_colors
+    return fig, room_colors, colors
 
 
 def get_initials(text):
@@ -121,6 +169,7 @@ class Application(tk.Tk):
         self.original_colors = {}
         self.current_floor = None
         super().__init__(*args, **kwargs)
+        self.legend_window = None  # To track the legend window instance
         self.title("UofA Building 2D UI")
         self.geometry("1200x900")
         self.resizable(True, True)
@@ -178,12 +227,16 @@ class Application(tk.Tk):
         self.generate_neighbours_button.grid()
         self.add_wall_button.grid()
 
+        # Close the previous legend window if it exists
+        if self.legend_window is not None and self.legend_window.winfo_exists():
+            self.legend_window.destroy()
+
         for widget in self.canvas_frame.winfo_children():
             widget.destroy()
 
         points_categories, category_names, title = self.get_floor_data(floor, building, campus)
-        fig, room_colors = draw_points(points_categories, category_names, title, self.onCanvasClick,
-                                       self.selected_polygons, floor)
+        fig, room_colors, colors = draw_points(points_categories, category_names, title, self.onCanvasClick,
+                                               self.selected_polygons, floor)
 
         self.polygons = []
         for category_polygons in points_categories:
@@ -210,6 +263,9 @@ class Application(tk.Tk):
                 plt.text(centroid[0], centroid[1], room_label, fontsize=10, ha='center', va='center',
                          color='black', fontweight='bold',
                          bbox=dict(facecolor=label_color, alpha=0.7, edgecolor=label_color, boxstyle='round,pad=0.3'))
+
+        # Show legend in a new window with the floor number in the title
+        self.legend_window = show_legend_window(colors, category_names, floor)
 
     def get_floor_data(self, floor, building, campus):
         import XMLDataExtract
@@ -415,7 +471,6 @@ class Application(tk.Tk):
         canvas.draw()
         canvas.get_tk_widget().pack(expand=True, fill="both")
 
-        # Connect the canvas click event to handle wall addition
         canvas.mpl_connect('button_press_event',
                            lambda event: self.on_select_wall_coordinates(event, ax, fig, diagram_window))
 
@@ -423,7 +478,6 @@ class Application(tk.Tk):
         if event.inaxes is not None:
             x, y = event.xdata, event.ydata
             if hasattr(self, 'wall_start'):
-                # Draw the wall line
                 ax.plot([self.wall_start[0], x], [self.wall_start[1], y], color='red', linewidth=2)
                 fig.canvas.draw()
 
@@ -447,16 +501,12 @@ class Application(tk.Tk):
         fig = self.canvas.figure
         ax = fig.gca()
 
-        # Get room numbers from coordinates
         start_room = self.get_room_from_coordinates(start_coords)
         end_room = self.get_room_from_coordinates(end_coords)
 
         if start_room and end_room and start_room != end_room and start_room in self.selected_rooms and end_room in self.selected_rooms:
-            # Add the wall to the original UI
             ax.plot([start_coords[0], end_coords[0]], [start_coords[1], end_coords[1]], color='red', linewidth=2)
             self.canvas.draw()
-
-            # Print log message with room names
             print(f"Added wall between rooms {room_names[0]} and {room_names[1]} from {start_coords} to {end_coords}")
         else:
             print(f"Cannot add a wall between the same room or invalid coordinates or rooms not selected.")
@@ -464,7 +514,6 @@ class Application(tk.Tk):
     def add_wall_between_rooms(self, coord1, coord2):
         fig, ax = plt.subplots(figsize=(10, 8))
 
-        # Draw the selected rooms
         for polygon, room_number in self.polygons:
             if room_number in self.selected_rooms:
                 polygon_patch = plt.Polygon(polygon.get_path().vertices, closed=True, edgecolor='black',
@@ -473,28 +522,15 @@ class Application(tk.Tk):
                 plt.plot(polygon.get_path().vertices[:, 0], polygon.get_path().vertices[:, 1], marker='.',
                          color='black')
 
-        # Draw the wall
         ax.plot([coord1[0], coord2[0]], [coord1[1], coord2[1]], color='red', linewidth=3)
-
-        # Update the canvas in the original UI
         self.canvas.draw()
-
-        # Log the wall addition
         print(f"Added wall between coordinates: {coord1} and {coord2}")
 
-        # Optionally, you might want to update the original map with the new wall information.
-
     def update_original_ui_with_wall(self, wall_info):
-        # This method should update the original canvas with the new wall
-        # In the original UI, you need to redraw the canvas to include the new wall
-        # Example:
         if not hasattr(self, 'canvas'):
             return
 
-        # Clear the current canvas
         self.canvas.get_tk_widget().destroy()
-
-        # Re-draw the floor map with the new wall
         self.plot_floor_map(self.current_floor, self.building, self.campus)
 
     def get_room_from_coordinates(self, coords):
