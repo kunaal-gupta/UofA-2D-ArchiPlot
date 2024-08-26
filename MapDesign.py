@@ -562,37 +562,92 @@ class Application(tk.Tk):
         start_room = self.get_room_from_coordinates(start_coords)
         end_room = self.get_room_from_coordinates(end_coords)
 
+        root_folder = f"Buildings Data/Buildings/{self.campus}/{self.building}"
+
+        room0_path = self.find_xml_file_path(root_folder, file_name='xml', roomname=room_names[0])[0]
+        room1_path = self.find_xml_file_path(root_folder, file_name='xml', roomname=room_names[1])[0]
+
         if start_room and end_room and start_room != end_room and start_room in self.selected_rooms and end_room in self.selected_rooms:
             ax.plot([start_coords[0], end_coords[0]], [start_coords[1], end_coords[1]], color='red', linewidth=2)
             self.canvas.draw()
-            print(f"Added wall between rooms {room_names[0]} and {room_names[1]} from {start_coords} to {end_coords}")
+            print(f"Added wall between rooms {room_names[0]} and {room_names[1]} from {start_coords} to {end_coords}", end = '\n')
+
+            self.add_door_to_xml(room0_path, [room_names[0], room_names[1]], [start_coords[0], start_coords[1]], [end_coords[0], end_coords[1]])
+            print(f"Successfully updated door entry to XML room: {room_names[0]}")
+
+            self.add_door_to_xml(room1_path, [room_names[0], room_names[1]], [start_coords[0], start_coords[1]], [end_coords[0], end_coords[1]])
+            print(f"Successfully updated door entry to XML room: {room_names[1]}", end='\n')
+
         else:
             print(f"Cannot add a wall between the same room or invalid coordinates or rooms not selected.")
-
-    def add_wall_between_rooms(self, coord1, coord2):
-        fig, ax = plt.subplots(figsize=(10, 8))
-
-        for polygon, room_number in self.polygons:
-            if room_number in self.selected_rooms:
-                polygon_patch = plt.Polygon(polygon.get_path().vertices, closed=True, edgecolor='black',
-                                            facecolor='gray', alpha=0.5)
-                ax.add_patch(polygon_patch)
-                plt.plot(polygon.get_path().vertices[:, 0], polygon.get_path().vertices[:, 1], marker='.',
-                         color='black')
-
-        ax.plot([coord1[0], coord2[0]], [coord1[1], coord2[1]], color='red', linewidth=3)
-        self.canvas.draw()
-        print(f"Added wall between coordinates: {coord1} and {coord2}")
-
-    def update_original_ui_with_wall(self, wall_info):
-        if not hasattr(self, 'canvas'):
-            return
-
-        self.canvas.get_tk_widget().destroy()
-        self.plot_floor_map(self.current_floor, self.building, self.campus)
 
     def get_room_from_coordinates(self, coords):
         for polygon, room_number in self.polygons:
             if polygon.get_path().contains_point(coords):
                 return room_number
         return None
+
+    # def add_wall_between_rooms(self, coord1, coord2):
+    #     fig, ax = plt.subplots(figsize=(10, 8))
+    #
+    #     for polygon, room_number in self.polygons:
+    #         if room_number in self.selected_rooms:
+    #             polygon_patch = plt.Polygon(polygon.get_path().vertices, closed=True, edgecolor='black',
+    #                                         facecolor='gray', alpha=0.5)
+    #             ax.add_patch(polygon_patch)
+    #             plt.plot(polygon.get_path().vertices[:, 0], polygon.get_path().vertices[:, 1], marker='.',
+    #                      color='black')
+    #
+    #     ax.plot([coord1[0], coord2[0]], [coord1[1], coord2[1]], color='red', linewidth=3)
+    #     self.canvas.draw()
+    #     print(f"Added wall between coordinates: {coord1} and {coord2}")
+    #
+    # def update_original_ui_with_wall(self, wall_info):
+    #     if not hasattr(self, 'canvas'):
+    #         return
+    #
+    #     self.canvas.get_tk_widget().destroy()
+    #     self.plot_floor_map(self.current_floor, self.building, self.campus)
+
+
+    def add_door_to_xml(self, xml_path, room_names, start_coords, end_coords):
+        try:
+            # Load the XML file
+            tree = ET.parse(xml_path)
+            root = tree.getroot()
+
+            # Find the <field> element with the correct tfid and key
+            field_found = False
+            for field in root.findall('.//field'):
+                if field.get('tfid') == "{list-of-common-doors-with-connecting-rooms}" and field.get(
+                        'key') == "rooms_sharing_common_door":
+                    content = field.find('content')
+
+                    # Format the new entry
+                    new_entry = f"{room_names[0]}: [{start_coords[0]}, {start_coords[1]}], {room_names[1]}: [{end_coords[0]}, {end_coords[1]}]"
+
+                    # Append the new entry to the existing content
+                    if content.text:
+                        content.text += " | " + new_entry
+                    else:
+                        content.text = new_entry
+
+                    field_found = True
+                    break
+
+            # If the field doesn't exist, create it
+            if not field_found:
+                new_field = ET.SubElement(root, 'field', {
+                    'tfid': "{list-of-common-doors-with-connecting-rooms}",
+                    'key': "rooms_sharing_common_door",
+                    'type': "Text"
+                })
+                new_content = ET.SubElement(new_field, 'content')
+                new_content.text = f"{room_names[0]}: [{start_coords[0]}, {start_coords[1]}], {room_names[1]}: [{end_coords[0]}, {end_coords[1]}]"
+
+            # Write the updated XML back to the file
+            tree.write(xml_path)
+
+
+        except Exception as e:
+            print(f"Error updating XML file: {e}")
