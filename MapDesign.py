@@ -587,67 +587,44 @@ class Application(tk.Tk):
                 return room_number
         return None
 
-    # def add_wall_between_rooms(self, coord1, coord2):
-    #     fig, ax = plt.subplots(figsize=(10, 8))
-    #
-    #     for polygon, room_number in self.polygons:
-    #         if room_number in self.selected_rooms:
-    #             polygon_patch = plt.Polygon(polygon.get_path().vertices, closed=True, edgecolor='black',
-    #                                         facecolor='gray', alpha=0.5)
-    #             ax.add_patch(polygon_patch)
-    #             plt.plot(polygon.get_path().vertices[:, 0], polygon.get_path().vertices[:, 1], marker='.',
-    #                      color='black')
-    #
-    #     ax.plot([coord1[0], coord2[0]], [coord1[1], coord2[1]], color='red', linewidth=3)
-    #     self.canvas.draw()
-    #     print(f"Added wall between coordinates: {coord1} and {coord2}")
-    #
-    # def update_original_ui_with_wall(self, wall_info):
-    #     if not hasattr(self, 'canvas'):
-    #         return
-    #
-    #     self.canvas.get_tk_widget().destroy()
-    #     self.plot_floor_map(self.current_floor, self.building, self.campus)
-
-
     def add_door_to_xml(self, xml_path, room_names, start_coords, end_coords):
+        """
+        Adds a new door entry to the XML file inside the <fields> element after successfully adding a door in the UI.
+
+        :param xml_path: The path to the XML file.
+        :param room_names: A list of room names [Room1, Room2].
+        :param start_coords: The starting coordinates of the door (X1, Y1).
+        :param end_coords: The ending coordinates of the door (X2, Y2).
+        """
         try:
             # Load the XML file
             tree = ET.parse(xml_path)
             root = tree.getroot()
 
-            # Find the <field> element with the correct tfid and key
-            field_found = False
-            for field in root.findall('.//field'):
-                if field.get('tfid') == "{list-of-common-doors-with-connecting-rooms}" and field.get(
-                        'key') == "rooms_sharing_common_door":
-                    content = field.find('content')
+            # Find the <fields> element within the XML structure
+            fields_element = root.find(".//fields")
 
-                    # Format the new entry
-                    new_entry = f"{room_names[0]}: [{start_coords[0]}, {start_coords[1]}], {room_names[1]}: [{end_coords[0]}, {end_coords[1]}]"
-
-                    # Append the new entry to the existing content
-                    if content.text:
-                        content.text += " | " + new_entry
-                    else:
-                        content.text = new_entry
-
-                    field_found = True
-                    break
-
-            # If the field doesn't exist, create it
-            if not field_found:
-                new_field = ET.SubElement(root, 'field', {
-                    'tfid': "{list-of-common-doors-with-connecting-rooms}",
-                    'key': "rooms_sharing_common_door",
-                    'type': "Text"
+            if fields_element is not None:
+                # Create a new <field> element
+                new_field = ET.Element("field", {
+                    "tfid": "{list-of-common-doors-with-connecting-rooms}",
+                    "key": "rooms_sharing_common_door",
+                    "type": "Text"
                 })
-                new_content = ET.SubElement(new_field, 'content')
-                new_content.text = f"{room_names[0]}: [{start_coords[0]}, {start_coords[1]}], {room_names[1]}: [{end_coords[0]}, {end_coords[1]}]"
 
-            # Write the updated XML back to the file
-            tree.write(xml_path)
+                # Create the <content> element
+                content = ET.SubElement(new_field, "content")
+                content.text = f"{room_names[0]}: {start_coords}, {room_names[1]}: {end_coords}"
 
+                # Append the new field inside <fields>
+                fields_element.append(new_field)
 
+                # Write the updated XML back to the file
+                tree.write(xml_path)
+            else:
+                print("No <fields> element found in the XML.")
+
+        except ET.ParseError as e:
+            print(f"Error parsing the XML file: {e}")
         except Exception as e:
-            print(f"Error updating XML file: {e}")
+            print(f"An error occurred: {e}")
