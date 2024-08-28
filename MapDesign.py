@@ -665,8 +665,6 @@ class Application(tk.Tk):
     import xml.etree.ElementTree as ET
     import os
 
-    import xml.etree.ElementTree as ET
-
     def add_door_to_xml(self, xml_path, room_names, start_coords, end_coords):
         """
         Adds a new door entry to the XML file inside the <fields> element after successfully adding a door in the UI.
@@ -685,38 +683,19 @@ class Application(tk.Tk):
             fields_element = root.find(".//fields")
 
             if fields_element is not None:
-                # Check if a <field> element with the specified attributes already exists
-                field_element = fields_element.find(
-                    ".//field[@tfid='{list-of-common-doors-with-connecting-rooms}' and @key='rooms_sharing_common_door']")
+                # Create a new <field> element
+                new_field = ET.Element("field", {
+                    "tfid": "{list-of-common-doors-with-connecting-rooms}",
+                    "key": "rooms_sharing_common_door",
+                    "type": "Text"
+                })
 
-                if field_element is not None:
-                    # If exists, append new content to the existing content
-                    content_element = field_element.find("content")
-                    if content_element is not None:
-                        existing_content = content_element.text
-                        new_entry = f"{room_names[0]}: {start_coords}, {room_names[1]}: {end_coords}"
-                        if existing_content:
-                            content_element.text = f"{existing_content} | {new_entry}"
-                        else:
-                            content_element.text = new_entry
-                    else:
-                        # If <content> element does not exist, create it
-                        content_element = ET.SubElement(field_element, "content")
-                        content_element.text = f"{room_names[0]}: {start_coords}, {room_names[1]}: {end_coords}"
-                else:
-                    # If does not exist, create a new <field> element
-                    new_field = ET.Element("field", {
-                        "tfid": "{list-of-common-doors-with-connecting-rooms}",
-                        "key": "rooms_sharing_common_door",
-                        "type": "Text"
-                    })
+                # Create the <content> element
+                content = ET.SubElement(new_field, "content")
+                content.text = f"{room_names[0]}: {start_coords}, {room_names[1]}: {end_coords}"
 
-                    # Create the <content> element
-                    content = ET.SubElement(new_field, "content")
-                    content.text = f"{room_names[0]}: {start_coords}, {room_names[1]}: {end_coords}"
-
-                    # Append the new field inside <fields>
-                    fields_element.append(new_field)
+                # Append the new field inside <fields>
+                fields_element.append(new_field)
 
                 # Write the updated XML back to the file
                 tree.write(xml_path)
