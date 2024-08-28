@@ -2,6 +2,8 @@ import os
 import shutil
 import tkinter as tk
 import xml.etree.ElementTree as ET
+from lxml import etree
+
 from tkinter import ttk
 from RoomManager import RoomManager
 from XMLDataExtract import Original_Building_Path, Edited_Building_Path, count_level_subfolders, \
@@ -10,6 +12,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from DialogueBox import CustomDialog
+import xml.etree.ElementTree as ET
 
 BuildingMap = {}
 BuildingName = Original_Building_Path.split('/')[-1]
@@ -430,20 +433,18 @@ class Application(tk.Tk):
             x, y = event.xdata, event.ydata
             for polygon, room_number in self.polygons:
                 if polygon.get_path().contains_point((x, y)) and room_number != "Building Outline":
-                    # Store both the polygon and the room number to distinguish between rooms with the same name
                     room_info = (polygon, room_number)
 
                     # Check if the room_info is not already in selected_rooms
                     if room_info not in self.selected_rooms:
                         self.selected_rooms.append(room_info)
-                        print(f"Selected Room: {room_number}")
 
                     if len(self.selected_rooms) == 2:
                         self.adding_wall = False
                         if self.selected_rooms[0][1] != self.selected_rooms[1][1]:
                             self.show_2d_diagram_of_selected_rooms()
                         else:
-                            print('Can not add a door to same rooms')
+                            print('a Can not add a door to same rooms')
                     return
 
     def show_2d_diagram_of_selected_rooms(self):
@@ -451,7 +452,6 @@ class Application(tk.Tk):
             print("Please select exactly two rooms.")
             return
 
-        # Store the selected rooms for wall creation
         self.room_names_for_wall = self.selected_rooms
 
         # Extract room names and polygons
@@ -556,16 +556,19 @@ class Application(tk.Tk):
                 # Get room information based on coordinates
                 start_room = self.get_room_from_coordinates(self.wall_start)
                 end_room = self.get_room_from_coordinates(self.wall_end)
+                # print(bool(start_room), bool(end_room), bool(start_room in self.selected_rooms[0][1]),
+                #       bool(end_room in self.selected_rooms[1][1]))
 
-                # Check if start and end rooms are valid and different
                 if (start_room and end_room and
                         start_room != end_room and
                         start_room in self.selected_rooms[0][1] and end_room in self.selected_rooms[1][1]):
 
                     # Add the wall to the original UI
+                    ...
+                    print(bool(start_room), bool(end_room), bool(start_room in self.selected_rooms[0][1]), bool(end_room in self.selected_rooms[1][1]))
                     self.add_wall_to_original_ui(self.wall_start, self.wall_end, [start_room, end_room])
                 else:
-                    print("Cannot add a wall between the same room or invalid coordinates or rooms not selected.")
+                    print("b Cannot add a wall between the same room or invalid coordinates or rooms not selected.")
 
                 # Reset the wall_start attribute for the next wall
                 delattr(self, 'wall_start')
@@ -573,8 +576,7 @@ class Application(tk.Tk):
                 # Set the starting point for the wall
                 self.wall_start = (x, y)
 
-    import shutil
-    import os
+
 
     def add_wall_to_original_ui(self, start_coords, end_coords, room_names):
         if self.canvas is None:
@@ -589,13 +591,10 @@ class Application(tk.Tk):
         # Define paths for original and edited buildings
         root_folder_original = f"Buildings Data/Buildings/{self.campus}/{self.building}"
         root_folder_edited = f"Buildings Data/Edited Building/{self.campus}/{self.building}"
-
+        print(room_names)
         # Find the paths of the XML files for the rooms
         room0_path_original = self.find_xml_file_path(root_folder_original, file_name='xml', roomname=room_names[0])[0]
         room1_path_original = self.find_xml_file_path(root_folder_original, file_name='xml', roomname=room_names[1])[0]
-        print("Original XML paths:")
-        print(room0_path_original)
-        print(room1_path_original)
 
         # Create the edited folder if it doesn't exist
         if not os.path.exists(root_folder_edited):
@@ -604,9 +603,6 @@ class Application(tk.Tk):
         # Define paths for the copied XML files by replacing the folder
         copied_room0_path = room0_path_original.replace(root_folder_original, root_folder_edited)
         copied_room1_path = room1_path_original.replace(root_folder_original, root_folder_edited)
-        print("Copied XML paths:")
-        print(copied_room0_path)
-        print(copied_room1_path)
 
         # Create any intermediate directories for the copied files if they don't exist
         copied_room0_dir = os.path.dirname(copied_room0_path)
@@ -616,12 +612,12 @@ class Application(tk.Tk):
             os.makedirs(copied_room0_dir)
         if not os.path.exists(copied_room1_dir):
             os.makedirs(copied_room1_dir)
+        print('Copied XML files for door addition')
 
         try:
             # Copy the XML files to the new folder
             shutil.copy2(room0_path_original, copied_room0_path)
             shutil.copy2(room1_path_original, copied_room1_path)
-            print(f"Copied XML files to {root_folder_edited}")
         except Exception as e:
             print(f"Error copying XML files: {e}")
 
@@ -634,23 +630,24 @@ class Application(tk.Tk):
             print(f"Added wall between rooms {room_names[0]} and {room_names[1]} from {start_coords} to {end_coords}",
                   end='\n')
 
-            try:
-                # Attempt to add the door entry to the copied XML
-                self.add_door_to_xml(copied_room0_path, [room_names[0], room_names[1]],
-                                     [start_coords[0], start_coords[1]],
-                                     [end_coords[0], end_coords[1]])
-                print(f"Successfully updated door entry in copied XML for room: {room_names[0]}")
-            except:
-                print(f'Error updating copied XML file {room_names[0]} for wall addition')
-
-            try:
-                # Attempt to add the door entry to the copied XML
-                self.add_door_to_xml(copied_room1_path, [room_names[0], room_names[1]],
-                                     [start_coords[0], start_coords[1]],
-                                     [end_coords[0], end_coords[1]])
-                print(f"Successfully updated door entry in copied XML for room: {room_names[1]}", end='\n')
-            except:
-                print(f'Error updating copied XML file {room_names[1]} for wall addition')
+            self.add_door_to_xml(copied_room0_path, room_names, start_coords, end_coords)
+            print()
+            self.add_door_to_xml(copied_room1_path, room_names, start_coords, end_coords)
+            print('Successfully updated door entry in copied XML for rooms')
+            # try:
+            #     # Attempt to add the door entry to the copied XML
+            #     self.add_door_to_xml(copied_room0_path, room_names, start_coords, end_coords)
+            #     print(f"Successfully updated door entry in copied XML for room: {room_names[0]}")
+            # except Exception as e:
+            #     print(f'Error updating copied XML file {room_names[0]} for wall addition {e}')
+            #
+            # try:
+            #     # Attempt to add the door entry to the copied XML
+            #     self.add_door_to_xml(copied_room0_path, room_names, start_coords, end_coords)
+            #
+            #     print(f"Successfully updated door entry in copied XML for room: {room_names[1]}", end='\n')
+            # except Exception as e:
+            #     print(f'Error updating copied XML file {room_names[0]} for wall addition {e}')
 
         else:
             print(f"Cannot add a wall between the same room or invalid coordinates or rooms not selected.")
@@ -662,47 +659,52 @@ class Application(tk.Tk):
                 return room_number
         return None
 
-    import xml.etree.ElementTree as ET
-    import os
-
     def add_door_to_xml(self, xml_path, room_names, start_coords, end_coords):
-        """
-        Adds a new door entry to the XML file inside the <fields> element after successfully adding a door in the UI.
+            # Format the door data
+            new_door_data = f"{room_names[0]}: {start_coords}, {room_names[1]}: {end_coords}"
 
-        :param xml_path: The path to the XML file.
-        :param room_names: A list of room names [Room1, Room2].
-        :param start_coords: The starting coordinates of the door (X1, Y1).
-        :param end_coords: The ending coordinates of the door (X2, Y2).
-        """
-        try:
-            # Load the XML file
+            # Parse the XML file
             tree = ET.parse(xml_path)
             root = tree.getroot()
 
-            # Find the <fields> element within the XML structure
-            fields_element = root.find(".//fields")
+            # Find the <field> element with the specified key
+            field_elem = None
+            for field in root.findall(".//field"):
+                if field.get("key") == "rooms_sharing_common_door":
+                    field_elem = field
+                    break
 
-            if fields_element is not None:
-                # Create a new <field> element
-                new_field = ET.Element("field", {
-                    "tfid": "{list-of-common-doors-with-connecting-rooms}",
-                    "key": "rooms_sharing_common_door",
-                    "type": "Text"
-                })
-
-                # Create the <content> element
-                content = ET.SubElement(new_field, "content")
-                content.text = f"{room_names[0]}: {start_coords}, {room_names[1]}: {end_coords}"
-
-                # Append the new field inside <fields>
-                fields_element.append(new_field)
-
-                # Write the updated XML back to the file
-                tree.write(xml_path)
+            if field_elem is None:
+                # Create the <field> element if it does not exist
+                field_elem = ET.SubElement(root.find("fields"), "field",
+                                           tfid="{list-of-common-doors-with-connecting-rooms}",
+                                           key="rooms_sharing_common_door", type="Text")
+                content_elem = ET.SubElement(field_elem, "content")
+                content_elem.text = new_door_data
             else:
-                print("No <fields> element found in the XML.")
+                # Append new door data to the existing <content> element
+                content_elem = field_elem.find("content")
+                if content_elem is not None:
+                    # Append the new data separated by a "|"
+                    if content_elem.text:
+                        content_elem.text += " | " + new_door_data
+                    else:
+                        content_elem.text = new_door_data
+                else:
+                    # Create the <content> element if it does not exist
+                    content_elem = ET.SubElement(field_elem, "content")
+                    content_elem.text = new_door_data
 
-        except ET.ParseError as e:
-            print(f"Error parsing the XML file: {e}")
-        except Exception as e:
-            print(f"An error occurred: {e}")
+            # Write the updated XML back to the file
+            tree.write(xml_path, encoding="utf-8", xml_declaration=True)
+
+
+
+
+
+
+
+
+
+
+

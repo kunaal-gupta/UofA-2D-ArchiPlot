@@ -1,0 +1,102 @@
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [200 & 201]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [200 & 202]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [200 & Building Outline]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [200 & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [201 & Building Outline]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [201 & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [202 & Building Outline]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [202 & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [203 & 205]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [203 & Building Outline]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [203 & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [204 & 206]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [204 & Building Outline]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [204 & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [205 & 207]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [205 & Building Outline]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [205 & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [206 & Building Outline]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [206 & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [206 & Stairs]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [207 & 209]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [207 & Building Outline]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [207 & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [209 & 211]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [209 & Building Outline]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [209 & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [211 & Building Outline]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [211 & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [215 & 217]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [215 & Building Outline]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [215 & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [217 & Building Outline]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [217 & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [218 & 220]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [218 & Building Outline]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [218 & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [218 & Stairs]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [218 & Washroom Women]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [219 & Building Outline]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [219 & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [219 & X]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [220 & Building Outline]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [220 & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [220 & 224]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [227 & Building Outline]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [227 & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [227 & Stairs]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [227 & X]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [231 & Building Outline]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [231 & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [231 & X]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [233 & 235]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [233 & Building Outline]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [233 & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [235 & 237]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [235 & Building Outline]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [235 & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [237 & 241]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [237 & Building Outline]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [237 & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [241 & 243]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [241 & Building Outline]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [241 & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [243 & Building Outline]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [243 & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [243 & X]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [252 & Building Outline]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [252 & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [252 & Stairs]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [252 & X]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Building Outline & Entrance]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Building Outline & Entrance]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Building Outline & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Building Outline & Stairs]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Building Outline & Stairs]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Building Outline & Stairs]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Building Outline & Stairs]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Building Outline & 224]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Building Outline & X]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Building Outline & X]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Building Outline & X]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Entrance & Stairs]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Entrance & X]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Elevator & Hallway]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Elevator & X]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Hallway & Stairs]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Hallway & Stairs]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Hallway & Stairs]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Hallway & Stairs]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Hallway & AllGender Washroom]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Hallway & Washroom Men]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Hallway & Washroom Women]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Hallway & 224]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Hallway & X]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Hallway & X]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Hallway & X]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Hallway & X]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Stairs & AllGender Washroom]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Stairs & X]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Stairs & Washroom Men]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Stairs & Washroom Women]}
+{Campus: North Campus, Building: Athabasca Hall, Floor: Level 2, Neighbors: [Washroom Men & Washroom Women]}
