@@ -630,9 +630,9 @@ class Application(tk.Tk):
             print(f"Added wall between rooms {room_names[0]} and {room_names[1]} from {start_coords} to {end_coords}",
                   end='\n')
 
-            self.add_door_to_xml(copied_room0_path, room_names, start_coords, end_coords)
+            self.add_door_to_text_file(copied_room0_path, room_names, start_coords, end_coords)
             print()
-            self.add_door_to_xml(copied_room1_path, room_names, start_coords, end_coords)
+            self.add_door_to_text_file(copied_room1_path, room_names, start_coords, end_coords)
             print('Successfully updated door entry in copied XML for rooms')
             # try:
             #     # Attempt to add the door entry to the copied XML
@@ -659,44 +659,32 @@ class Application(tk.Tk):
                 return room_number
         return None
 
-    def add_door_to_xml(self, xml_path, room_names, start_coords, end_coords):
-            # Format the door data
-            new_door_data = f"{room_names[0]}: {start_coords}, {room_names[1]}: {end_coords}"
+    import xml.etree.ElementTree as ET
 
-            # Parse the XML file
-            tree = ET.parse(xml_path)
-            root = tree.getroot()
+    import xml.etree.ElementTree as ET
 
-            # Find the <field> element with the specified key
-            field_elem = None
-            for field in root.findall(".//field"):
-                if field.get("key") == "rooms_sharing_common_door":
-                    field_elem = field
-                    break
+    def add_door_to_text_file(self, file_path, room_names, start_coords, end_coords):
+        """
+        Adds or appends a new door entry to a text file.
 
-            if field_elem is None:
-                # Create the <field> element if it does not exist
-                field_elem = ET.SubElement(root.find("fields"), "field",
-                                           tfid="{list-of-common-doors-with-connecting-rooms}",
-                                           key="rooms_sharing_common_door", type="Text")
-                content_elem = ET.SubElement(field_elem, "content")
-                content_elem.text = new_door_data
-            else:
-                # Append new door data to the existing <content> element
-                content_elem = field_elem.find("content")
-                if content_elem is not None:
-                    # Append the new data separated by a "|"
-                    if content_elem.text:
-                        content_elem.text += " | " + new_door_data
-                    else:
-                        content_elem.text = new_door_data
-                else:
-                    # Create the <content> element if it does not exist
-                    content_elem = ET.SubElement(field_elem, "content")
-                    content_elem.text = new_door_data
+        :param file_path: The path to the text file.
+        :param room_names: A list of room names [Room1, Room2].
+        :param start_coords: The starting coordinates of the door (X1, Y1).
+        :param end_coords: The ending coordinates of the door (X2, Y2).
+        """
+        new_entry = f"{room_names[0]}: {start_coords}, {room_names[1]}: {end_coords}"
+        file_path = file_path.replace('xml', 'door_info.text')
+        print(file_path)
 
-            # Write the updated XML back to the file
-            tree.write(xml_path, encoding="utf-8", xml_declaration=True)
+        try:
+            with open(file_path, 'a') as file:
+                file.write(new_entry + '\n')
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
+
+
+
 
 
 
