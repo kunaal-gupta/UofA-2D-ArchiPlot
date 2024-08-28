@@ -430,8 +430,12 @@ class Application(tk.Tk):
             x, y = event.xdata, event.ydata
             for polygon, room_number in self.polygons:
                 if polygon.get_path().contains_point((x, y)) and room_number != "Building Outline":
-                    if room_number not in self.selected_rooms:
-                        self.selected_rooms.append(room_number)
+                    # Store both the polygon and the room number to distinguish between rooms with the same name
+                    room_info = (polygon, room_number)
+
+                    # Check if the room_info is not already in selected_rooms
+                    if room_info not in self.selected_rooms:
+                        self.selected_rooms.append(room_info)
                         print(f"Selected Room: {room_number}")
 
                     if len(self.selected_rooms) == 2:
@@ -444,10 +448,11 @@ class Application(tk.Tk):
             print("Please select exactly two rooms.")
             return
 
+        # Store the selected rooms for wall creation
         self.room_names_for_wall = self.selected_rooms
 
-        # Extract room names for the title
-        room1, room2 = self.selected_rooms
+        # Extract room names and polygons
+        (polygon1, room1), (polygon2, room2) = self.selected_rooms
 
         # Create a new window to show the 2D diagram
         diagram_window = tk.Toplevel(self)
@@ -468,13 +473,13 @@ class Application(tk.Tk):
         # Create a Matplotlib figure and axis
         fig, ax = plt.subplots(figsize=(8, 6))
 
-        for polygon, room_number in self.polygons:
-            if room_number in self.room_names_for_wall:
-                polygon_patch = plt.Polygon(polygon.get_path().vertices, closed=True, edgecolor='black',
-                                            facecolor='gray', alpha=0.5)
-                ax.add_patch(polygon_patch)
-                plt.plot(polygon.get_path().vertices[:, 0], polygon.get_path().vertices[:, 1], marker='.',
-                         color='black')
+        # Plot the polygons of the selected rooms
+        for polygon, room_number in self.selected_rooms:
+            polygon_patch = plt.Polygon(polygon.get_path().vertices, closed=True, edgecolor='black',
+                                        facecolor='gray', alpha=0.5)
+            ax.add_patch(polygon_patch)
+            plt.plot(polygon.get_path().vertices[:, 0], polygon.get_path().vertices[:, 1], marker='.',
+                     color='black')
 
         ax.set_title(f"2D Diagram of Rooms: {room1} & {room2}")
         ax.set_xlabel("X Coordinate")
@@ -535,21 +540,41 @@ class Application(tk.Tk):
     def on_select_wall_coordinates(self, event, ax, fig, diagram_window):
         if event.inaxes is not None:
             x, y = event.xdata, event.ydata
+
+            # Check if we already have the start coordinates for the wall
             if hasattr(self, 'wall_start'):
+                # Plot the line representing the wall
                 ax.plot([self.wall_start[0], x], [self.wall_start[1], y], color='red', linewidth=2)
                 fig.canvas.draw()
 
+                # Set the wall end coordinates
                 self.wall_end = (x, y)
+
+                # Get room information based on coordinates
                 start_room = self.get_room_from_coordinates(self.wall_start)
                 end_room = self.get_room_from_coordinates(self.wall_end)
 
-                if start_room and end_room and start_room != end_room and start_room in self.selected_rooms and end_room in self.selected_rooms:
+                print('start room:', start_room)
+                print('end room:', end_room)
+                print('selected rooms:', self.selected_rooms)
+                print('Conditions:', bool(start_room), bool(end_room), bool(start_room != end_room),
+                      bool(start_room in self.selected_rooms), bool(end_room in self.selected_rooms))
+
+                # Check if start and end rooms are valid and different
+                if (start_room and end_room and
+                        (start_room != end_room or
+                         self.get_polygon_by_room(start_room) != self.get_polygon_by_room(end_room)) and
+                        start_room in self.selected_rooms and end_room in self.selected_rooms):
+
+                    # Add the wall to the original UI
                     self.add_wall_to_original_ui(self.wall_start, self.wall_end, [start_room, end_room])
                 else:
-                    print(f"Cannot add a wall between the same room or invalid coordinates or rooms not selected.")
+                    print("Cannot add a wall between the same room or invalid coordinates or rooms not selected.")
 
+                # Reset the wall_start attribute for the next wall
                 delattr(self, 'wall_start')
             else:
+                # Set the starting point for the wall
                 self.wall_start = (x, y)
 
     def add_wall_to_original_ui(self, start_coords, end_coords, room_names):
@@ -572,18 +597,32 @@ class Application(tk.Tk):
             self.canvas.draw()
             print(f"Added wall between rooms {room_names[0]} and {room_names[1]} from {start_coords} to {end_coords}", end = '\n')
 
-            self.add_door_to_xml(room0_path, [room_names[0], room_names[1]], [start_coords[0], start_coords[1]], [end_coords[0], end_coords[1]])
-            print(f"Successfully updated door entry to XML room: {room_names[0]}")
+            # try:
+            #     # Attempt to add the door entry to the XML
+            #     self.add_door_to_xml(room0_path, [room_names[0], room_names[1]], [start_coords[0], start_coords[1]],
+            #                          [end_coords[0], end_coords[1]])
+            #     print(f"Successfully updated door entry to XML room: {room_names[0]}")
+            # except:
+            #     print(f'Error updating XML file {room_names[0]} for wall addition')
+            #
+            #
+            # try:
+            #     # Attempt to add the door entry to the XML
+            #     self.add_door_to_xml(room1_path, [room_names[0], room_names[1]], [start_coords[0], start_coords[1]],
+            #                          [end_coords[0], end_coords[1]])
+            #     print(f"Successfully updated door entry to XML room: {room_names[1]}", end='\n')
+            # except:
+            #     print(f'Error updating XML file {room_names[1]} for wall addition')
 
-            self.add_door_to_xml(room1_path, [room_names[0], room_names[1]], [start_coords[0], start_coords[1]], [end_coords[0], end_coords[1]])
-            print(f"Successfully updated door entry to XML room: {room_names[1]}", end='\n')
 
         else:
             print(f"Cannot add a wall between the same room or invalid coordinates or rooms not selected.")
 
     def get_room_from_coordinates(self, coords):
+        print(self.polygons)
         for polygon, room_number in self.polygons:
-            if polygon.get_path().contains_point(coords):
+            # Check if the room is not "Building Outline"
+            if room_number != "Building Outline" and polygon.get_path().contains_point(coords):
                 return room_number
         return None
 

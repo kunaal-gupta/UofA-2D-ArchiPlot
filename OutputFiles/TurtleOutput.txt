@@ -197,3 +197,129 @@
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: X, Centroid: (-83.46662, 587.29317)}
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: X, Centroid: (2.92144, 423.4852)}
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: None, Centroid: None}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-02, Centroid: (-506.62373, -109.8012)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-05, Centroid: (-560.4585, 87.11394)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-07, Centroid: (-560.4585, 135.36218)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-11, Centroid: (-536.76336, 195.88766)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-13, Centroid: (-425.22086, 197.98395)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-15, Centroid: (-351.32106, 197.98395)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-17, Centroid: (-295.11885, 197.98395)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-22, Centroid: (-302.00173, 83.92412)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-23, Centroid: (-165.82108, 197.98395)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-26, Centroid: (-161.84367, 80.60964)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-34, Centroid: (298.88341, 83.92412)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-36, Centroid: (358.78026, 83.92412)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-42, Centroid: (432.99013, 197.98395)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-50, Centroid: (506.42794, -108.38114)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: Building Outline, Centroid: (-0.04116, 65.63104)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: Elevator, Centroid: (101.50769, 197.98395)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: Hallway, Centroid: (-38.2253, 124.90395)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: Hole, Centroid: (205.8788, 197.98395)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: Hole, Centroid: (160.10681, 80.5153)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: Stairs, Centroid: (-3.69318, 197.98395)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: Stairs, Centroid: (429.73621, 44.57503)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: Stairs, Centroid: (-430.85571, 44.34354)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: All-Gender Washroom, Centroid: (-413.91336, 104.03146)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: All-Gender Washroom, Centroid: (464.59087, 103.64729)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: Washroom Women, Centroid: (413.41311, 103.64729)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: Washroom Women, Centroid: (-465.1871, 104.03146)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: X, Centroid: (30.31149, 83.21007)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 128, Centroid: (-34.61777, 82.86868)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: X, Centroid: (-362.63111, 83.92412)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: X, Centroid: (560.56461, 54.14257)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: X, Centroid: (560.56461, 124.43245)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: None, Centroid: None}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-02, Centroid: (-506.23816, -112.32574)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-13, Centroid: (-560.2607, 86.06315)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-15, Centroid: (-535.11305, 195.96657)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-19, Centroid: (-435.93008, 195.96657)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-21, Centroid: (-361.80094, 195.96657)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-22, Centroid: (-356.14729, 79.87374)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-23, Centroid: (-292.15973, 195.96657)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-24, Centroid: (-293.5553, 79.87374)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-25, Centroid: (-233.89363, 195.96657)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-26, Centroid: (-229.45698, 79.87374)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-27, Centroid: (-172.26953, 198.22179)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-28, Centroid: (-163.14611, 77.21392)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-29, Centroid: (-98.01767, 211.15362)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-30, Centroid: (-90.4781, 87.92623)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-40, Centroid: (148.90702, 76.07234)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-43, Centroid: (227.6334, 195.96657)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-44, Centroid: (291.94332, 79.87374)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-45, Centroid: (291.94332, 195.96657)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-46, Centroid: (354.5762, 79.87374)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-47, Centroid: (356.07586, 195.96657)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-51, Centroid: (418.60099, 195.96657)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-55, Centroid: (546.65974, 195.96657)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-59, Centroid: (558.87973, 79.10207)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-63, Centroid: (558.87973, -20.01436)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-64, Centroid: (452.07641, -20.24453)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-65, Centroid: (558.87973, -86.64608)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-66, Centroid: (452.07641, -86.64608)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-67, Centroid: (558.87973, -145.90444)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-68, Centroid: (452.07641, -145.90444)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-69, Centroid: (554.71156, -207.69739)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-70, Centroid: (456.24407, -207.69465)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: Building Outline, Centroid: (0.53625, 66.22496)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: Entrance, Centroid: (-605.88556, 136.18516)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: Entrance, Centroid: (2.37696, 36.12615)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: Elevator, Centroid: (107.23156, 195.96657)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: Hallway, Centroid: (19.79016, 112.4056)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: Stairs, Centroid: (2.37696, 79.87374)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: Stairs, Centroid: (-443.28131, 47.41434)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: Stairs, Centroid: (0.64238, 218.57333)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: Stairs, Centroid: (441.7976, 47.41088)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: All-Gender Washroom, Centroid: (-414.31313, 98.83906)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: Washroom Men, Centroid: (-467.86816, 98.83906)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: Washroom Women, Centroid: (439.60606, 98.83906)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: X, Centroid: (174.59701, 195.96657)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: X, Centroid: (558.87973, 31.35246)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 257, Centroid: (558.87973, 131.62061)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: X, Centroid: (-560.2607, 33.51881)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: X, Centroid: (470.81476, 195.96657)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: None, Centroid: None}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-02, Centroid: (-475.67673, -105.32819)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-09, Centroid: (-526.77006, 83.26277)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-22, Centroid: (-330.3552, 79.43313)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-23, Centroid: (-278.03944, 185.94595)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-24, Centroid: (-275.78116, 79.43313)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-25, Centroid: (-218.61224, 185.94595)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-26, Centroid: (-218.61224, 79.43313)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-27, Centroid: (-157.76072, 185.94595)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-28, Centroid: (-157.32776, 78.74789)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-29, Centroid: (-89.22447, 185.94595)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-30, Centroid: (-43.10822, 70.53954)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-40, Centroid: (120.58851, 69.4872)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-43, Centroid: (169.89349, 185.94595)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-45, Centroid: (218.94978, 185.94595)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-46, Centroid: (276.11628, 79.43313)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-48, Centroid: (218.56404, 79.43313)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-49, Centroid: (277.7937, 185.94595)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-50, Centroid: (332.40371, 79.43313)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-51, Centroid: (339.4117, 185.94595)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-55, Centroid: (403.4331, 185.94595)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-57, Centroid: (513.16429, 150.06847)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-64, Centroid: (421.95581, -13.32211)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-65, Centroid: (528.05619, -13.32211)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-66, Centroid: (421.95581, -70.6135)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-67, Centroid: (528.05619, -70.6135)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-68, Centroid: (421.95581, -128.61833)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-69, Centroid: (528.05619, -128.61833)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-70, Centroid: (426.4497, -193.24497)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-71, Centroid: (523.56577, -193.22648)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: Building Outline, Centroid: (0.81317, 63.56628)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: Elevator, Centroid: (104.29107, 185.94595)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: Hallway, Centroid: (-40.07825, 115.08755)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: Stairs, Centroid: (-410.87571, 48.07813)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: Stairs, Centroid: (-583.78378, 168.80309)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: Stairs, Centroid: (3.34697, 185.94595)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: Stairs, Centroid: (412.77944, 47.49049)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: Stairs, Centroid: (584.2471, 172.66409)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: Washroom Men, Centroid: (-429.96705, 99.35591)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: Washroom Women, Centroid: (-377.30296, 99.35591)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: Washroom Women, Centroid: (413.13318, 98.99243)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: X, Centroid: (528.05619, 33.617)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: X, Centroid: (-526.77006, 35.23188)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: X, Centroid: (-510.55385, 185.94595)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: X, Centroid: (-526.77006, 128.03089)}
+{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: None, Centroid: None}
