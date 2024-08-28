@@ -161,7 +161,7 @@ def get_initials(text):
 class Application(tk.Tk):
     def __init__(self, building, campus, *args, **kwargs):
 
-        self.adding_wall = None
+        self.adding_door = None
         self.canvas = None
         self.adding_door = False
         self.building = building
@@ -218,9 +218,9 @@ class Application(tk.Tk):
         self.generate_neighbours_button.grid(row=3, column=1, pady=(0, 0), padx=(10, 10), sticky='n')
         self.generate_neighbours_button.grid_remove()
 
-        self.add_wall_button = ttk.Button(self.container, text="Add Wall", command=self.add_wall_func, style='TButton')
-        self.add_wall_button.grid(row=4, column=1, pady=(0, 0), padx=(10, 10), sticky='n')
-        self.add_wall_button.grid_remove()
+        self.add_door_button = ttk.Button(self.container, text="Add door", command=self.add_door_func, style='TButton')
+        self.add_door_button.grid(row=4, column=1, pady=(0, 0), padx=(10, 10), sticky='n')
+        self.add_door_button.grid_remove()
 
         self.selected_rooms = []
 
@@ -228,7 +228,7 @@ class Application(tk.Tk):
         self.current_floor = floor
         self.check_errors_button.grid()
         self.generate_neighbours_button.grid()
-        self.add_wall_button.grid()
+        self.add_door_button.grid()
 
         # Close the previous legend window if it exists
         if self.legend_window is not None and self.legend_window.winfo_exists():
@@ -418,15 +418,15 @@ class Application(tk.Tk):
         room_manager = RoomManager(RoomsDataArray, self.campus, self.building, self.current_floor)
         room_manager.generating_neighbours()
 
-    def add_wall_func(self):
-        self.adding_wall = True
+    def add_door_func(self):
+        self.adding_door = True
         self.selected_rooms = []
 
-        tk.messagebox.showinfo("Add Wall", "Please select two rooms to add a wall between them.")
-        self.canvas.mpl_connect('button_press_event', self.on_select_room_for_wall)
+        tk.messagebox.showinfo("Add door", "Please select two rooms to add a door between them.")
+        self.canvas.mpl_connect('button_press_event', self.on_select_room_for_door)
 
-    def on_select_room_for_wall(self, event):
-        if not self.adding_wall or not hasattr(self, 'polygons'):
+    def on_select_room_for_door(self, event):
+        if not self.adding_door or not hasattr(self, 'polygons'):
             return
 
         if event.inaxes is not None:
@@ -440,7 +440,7 @@ class Application(tk.Tk):
                         self.selected_rooms.append(room_info)
 
                     if len(self.selected_rooms) == 2:
-                        self.adding_wall = False
+                        self.adding_door = False
                         if self.selected_rooms[0][1] != self.selected_rooms[1][1]:
                             self.show_2d_diagram_of_selected_rooms()
                         else:
@@ -452,7 +452,7 @@ class Application(tk.Tk):
             print("Please select exactly two rooms.")
             return
 
-        self.room_names_for_wall = self.selected_rooms
+        self.room_names_for_door = self.selected_rooms
 
         # Extract room names and polygons
         (polygon1, room1), (polygon2, room2) = self.selected_rooms
@@ -496,9 +496,9 @@ class Application(tk.Tk):
         canvas.draw()
         canvas.get_tk_widget().pack(expand=True, fill="both")
 
-        # Connect click event to add wall coordinates
+        # Connect click event to add door coordinates
         canvas.mpl_connect('button_press_event',
-                           lambda event: self.on_select_wall_coordinates(event, ax, fig, diagram_window))
+                           lambda event: self.on_select_door_coordinates(event, ax, fig, diagram_window))
 
     def zoom_out(self, ax, fig):
         # Get current limits
@@ -540,22 +540,22 @@ class Application(tk.Tk):
         # Redraw the canvas
         fig.canvas.draw()
 
-    def on_select_wall_coordinates(self, event, ax, fig, diagram_window):
+    def on_select_door_coordinates(self, event, ax, fig, diagram_window):
         if event.inaxes is not None:
             x, y = event.xdata, event.ydata
 
-            # Check if we already have the start coordinates for the wall
-            if hasattr(self, 'wall_start'):
-                # Plot the line representing the wall
-                ax.plot([self.wall_start[0], x], [self.wall_start[1], y], color='red', linewidth=2)
+            # Check if we already have the start coordinates for the door
+            if hasattr(self, 'door_start'):
+                # Plot the line representing the door
+                ax.plot([self.door_start[0], x], [self.door_start[1], y], color='red', linewidth=2)
                 fig.canvas.draw()
 
-                # Set the wall end coordinates
-                self.wall_end = (x, y)
+                # Set the door end coordinates
+                self.door_end = (x, y)
 
                 # Get room information based on coordinates
-                start_room = self.get_room_from_coordinates(self.wall_start)
-                end_room = self.get_room_from_coordinates(self.wall_end)
+                start_room = self.get_room_from_coordinates(self.door_start)
+                end_room = self.get_room_from_coordinates(self.door_end)
                 # print(bool(start_room), bool(end_room), bool(start_room in self.selected_rooms[0][1]),
                 #       bool(end_room in self.selected_rooms[1][1]))
 
@@ -563,22 +563,22 @@ class Application(tk.Tk):
                         start_room != end_room and
                         start_room in self.selected_rooms[0][1] and end_room in self.selected_rooms[1][1]):
 
-                    # Add the wall to the original UI
+                    # Add the door to the original UI
                     ...
                     print(bool(start_room), bool(end_room), bool(start_room in self.selected_rooms[0][1]), bool(end_room in self.selected_rooms[1][1]))
-                    self.add_wall_to_original_ui(self.wall_start, self.wall_end, [start_room, end_room])
+                    self.add_door_to_original_ui(self.door_start, self.door_end, [start_room, end_room])
                 else:
-                    print("b Cannot add a wall between the same room or invalid coordinates or rooms not selected.")
+                    print("b Cannot add a door between the same room or invalid coordinates or rooms not selected.")
 
-                # Reset the wall_start attribute for the next wall
-                delattr(self, 'wall_start')
+                # Reset the door_start attribute for the next door
+                delattr(self, 'door_start')
             else:
-                # Set the starting point for the wall
-                self.wall_start = (x, y)
+                # Set the starting point for the door
+                self.door_start = (x, y)
 
 
 
-    def add_wall_to_original_ui(self, start_coords, end_coords, room_names):
+    def add_door_to_original_ui(self, start_coords, end_coords, room_names):
         if self.canvas is None:
             return
 
@@ -627,7 +627,7 @@ class Application(tk.Tk):
                 end_room in [room[1] for room in self.selected_rooms]):
             ax.plot([start_coords[0], end_coords[0]], [start_coords[1], end_coords[1]], color='red', linewidth=2)
             self.canvas.draw()
-            print(f"Added wall between rooms {room_names[0]} and {room_names[1]} from {start_coords} to {end_coords}",
+            print(f"Added door between rooms {room_names[0]} and {room_names[1]} from {start_coords} to {end_coords}",
                   end='\n')
 
             self.add_door_to_text_file(copied_room0_path, room_names, start_coords, end_coords)
@@ -639,7 +639,7 @@ class Application(tk.Tk):
             #     self.add_door_to_xml(copied_room0_path, room_names, start_coords, end_coords)
             #     print(f"Successfully updated door entry in copied XML for room: {room_names[0]}")
             # except Exception as e:
-            #     print(f'Error updating copied XML file {room_names[0]} for wall addition {e}')
+            #     print(f'Error updating copied XML file {room_names[0]} for door addition {e}')
             #
             # try:
             #     # Attempt to add the door entry to the copied XML
@@ -647,10 +647,10 @@ class Application(tk.Tk):
             #
             #     print(f"Successfully updated door entry in copied XML for room: {room_names[1]}", end='\n')
             # except Exception as e:
-            #     print(f'Error updating copied XML file {room_names[0]} for wall addition {e}')
+            #     print(f'Error updating copied XML file {room_names[0]} for door addition {e}')
 
         else:
-            print(f"Cannot add a wall between the same room or invalid coordinates or rooms not selected.")
+            print(f"Cannot add a door between the same room or invalid coordinates or rooms not selected.")
 
     def get_room_from_coordinates(self, coords):
         for polygon, room_number in self.polygons:
