@@ -440,7 +440,7 @@ class Application(tk.Tk):
         room_manager.generating_neighbours()
 
     def add_door_func(self):
-        print('Note: Please dont select rooms with same name for door addition like Stairs, X etc. Otherwise Turtle function would add door info to all records with same room name')
+        print('Note: Please dont select rooms with same name for door addition like Stairs, X etc. Otherwise Turtle function would add door info to all records with same room name. To fix this please edit XML file item -> key with the new name before executing name change')
         self.adding_door = True
         self.selected_rooms = []
 
@@ -676,6 +676,7 @@ class Application(tk.Tk):
 
         new_entry = f"{room_names[0]}: {start_coords}, {room_names[1]}: {end_coords}"
         file_path = file_path.replace('xml', 'door_info.text')
+        print(f'Generated a text file with door info in {file_path}')
 
         try:
             with open(file_path, 'a') as file:
