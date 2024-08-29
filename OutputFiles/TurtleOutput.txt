@@ -1,325 +1,151 @@
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-01, Centroid: (280.19787, -548.78672)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-02, Centroid: (280.45024, -444.50721)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-05, Centroid: (181.69915, -555.21969)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-06, Centroid: (181.69915, -438.03821)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-07, Centroid: (115.68741, -555.21969)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-08, Centroid: (115.68741, -438.03821)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-09, Centroid: (51.65685, -555.21969)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-11, Centroid: (-10.39254, -555.21969)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-13, Centroid: (-90.84378, -523.94423)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-17, Centroid: (-90.84378, -415.92428)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-19, Centroid: (-90.84378, -350.28133)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-20, Centroid: (28.47626, -347.79857)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-21, Centroid: (-90.84378, -288.7469)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-22, Centroid: (28.47626, -277.4732)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-23, Centroid: (-90.84378, -229.71783)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-24, Centroid: (28.47626, -214.42657)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-25, Centroid: (-90.84378, -166.69403)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-26, Centroid: (28.47626, -159.7765)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-28, Centroid: (36.61881, -90.49508)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-32, Centroid: (36.61881, 90.49508)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-33, Centroid: (-90.84378, 169.36448)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-34, Centroid: (28.47626, 168.2291)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-35, Centroid: (-90.84378, 230.46285)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-36, Centroid: (28.47626, 230.08439)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-37, Centroid: (-90.84378, 293.20294)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-38, Centroid: (28.47626, 293.20294)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-39, Centroid: (-90.84378, 357.58475)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-40, Centroid: (28.47626, 357.58475)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-41, Centroid: (-90.84378, 422.06742)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-43, Centroid: (-90.84378, 526.20671)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-47, Centroid: (-12.79471, 556.20215)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-50, Centroid: (114.60555, 441.44221)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-51, Centroid: (120.08589, 556.20215)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-52, Centroid: (178.92323, 441.44221)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-53, Centroid: (178.92323, 556.20215)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-54, Centroid: (278.39682, 446.84894)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 1-55, Centroid: (278.39467, 550.79568)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 101, Centroid: (280.19787, -548.78672)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 102, Centroid: (280.45024, -444.50721)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 105, Centroid: (181.69915, -555.21969)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 106, Centroid: (181.69915, -438.03821)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 107, Centroid: (115.68741, -555.21969)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 108, Centroid: (115.68741, -438.03821)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 109, Centroid: (51.65685, -555.21969)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 111, Centroid: (-10.39254, -555.21969)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 113, Centroid: (-90.84378, -523.94423)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 117, Centroid: (-90.84378, -415.92428)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 119, Centroid: (-90.84378, -350.28133)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 120, Centroid: (28.47626, -347.79857)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 121, Centroid: (-90.84378, -288.7469)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 122, Centroid: (28.47626, -277.4732)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 123, Centroid: (-90.84378, -229.71783)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 124, Centroid: (28.47626, -214.42657)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 125, Centroid: (-90.84378, -166.69403)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 126, Centroid: (28.47626, -159.7765)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 128, Centroid: (36.61881, -90.49508)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 132, Centroid: (36.61881, 90.49508)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 133, Centroid: (-90.84378, 169.36448)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 134, Centroid: (28.47626, 168.2291)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 135, Centroid: (-90.84378, 230.46285)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 136, Centroid: (28.47626, 230.08439)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 137, Centroid: (-90.84378, 293.20294)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 138, Centroid: (28.47626, 293.20294)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 139, Centroid: (-90.84378, 357.58475)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 140, Centroid: (28.47626, 357.58475)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 141, Centroid: (-90.84378, 422.06742)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 143, Centroid: (-90.84378, 526.20671)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 147, Centroid: (-12.79471, 556.20215)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 150, Centroid: (114.60555, 441.44221)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 151, Centroid: (120.08589, 556.20215)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 152, Centroid: (178.92323, 441.44221)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 153, Centroid: (178.92323, 556.20215)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 154, Centroid: (278.39682, 446.84894)} door_info: 154: (298.0455140629749, 538.1972665022652), 155: (304.93856295765454, 455.0211431731308) | 154: (267.25656233340584, 549.6856813267311), 155: (267.71609892638446, 481.6742655658921)
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: 155, Centroid: (278.39467, 550.79568)} door_info: 155: (298.0455140629749, 538.1972665022652), 154: (304.93856295765454, 455.0211431731308) | 155: (267.25656233340584, 549.6856813267311), 154: (267.71609892638446, 481.6742655658921)
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: Entrance, Centroid: (99.62843, 367.48621)}
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: Entrance, Centroid: (99.5887, -368.06519)}
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: Elevator, Centroid: (-63.13598, 87.10529)}
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: Hallway, Centroid: (22.48921, 9.19454)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: Stairs, Centroid: (61.17551, -425.13146)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: Stairs, Centroid: (-90.84378, -95.4769)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: Stairs, Centroid: (61.05527, 428.94321)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: Stairs, Centroid: (61.17551, -425.13146)} door_info: Stairs: (-90.33644336898647, -116.55075969611573), X: (-95.683819459906, -202.5949022500027)
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: Stairs, Centroid: (-90.84378, -95.4769)} door_info: Stairs: (-90.33644336898647, -116.55075969611573), X: (-95.683819459906, -202.5949022500027)
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: Stairs, Centroid: (61.05527, 428.94321)} door_info: Stairs: (-90.33644336898647, -116.55075969611573), X: (-95.683819459906, -202.5949022500027)
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: Washroom Men, Centroid: (8.12344, -461.04575)}
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: Washroom Men, Centroid: (8.12344, 462.48921)}
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: Washroom Women, Centroid: (8.12344, -411.85015)}
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: Washroom Women, Centroid: (8.12344, 411.29014)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: X, Centroid: (-90.84378, 53.30182)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: X, Centroid: (-256.23358, 67.4943)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: X, Centroid: (28.47626, 0.0)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-00, Centroid: (321.27967, -528.044)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-01, Centroid: (252.19714, -589.56763)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-02, Centroid: (252.19714, -466.18376)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-03, Centroid: (188.87943, -589.56763)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-04, Centroid: (188.87943, -466.18376)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-05, Centroid: (123.80392, -589.56763)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-06, Centroid: (127.96322, -466.18376)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-07, Centroid: (53.52197, -589.56763)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-09, Centroid: (-18.01983, -589.56763)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-11, Centroid: (-101.51732, -556.07568)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-15, Centroid: (-101.51732, -443.88723)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-17, Centroid: (-101.51732, -373.48415)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-18, Centroid: (26.23349, -365.99728)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-19, Centroid: (-101.51732, -307.02754)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-20, Centroid: (26.23349, -281.58878)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-27, Centroid: (-270.94009, 64.97799)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-31, Centroid: (-101.51732, 177.75101)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-33, Centroid: (-101.51732, 242.99662)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-35, Centroid: (-101.51732, 306.74836)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-37, Centroid: (-101.51732, 372.10326)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-41, Centroid: (-101.51732, 438.73593)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-43, Centroid: (-101.51732, 504.40883)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-52, Centroid: (198.40073, 537.01565)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: X, Centroid: (-90.84378, 53.30182)} door_info: X: (-90.33644336898647, -116.55075969611573), Stairs: (-95.683819459906, -202.5949022500027)
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: X, Centroid: (-256.23358, 67.4943)} door_info: X: (-90.33644336898647, -116.55075969611573), Stairs: (-95.683819459906, -202.5949022500027)
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: X, Centroid: (28.47626, 0.0)} door_info: X: (-90.33644336898647, -116.55075969611573), Stairs: (-95.683819459906, -202.5949022500027)
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: X, Centroid: (54.75366, 570.33566)} door_info: X: (-90.33644336898647, -116.55075969611573), Stairs: (-95.683819459906, -202.5949022500027)
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: None, Centroid: None}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 301, Centroid: (204.42463, -548.33921)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 302, Centroid: (204.42463, -432.96916)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 303, Centroid: (139.99673, -548.33921)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 304, Centroid: (139.99673, -432.96916)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 305, Centroid: (78.33728, -548.33921)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 306, Centroid: (78.33728, -432.96916)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 307, Centroid: (15.06053, -548.33921)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 308, Centroid: (19.9546, -432.96916)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 309, Centroid: (-46.84803, -548.33921)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 311, Centroid: (-113.12477, -548.33921)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 313, Centroid: (-193.98139, -548.33921)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 315, Centroid: (-197.31633, -472.34815)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 317, Centroid: (-193.98139, -409.66243)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 319, Centroid: (-193.98139, -345.83907)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 320, Centroid: (-72.35232, -345.83907)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 321, Centroid: (-193.98139, -283.83027)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 322, Centroid: (-72.35232, -283.83027)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 323, Centroid: (-193.98139, -222.59947)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 324, Centroid: (-72.35232, -222.59947)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 328, Centroid: (-64.25513, -85.1237)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 329, Centroid: (-193.98139, 8.72362)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 332, Centroid: (-72.35232, 4.92116)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 334, Centroid: (-64.25513, 94.96601)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 335, Centroid: (-193.98139, 174.7066)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 336, Centroid: (-72.35232, 174.7066)} door_info: 336: (-71.18256503303763, 228.25734833266452), 338: (-59.77741900515457, 188.48555705594407)
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 337, Centroid: (-193.98139, 237.84249)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 338, Centroid: (-72.35232, 237.84249)} door_info: 338: (-71.18256503303763, 228.25734833266452), 336: (-59.77741900515457, 188.48555705594407)
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 339, Centroid: (-193.98139, 297.7726)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 340, Centroid: (-72.35232, 297.89773)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 341, Centroid: (-193.98139, 357.69521)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 342, Centroid: (-71.76134, 358.17431)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 343, Centroid: (-193.98139, 422.19796)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 345, Centroid: (-197.84033, 488.80995)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 347, Centroid: (-193.98139, 562.91114)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 349, Centroid: (-115.57484, 562.91114)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 351, Centroid: (-49.2981, 562.91114)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 352, Centroid: (15.10143, 446.05244)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 353, Centroid: (15.10143, 562.91114)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 354, Centroid: (78.22984, 446.05244)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 355, Centroid: (78.22984, 562.91114)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 356, Centroid: (140.30268, 446.05244)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 357, Centroid: (140.30268, 562.91114)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 358, Centroid: (204.87892, 446.05244)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 359, Centroid: (204.87892, 562.91114)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Building Outline, Centroid: (-62.83412, 4.92116)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Elevator, Centroid: (-170.11946, 99.82059)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Hallway, Centroid: (-67.98434, 5.65044)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Stairs, Centroid: (-193.98139, -89.49097)} door_info: Stairs: (-90.33644336898647, -116.55075969611573), X: (-95.683819459906, -202.5949022500027)
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Stairs, Centroid: (-42.68691, -429.25789)} door_info: Stairs: (-90.33644336898647, -116.55075969611573), X: (-95.683819459906, -202.5949022500027)
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Stairs, Centroid: (-47.69526, 441.08013)} door_info: Stairs: (-90.33644336898647, -116.55075969611573), X: (-95.683819459906, -202.5949022500027)
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Washroom Men, Centroid: (-94.76914, -455.56453)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Washroom Men, Centroid: (-95.8039, 414.46558)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Washroom Women, Centroid: (-95.8039, 468.08369)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Washroom Women, Centroid: (-94.76914, -403.43906)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: X, Centroid: (-193.98139, 105.53975)} door_info: X: (-90.33644336898647, -116.55075969611573), Stairs: (-95.683819459906, -202.5949022500027)
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: X, Centroid: (-72.35232, -161.76871)} door_info: X: (-90.33644336898647, -116.55075969611573), Stairs: (-95.683819459906, -202.5949022500027)
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: None, Centroid: None}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 200, Centroid: (321.27967, -528.044)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 201, Centroid: (252.19714, -589.56763)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 202, Centroid: (252.19714, -466.18376)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 203, Centroid: (188.87943, -589.56763)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 204, Centroid: (188.87943, -466.18376)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 205, Centroid: (123.80392, -589.56763)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 206, Centroid: (127.96322, -466.18376)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 207, Centroid: (53.52197, -589.56763)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 209, Centroid: (-18.01983, -589.56763)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 211, Centroid: (-101.51732, -556.07568)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 215, Centroid: (-101.51732, -443.88723)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 217, Centroid: (-101.51732, -373.48415)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 218, Centroid: (26.23349, -365.99728)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 219, Centroid: (-101.51732, -307.02754)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 220, Centroid: (26.23349, -281.58878)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 227, Centroid: (-270.94009, 64.97799)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 231, Centroid: (-101.51732, 177.75101)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 233, Centroid: (-101.51732, 242.99662)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 235, Centroid: (-101.51732, 306.74836)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 237, Centroid: (-101.51732, 372.10326)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 241, Centroid: (-101.51732, 438.73593)} door_info: 241: (-119.76877169978427, 503.4343469247811), 243: (-99.6921755450216, 437.12074144389834)
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 243, Centroid: (-101.51732, 504.40883)} door_info: 243: (-119.76877169978427, 503.4343469247811), 241: (-99.6921755450216, 437.12074144389834)
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 252, Centroid: (198.40073, 537.01565)}
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Building Outline, Centroid: (-3.62015, 8.59929)}
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Entrance, Centroid: (71.39241, -0.69446)}
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Entrance, Centroid: (-152.0258, -181.57335)}
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Elevator, Centroid: (-74.00884, 96.57832)}
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Hallway, Centroid: (1.26689, 17.82941)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Stairs, Centroid: (-101.51732, -105.60422)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Stairs, Centroid: (59.33067, 455.74108)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Stairs, Centroid: (26.23349, -0.69446)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Stairs, Centroid: (55.40918, -458.3688)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: All-Gender Washroom, Centroid: (2.92144, 483.03168)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Stairs, Centroid: (-101.51732, -105.60422)} door_info: Stairs: (-90.33644336898647, -116.55075969611573), X: (-95.683819459906, -202.5949022500027)
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Stairs, Centroid: (59.33067, 455.74108)} door_info: Stairs: (-90.33644336898647, -116.55075969611573), X: (-95.683819459906, -202.5949022500027)
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Stairs, Centroid: (26.23349, -0.69446)} door_info: Stairs: (-90.33644336898647, -116.55075969611573), X: (-95.683819459906, -202.5949022500027)
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Stairs, Centroid: (55.40918, -458.3688)} door_info: Stairs: (-90.33644336898647, -116.55075969611573), X: (-95.683819459906, -202.5949022500027)
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: AllGender Washroom, Centroid: (2.92144, 483.03168)}
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Washroom Men, Centroid: (-1.02992, -487.31686)}
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: Washroom Women, Centroid: (-1.02992, -424.91359)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 2-24, Centroid: (26.23349, -185.11682)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: X, Centroid: (-101.51732, 102.46473)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-01, Centroid: (204.42463, -548.33921)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-02, Centroid: (204.42463, -432.96916)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-03, Centroid: (139.99673, -548.33921)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-04, Centroid: (139.99673, -432.96916)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-05, Centroid: (78.33728, -548.33921)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-06, Centroid: (78.33728, -432.96916)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-07, Centroid: (15.06053, -548.33921)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-08, Centroid: (19.9546, -432.96916)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-09, Centroid: (-46.84803, -548.33921)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-11, Centroid: (-113.12477, -548.33921)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-13, Centroid: (-193.98139, -548.33921)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-15, Centroid: (-197.31633, -472.34815)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-17, Centroid: (-193.98139, -409.66243)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-19, Centroid: (-193.98139, -345.83907)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-20, Centroid: (-72.35232, -345.83907)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-21, Centroid: (-193.98139, -283.83027)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-22, Centroid: (-72.35232, -283.83027)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-23, Centroid: (-193.98139, -222.59947)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-24, Centroid: (-72.35232, -222.59947)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-28, Centroid: (-64.25513, -85.1237)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-29, Centroid: (-193.98139, 8.72362)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-32, Centroid: (-72.35232, 4.92116)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-34, Centroid: (-64.25513, 94.96601)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-35, Centroid: (-193.98139, 174.7066)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-36, Centroid: (-72.35232, 174.7066)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-37, Centroid: (-193.98139, 237.84249)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-38, Centroid: (-72.35232, 237.84249)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-39, Centroid: (-193.98139, 297.7726)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-40, Centroid: (-72.35232, 297.89773)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-41, Centroid: (-193.98139, 357.69521)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-42, Centroid: (-71.76134, 358.17431)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-43, Centroid: (-193.98139, 422.19796)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-45, Centroid: (-197.84033, 488.80995)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-47, Centroid: (-193.98139, 562.91114)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-49, Centroid: (-115.57484, 562.91114)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-51, Centroid: (-49.2981, 562.91114)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-52, Centroid: (15.10143, 446.05244)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-53, Centroid: (15.10143, 562.91114)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-54, Centroid: (78.22984, 446.05244)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-55, Centroid: (78.22984, 562.91114)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-56, Centroid: (140.30268, 446.05244)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-57, Centroid: (140.30268, 562.91114)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-58, Centroid: (204.87892, 446.05244)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: 3-59, Centroid: (204.87892, 562.91114)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Building Outline, Centroid: (-62.83412, 4.92116)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Elevator, Centroid: (-170.11946, 99.82059)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Hallway, Centroid: (-67.98434, 5.65044)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Stairs, Centroid: (-193.98139, -89.49097)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Stairs, Centroid: (-42.68691, -429.25789)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Stairs, Centroid: (-47.69526, 441.08013)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Washroom Men, Centroid: (-94.76914, -455.56453)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Washroom Men, Centroid: (-95.8039, 414.46558)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Washroom Women, Centroid: (-95.8039, 468.08369)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: Washroom Women, Centroid: (-94.76914, -403.43906)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: X, Centroid: (-193.98139, 105.53975)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: X, Centroid: (-72.35232, -161.76871)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 3, Room: None, Centroid: None}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-01, Centroid: (205.78494, -554.72074)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-02, Centroid: (205.78494, -441.34654)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-03, Centroid: (140.29946, -554.72074)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-04, Centroid: (140.29946, -441.34654)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-05, Centroid: (77.12715, -554.72074)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-06, Centroid: (77.12715, -441.34654)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-07, Centroid: (19.80205, -554.72074)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-08, Centroid: (19.80205, -441.34654)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-09, Centroid: (-41.53653, -554.72074)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-11, Centroid: (-111.86643, -554.72074)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-13, Centroid: (-193.14048, -554.72074)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-15, Centroid: (-198.70042, -477.4399)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-17, Centroid: (-193.14048, -415.37921)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-18, Centroid: (-72.75498, -344.78708)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-19, Centroid: (-193.14048, -350.71153)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-20, Centroid: (-72.75498, -288.26647)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-21, Centroid: (-193.14048, -288.26647)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-22, Centroid: (-72.75498, -228.47619)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-23, Centroid: (-193.14048, -228.47619)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-24, Centroid: (-72.75498, -167.64959)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-25, Centroid: (-193.14048, -37.16127)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-30, Centroid: (-66.93111, 0.0)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-32, Centroid: (-72.75498, 168.34803)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-34, Centroid: (-72.75498, 230.93886)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-36, Centroid: (-72.75498, 290.95359)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-37, Centroid: (-193.14048, 261.38441)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-38, Centroid: (-72.75498, 345.70995)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-41, Centroid: (-193.14048, 417.94733)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-43, Centroid: (-193.14048, 481.54107)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-45, Centroid: (-182.7509, 554.20839)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-47, Centroid: (-97.39888, 554.20839)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-50, Centroid: (21.59608, 440.39376)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: 4-52, Centroid: (144.40666, 496.36136)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: Building Outline, Centroid: (-62.83412, 0.0)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: Elevator, Centroid: (-168.50013, 86.89388)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: Hallway, Centroid: (-93.48645, -73.22466)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: Stairs, Centroid: (-193.14048, -98.20594)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: Stairs, Centroid: (-40.75921, 429.53724)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: Stairs, Centroid: (-42.73194, -430.35957)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: Washroom Men, Centroid: (-94.75436, -456.61508)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: Washroom Men, Centroid: (-92.78111, 455.18593)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: Washroom Women, Centroid: (-94.75436, -399.74687)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: Washroom Women, Centroid: (-92.78111, 399.27048)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: X, Centroid: (15.75207, 554.20839)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: X, Centroid: (-43.30258, 554.20839)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: X, Centroid: (-200.10247, 80.44421)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: X, Centroid: (-193.14048, 6.29137)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 4, Room: None, Centroid: None}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: X, Centroid: (54.75366, 570.33566)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 1, Room: None, Centroid: None}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: X, Centroid: (-101.51732, -210.55558)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: X, Centroid: (-83.46662, 587.29317)}
-{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: X, Centroid: (2.92144, 423.4852)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: 224, Centroid: (26.23349, -185.11682)}
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: X, Centroid: (-101.51732, 102.46473)} door_info: X: (-90.33644336898647, -116.55075969611573), Stairs: (-95.683819459906, -202.5949022500027)
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: X, Centroid: (-101.51732, -210.55558)} door_info: X: (-90.33644336898647, -116.55075969611573), Stairs: (-95.683819459906, -202.5949022500027)
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: X, Centroid: (-83.46662, 587.29317)} door_info: X: (-90.33644336898647, -116.55075969611573), Stairs: (-95.683819459906, -202.5949022500027)
+{Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: X, Centroid: (2.92144, 423.4852)} door_info: X: (-90.33644336898647, -116.55075969611573), Stairs: (-95.683819459906, -202.5949022500027)
 {Building: Athabasca Hall, Campus: North Campus, Floor: Level 2, Room: None, Centroid: None}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-02, Centroid: (-506.62373, -109.8012)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-05, Centroid: (-560.4585, 87.11394)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-07, Centroid: (-560.4585, 135.36218)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-11, Centroid: (-536.76336, 195.88766)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-13, Centroid: (-425.22086, 197.98395)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-15, Centroid: (-351.32106, 197.98395)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-17, Centroid: (-295.11885, 197.98395)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-22, Centroid: (-302.00173, 83.92412)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-23, Centroid: (-165.82108, 197.98395)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-26, Centroid: (-161.84367, 80.60964)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-34, Centroid: (298.88341, 83.92412)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-36, Centroid: (358.78026, 83.92412)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-42, Centroid: (432.99013, 197.98395)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 1-50, Centroid: (506.42794, -108.38114)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: Building Outline, Centroid: (-0.04116, 65.63104)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: Elevator, Centroid: (101.50769, 197.98395)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: Hallway, Centroid: (-38.2253, 124.90395)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: Hole, Centroid: (205.8788, 197.98395)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: Hole, Centroid: (160.10681, 80.5153)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: Stairs, Centroid: (-3.69318, 197.98395)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: Stairs, Centroid: (429.73621, 44.57503)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: Stairs, Centroid: (-430.85571, 44.34354)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: All-Gender Washroom, Centroid: (-413.91336, 104.03146)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: All-Gender Washroom, Centroid: (464.59087, 103.64729)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: Washroom Women, Centroid: (413.41311, 103.64729)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: Washroom Women, Centroid: (-465.1871, 104.03146)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: X, Centroid: (30.31149, 83.21007)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: 128, Centroid: (-34.61777, 82.86868)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: X, Centroid: (-362.63111, 83.92412)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: X, Centroid: (560.56461, 54.14257)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: X, Centroid: (560.56461, 124.43245)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 1, Room: None, Centroid: None}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-02, Centroid: (-506.23816, -112.32574)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-13, Centroid: (-560.2607, 86.06315)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-15, Centroid: (-535.11305, 195.96657)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-19, Centroid: (-435.93008, 195.96657)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-21, Centroid: (-361.80094, 195.96657)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-22, Centroid: (-356.14729, 79.87374)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-23, Centroid: (-292.15973, 195.96657)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-24, Centroid: (-293.5553, 79.87374)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-25, Centroid: (-233.89363, 195.96657)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-26, Centroid: (-229.45698, 79.87374)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-27, Centroid: (-172.26953, 198.22179)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-28, Centroid: (-163.14611, 77.21392)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-29, Centroid: (-98.01767, 211.15362)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-30, Centroid: (-90.4781, 87.92623)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-40, Centroid: (148.90702, 76.07234)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-43, Centroid: (227.6334, 195.96657)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-44, Centroid: (291.94332, 79.87374)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-45, Centroid: (291.94332, 195.96657)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-46, Centroid: (354.5762, 79.87374)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-47, Centroid: (356.07586, 195.96657)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-51, Centroid: (418.60099, 195.96657)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-55, Centroid: (546.65974, 195.96657)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-59, Centroid: (558.87973, 79.10207)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-63, Centroid: (558.87973, -20.01436)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-64, Centroid: (452.07641, -20.24453)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-65, Centroid: (558.87973, -86.64608)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-66, Centroid: (452.07641, -86.64608)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-67, Centroid: (558.87973, -145.90444)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-68, Centroid: (452.07641, -145.90444)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-69, Centroid: (554.71156, -207.69739)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 2-70, Centroid: (456.24407, -207.69465)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: Building Outline, Centroid: (0.53625, 66.22496)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: Entrance, Centroid: (-605.88556, 136.18516)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: Entrance, Centroid: (2.37696, 36.12615)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: Elevator, Centroid: (107.23156, 195.96657)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: Hallway, Centroid: (19.79016, 112.4056)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: Stairs, Centroid: (2.37696, 79.87374)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: Stairs, Centroid: (-443.28131, 47.41434)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: Stairs, Centroid: (0.64238, 218.57333)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: Stairs, Centroid: (441.7976, 47.41088)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: All-Gender Washroom, Centroid: (-414.31313, 98.83906)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: Washroom Men, Centroid: (-467.86816, 98.83906)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: Washroom Women, Centroid: (439.60606, 98.83906)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: X, Centroid: (174.59701, 195.96657)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: X, Centroid: (558.87973, 31.35246)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: 257, Centroid: (558.87973, 131.62061)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: X, Centroid: (-560.2607, 33.51881)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: X, Centroid: (470.81476, 195.96657)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 2, Room: None, Centroid: None}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-02, Centroid: (-475.67673, -105.32819)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-09, Centroid: (-526.77006, 83.26277)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-22, Centroid: (-330.3552, 79.43313)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-23, Centroid: (-278.03944, 185.94595)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-24, Centroid: (-275.78116, 79.43313)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-25, Centroid: (-218.61224, 185.94595)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-26, Centroid: (-218.61224, 79.43313)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-27, Centroid: (-157.76072, 185.94595)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-28, Centroid: (-157.32776, 78.74789)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-29, Centroid: (-89.22447, 185.94595)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-30, Centroid: (-43.10822, 70.53954)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-40, Centroid: (120.58851, 69.4872)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-43, Centroid: (169.89349, 185.94595)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-45, Centroid: (218.94978, 185.94595)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-46, Centroid: (276.11628, 79.43313)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-48, Centroid: (218.56404, 79.43313)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-49, Centroid: (277.7937, 185.94595)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-50, Centroid: (332.40371, 79.43313)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-51, Centroid: (339.4117, 185.94595)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-55, Centroid: (403.4331, 185.94595)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-57, Centroid: (513.16429, 150.06847)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-64, Centroid: (421.95581, -13.32211)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-65, Centroid: (528.05619, -13.32211)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-66, Centroid: (421.95581, -70.6135)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-67, Centroid: (528.05619, -70.6135)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-68, Centroid: (421.95581, -128.61833)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-69, Centroid: (528.05619, -128.61833)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-70, Centroid: (426.4497, -193.24497)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: 3-71, Centroid: (523.56577, -193.22648)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: Building Outline, Centroid: (0.81317, 63.56628)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: Elevator, Centroid: (104.29107, 185.94595)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: Hallway, Centroid: (-40.07825, 115.08755)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: Stairs, Centroid: (-410.87571, 48.07813)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: Stairs, Centroid: (-583.78378, 168.80309)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: Stairs, Centroid: (3.34697, 185.94595)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: Stairs, Centroid: (412.77944, 47.49049)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: Stairs, Centroid: (584.2471, 172.66409)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: Washroom Men, Centroid: (-429.96705, 99.35591)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: Washroom Women, Centroid: (-377.30296, 99.35591)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: Washroom Women, Centroid: (413.13318, 98.99243)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: X, Centroid: (528.05619, 33.617)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: X, Centroid: (-526.77006, 35.23188)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: X, Centroid: (-510.55385, 185.94595)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: X, Centroid: (-526.77006, 128.03089)}
-{Building: Assiniboia Hall, Campus: North Campus, Floor: Level 3, Room: None, Centroid: None}

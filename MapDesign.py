@@ -1,9 +1,6 @@
 import os
 import shutil
 import tkinter as tk
-import xml.etree.ElementTree as ET
-from lxml import etree
-
 from tkinter import ttk
 from RoomManager import RoomManager
 from XMLDataExtract import Original_Building_Path, Edited_Building_Path, count_level_subfolders, \
@@ -375,7 +372,7 @@ class Application(tk.Tk):
 
             except ET.ParseError as e:
                 print(f"Failed to parse XML file: {e}")
-        self.Update_TurtleOuput('OutputFiles/TurtleOutput.txt', self.building, self.campus, self.current_floor, 'X')
+        self.Update_TurtleOuput_for_name_change('OutputFiles/TurtleOutput.txt', self.building, self.campus, self.current_floor, 'X')
 
     def update_records(self, building, campus, floor, room, file):
 
@@ -386,7 +383,7 @@ class Application(tk.Tk):
         updatedRowsArray.append(turtleData)
 
 
-    def Update_TurtleOuput(self, file_path, building, campus, floor, room):
+    def Update_TurtleOuput_for_name_change(self, file_path, building, campus, floor, room):
         directory = os.path.dirname(file_path)
         if not os.path.exists(directory):
             os.makedirs(directory)
@@ -407,10 +404,34 @@ class Application(tk.Tk):
             with open(file_path, 'w') as file:
                 file.writelines(filtered_lines)
 
-            print(f"Name Change records updated in Turtle File\n")
+            print(f"Name-change records updated in Turtle File\n")
 
         except IOError as e:
             print(f"An error occurred while accessing the file: {e}")
+
+    def Update_TurtleOutput_for_door_addition(self, building, room1, room2, door_start, door_end):
+        file_path = 'OutputFiles/TurtleOutput.txt'
+        updated_lines = []
+        door_info = f"{room1}: {door_start}, {room2}: {door_end}"
+
+        with open(file_path, 'r') as file:
+            lines = file.readlines()
+
+        with open(file_path, 'w') as file:
+            for line in lines:
+                if building in line and f'Room: {room1}' in line:
+                    # Update the matching record
+                    # Assuming the format is such that door info is appended at the end of the line
+                    if "door_info:" in line:
+                        # If door_info already exists, append to it
+                        line = line.strip() + " | " + door_info + "\n"
+                    else:
+                        # If door_info does not exist, add it
+                        line = line.strip() + " door_info: " + door_info + "\n"
+
+                updated_lines.append(line)
+            # Write the updated lines to the file
+            file.writelines(updated_lines)
 
     def calling_generating_neigbours_func(self):
         global RoomsDataArray
@@ -419,11 +440,13 @@ class Application(tk.Tk):
         room_manager.generating_neighbours()
 
     def add_door_func(self):
+        print('Note: Please dont select rooms with same name for door addition like Stairs, X etc. Otherwise Turtle function would add door info to all records with same room name')
         self.adding_door = True
         self.selected_rooms = []
 
         tk.messagebox.showinfo("Add door", "Please select two rooms to add a door between them.")
         self.canvas.mpl_connect('button_press_event', self.on_select_room_for_door)
+
 
     def on_select_room_for_door(self, event):
         if not self.adding_door or not hasattr(self, 'polygons'):
@@ -444,7 +467,7 @@ class Application(tk.Tk):
                         if self.selected_rooms[0][1] != self.selected_rooms[1][1]:
                             self.show_2d_diagram_of_selected_rooms()
                         else:
-                            print('a Can not add a door to same rooms')
+                            print('Can not add a door to same rooms')
                     return
 
     def show_2d_diagram_of_selected_rooms(self):
@@ -550,33 +573,26 @@ class Application(tk.Tk):
                 ax.plot([self.door_start[0], x], [self.door_start[1], y], color='red', linewidth=2)
                 fig.canvas.draw()
 
-                # Set the door end coordinates
                 self.door_end = (x, y)
 
-                # Get room information based on coordinates
-                start_room = self.get_room_from_coordinates(self.door_start)
-                end_room = self.get_room_from_coordinates(self.door_end)
-                # print(bool(start_room), bool(end_room), bool(start_room in self.selected_rooms[0][1]),
-                #       bool(end_room in self.selected_rooms[1][1]))
+                room0 = self.get_room_from_coordinates(self.door_start)
+                room1 = self.get_room_from_coordinates(self.door_end)
 
-                if (start_room and end_room and
-                        start_room != end_room and
-                        start_room in self.selected_rooms[0][1] and end_room in self.selected_rooms[1][1]):
+                if (room0 and room1 and
+                        room0 != room1 and
+                        room0 in self.selected_rooms[0][1] and room1 in self.selected_rooms[1][1]):
 
                     # Add the door to the original UI
                     ...
-                    print(bool(start_room), bool(end_room), bool(start_room in self.selected_rooms[0][1]), bool(end_room in self.selected_rooms[1][1]))
-                    self.add_door_to_original_ui(self.door_start, self.door_end, [start_room, end_room])
+                    self.add_door_to_original_ui(self.door_start, self.door_end, [room0, room1])
                 else:
-                    print("b Cannot add a door between the same room or invalid coordinates or rooms not selected.")
+                    print("Cannot add a door between the same room or invalid coordinates or rooms not selected.")
 
                 # Reset the door_start attribute for the next door
                 delattr(self, 'door_start')
             else:
                 # Set the starting point for the door
                 self.door_start = (x, y)
-
-
 
     def add_door_to_original_ui(self, start_coords, end_coords, room_names):
         if self.canvas is None:
@@ -585,13 +601,13 @@ class Application(tk.Tk):
         fig = self.canvas.figure
         ax = fig.gca()
 
-        start_room = self.get_room_from_coordinates(start_coords)
-        end_room = self.get_room_from_coordinates(end_coords)
+        room0_name = self.get_room_from_coordinates(start_coords)
+        room1_name = self.get_room_from_coordinates(end_coords)
 
         # Define paths for original and edited buildings
         root_folder_original = f"Buildings Data/Buildings/{self.campus}/{self.building}"
         root_folder_edited = f"Buildings Data/Edited Building/{self.campus}/{self.building}"
-        print(room_names)
+
         # Find the paths of the XML files for the rooms
         room0_path_original = self.find_xml_file_path(root_folder_original, file_name='xml', roomname=room_names[0])[0]
         room1_path_original = self.find_xml_file_path(root_folder_original, file_name='xml', roomname=room_names[1])[0]
@@ -612,69 +628,54 @@ class Application(tk.Tk):
             os.makedirs(copied_room0_dir)
         if not os.path.exists(copied_room1_dir):
             os.makedirs(copied_room1_dir)
-        print('Copied XML files for door addition')
 
         try:
             # Copy the XML files to the new folder
             shutil.copy2(room0_path_original, copied_room0_path)
             shutil.copy2(room1_path_original, copied_room1_path)
+            print('Copied XML files to Edited Building folder for door addition')
         except Exception as e:
             print(f"Error copying XML files: {e}")
 
-        if (start_room and end_room and
-                start_room != end_room and
-                start_room in [room[1] for room in self.selected_rooms] and
-                end_room in [room[1] for room in self.selected_rooms]):
+        if (room0_name and room1_name and
+                room0_name != room1_name and
+                room0_name in [room[1] for room in self.selected_rooms] and
+                room1_name in [room[1] for room in self.selected_rooms]):
+
             ax.plot([start_coords[0], end_coords[0]], [start_coords[1], end_coords[1]], color='red', linewidth=2)
             self.canvas.draw()
-            print(f"Added door between rooms {room_names[0]} and {room_names[1]} from {start_coords} to {end_coords}",
-                  end='\n')
+            print(f"Plotted a door between rooms {room_names[0]} and {room_names[1]} from {start_coords} to {end_coords}", end='\n')
 
-            self.add_door_to_text_file(copied_room0_path, room_names, start_coords, end_coords)
-            print()
-            self.add_door_to_text_file(copied_room1_path, room_names, start_coords, end_coords)
-            print('Successfully updated door entry in copied XML for rooms')
-            # try:
-            #     # Attempt to add the door entry to the copied XML
-            #     self.add_door_to_xml(copied_room0_path, room_names, start_coords, end_coords)
-            #     print(f"Successfully updated door entry in copied XML for room: {room_names[0]}")
-            # except Exception as e:
-            #     print(f'Error updating copied XML file {room_names[0]} for door addition {e}')
-            #
-            # try:
-            #     # Attempt to add the door entry to the copied XML
-            #     self.add_door_to_xml(copied_room0_path, room_names, start_coords, end_coords)
-            #
-            #     print(f"Successfully updated door entry in copied XML for room: {room_names[1]}", end='\n')
-            # except Exception as e:
-            #     print(f'Error updating copied XML file {room_names[0]} for door addition {e}')
+
+            try:
+                self.add_door_to_text_file(copied_room0_path, room_names, start_coords, end_coords)
+                self.Update_TurtleOutput_for_door_addition(self.building, room_names[0], room_names[1], start_coords, end_coords)
+                print(f"Added door info in Turtle & Txt file for room: {room_names[0]}", end='\n\n')
+
+            except Exception as e:
+                print(f'Error adding door info: {room_names[0]} {e}')
+
+            try:
+                self.add_door_to_text_file(copied_room1_path, room_names, start_coords, end_coords)
+                self.Update_TurtleOutput_for_door_addition(self.building, room_names[1], room_names[0], start_coords, end_coords)
+                print(f"Added door info in Turtle & Txt file for room: {room_names[0]}", end='\n\n')
+
+            except Exception as e:
+                print(f'Error adding door info: {room_names[0]} {e}')
 
         else:
             print(f"Cannot add a door between the same room or invalid coordinates or rooms not selected.")
 
     def get_room_from_coordinates(self, coords):
         for polygon, room_number in self.polygons:
-            # Check if the room is not "Building Outline"
             if room_number != "Building Outline" and polygon.get_path().contains_point(coords):
                 return room_number
         return None
 
-    import xml.etree.ElementTree as ET
-
-    import xml.etree.ElementTree as ET
-
     def add_door_to_text_file(self, file_path, room_names, start_coords, end_coords):
-        """
-        Adds or appends a new door entry to a text file.
 
-        :param file_path: The path to the text file.
-        :param room_names: A list of room names [Room1, Room2].
-        :param start_coords: The starting coordinates of the door (X1, Y1).
-        :param end_coords: The ending coordinates of the door (X2, Y2).
-        """
         new_entry = f"{room_names[0]}: {start_coords}, {room_names[1]}: {end_coords}"
         file_path = file_path.replace('xml', 'door_info.text')
-        print(file_path)
 
         try:
             with open(file_path, 'a') as file:
